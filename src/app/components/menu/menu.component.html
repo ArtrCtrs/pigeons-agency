@@ -1,0 +1,84 @@
+<nav *ngIf="router.url !== '/login' && router.url !== '/register'" class="navbar has-shadow">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item">
+                <span class="icon">
+                    <fa-icon [icon]="['far', 'feather-alt']"></fa-icon>
+                </span>
+                <strong>Pigeons Agency</strong>
+            </a>
+
+            <div (click)="toggleMobileMenu()" class="navbar-burger burger" data-target="navMenu" aria-label="menu"
+                aria-expanded="false" [ngClass]="{'is-active': burgerActive}">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div id="navMenu" class="navbar-menu" [ngClass]="{'is-active': burgerActive}">
+            <div class="navbar-start">
+                <a class="navbar-item" [routerLink]="['/home']" routerLinkActive="is-active">
+                    Vue d'ensemble
+                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Installations
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" [routerLink]="['/aviary']" routerLinkActive="is-active">
+                            <span class="icon">
+                                <fa-icon [icon]="['far', 'home']"></fa-icon>
+                            </span>
+                            <span>Pigeonnier</span>
+                        </a>
+                        <a class="navbar-item" [routerLink]="['/incubator']" routerLinkActive="is-active">
+                            <span class="icon">
+                                <fa-icon [icon]="['far', 'warehouse']"></fa-icon>
+                            </span>
+                            <span>Incubateur</span>
+                        </a>
+                        <a class="navbar-item" [routerLink]="['/laboratory']" routerLinkActive="is-active">
+                            <span class="icon">
+                                <fa-icon [icon]="['far', 'flask']"></fa-icon>
+                            </span>
+                            <span>Laboratoire</span>
+                        </a>
+                    </div>
+                </div>
+                <a class="navbar-item" [routerLink]="['/quests']" routerLinkActive="is-active">
+                    <span class="icon">
+                        <fa-icon [icon]="['far', 'scroll']"></fa-icon>
+                    </span>
+                    <span>Quêtes</span>
+                </a>
+                <a class="navbar-item" [routerLink]="['/map']" routerLinkActive="is-active">
+                    <span class="icon">
+                        <fa-icon [icon]="['far', 'map']"></fa-icon>
+                    </span>
+                    <span>Carte</span>
+                </a>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Hugo
+                    </a>
+                    <div class="navbar-dropdown is-right">
+                        <a class="navbar-item" [routerLink]="['/account']" routerLinkActive="is-active">
+                            Compte
+                        </a>
+                        <a class="navbar-item" [routerLink]="['/settings']" routerLinkActive="is-active">
+                            Paramètres
+                        </a>
+                        <a class="navbar-item" [routerLink]="['/login']" routerLinkActive="is-active">
+                            Déconnexion
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
