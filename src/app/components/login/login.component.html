@@ -1,0 +1,28 @@
+<div class="container has-text-centered">
+    <div class="column is-4 is-offset-4">
+        <h3 class="title">
+            Login
+        </h3>
+        <div class="box">
+            <form>
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="email" placeholder="Your Email" autofocus="">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="password" placeholder="Your Password">
+                    </div>
+                </div>
+                <button class="button is-block is-info is-fullwidth">Login</button>
+            </form>
+        </div>
+        <p class="has-text-grey">
+            <a [routerLink]="['/register']">Sign Up</a> &nbsp;·&nbsp;
+            <a [routerLink]="['/forgot-password']">Forgot Password</a> &nbsp;·&nbsp;
+            <a [routerLink]="['/help']">Need Help?</a>
+        </p>
+    </div>
+</div>
