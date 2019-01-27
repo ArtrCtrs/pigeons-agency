@@ -7,12 +7,38 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { HomeComponent } from './components/home/home.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { QuestsComponent } from './components/quests/quests.component';
+
+import { faMap } from '@fortawesome/pro-regular-svg-icons';
+import { faScroll } from '@fortawesome/pro-regular-svg-icons';
+import { faFlask } from '@fortawesome/pro-regular-svg-icons';
+import { faWarehouse } from '@fortawesome/pro-regular-svg-icons';
+import { faHome } from '@fortawesome/pro-regular-svg-icons';
+import { faFeatherAlt } from '@fortawesome/pro-regular-svg-icons';
+import { faTrophy } from '@fortawesome/pro-regular-svg-icons';
+import { faTrophyAlt } from '@fortawesome/pro-regular-svg-icons';
+import { faSearch } from '@fortawesome/pro-regular-svg-icons';
+
+library.add(faMap);
+library.add(faScroll);
+library.add(faFlask);
+library.add(faWarehouse);
+library.add(faHome);
+library.add(faFeatherAlt);
+library.add(faTrophy);
+library.add(faTrophyAlt);
+library.add(faSearch);
 
 @NgModule({
     declarations: [
         AppComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        HomeComponent,
+        MenuComponent,
+        QuestsComponent
     ],
     imports: [
         BrowserModule,

@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="mt-20"></div>
+    <div class="columns">
+        <div class="column is-3">
+            <div class="column">
+                <input #input (input)="filterQuests(input.value)" class="input" type="text" placeholder="Rechercher une quête">
+            </div>
+        </div>
+        <div class="column is-9">
+            <div *ngFor="let quest of filteredQuests" class="column">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <div *ngIf="quest.completed; then completedBlock else unCompletedBlock"></div>
+                                <ng-template #completedBlock>
+                                    <span class="icon">
+                                        <fa-icon [icon]="['far', 'trophy-alt']" size="2x"></fa-icon>
+                                    </span>
+                                </ng-template>
+                                <ng-template #unCompletedBlock>
+                                    <span class="icon">
+                                        <fa-icon [icon]="['far', 'trophy']" size="2x"></fa-icon>
+                                    </span>
+                                </ng-template>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4">{{quest.name}}</p>
+                                <p class="subtitle is-6">Difficulté: {{quest.difficulty}}</p>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            {{quest.description}}
+                        </div>
+                    </div>
+                    <footer class="card-footer has-text-left">
+                        <p class="card-footer-item" [ngClass]="quest.completed ? 'has-text-success' : 'has-text-info'">
+                            {{quest.requirements}}
+                        </p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
