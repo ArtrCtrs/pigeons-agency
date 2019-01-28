@@ -9,7 +9,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { QuestsComponent } from './components/quests/quests.component';
+import { AviaryComponent } from './components/aviary/aviary.component';
+import { AchievementsComponent } from './components/achievements/achievements.component';
 
 import { faMap } from '@fortawesome/pro-regular-svg-icons';
 import { faScroll } from '@fortawesome/pro-regular-svg-icons';
@@ -38,7 +39,8 @@ library.add(faSearch);
         RegisterComponent,
         HomeComponent,
         MenuComponent,
-        QuestsComponent
+        AchievementsComponent,
+        AviaryComponent
     ],
     imports: [
         BrowserModule,

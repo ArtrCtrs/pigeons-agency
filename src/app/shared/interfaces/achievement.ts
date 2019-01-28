@@ -1,4 +1,5 @@
-export interface Quest {
+export interface Achievement {
+    id: number;
     name: string;
     difficulty: string;
     description: string;

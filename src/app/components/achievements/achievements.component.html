@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="mt-20"></div>
+    <div class="columns">
+        <div class="column is-3">
+            <div class="column">
+                <div class="field">
+                    <label class="label">Recherche</label>
+                    <div class="control">
+                        <input #input (input)="filterAchievements(input.value)" class="input" type="text" placeholder="Rechercher une réalisation">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Difficulté</label>
+                    <div class="control">
+                        <div class="select">
+                            <select>
+                                <option>Toutes</option>
+                                <option>Facile</option>
+                                <option>Moyen</option>
+                                <option>Difficile</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column is-9">
+            <div *ngFor="let achievement of filteredAchievements" class="column">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <div *ngIf="achievement.completed; then completedBlock else unCompletedBlock"></div>
+                                <ng-template #completedBlock>
+                                    <span class="icon">
+                                        <fa-icon [icon]="['far', 'trophy-alt']" size="2x"></fa-icon>
+                                    </span>
+                                </ng-template>
+                                <ng-template #unCompletedBlock>
+                                    <span class="icon">
+                                        <fa-icon [icon]="['far', 'trophy']" size="2x"></fa-icon>
+                                    </span>
+                                </ng-template>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4">{{achievement.name}}</p>
+                                <p class="subtitle is-6">Difficulté: {{achievement.difficulty}}</p>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            {{achievement.description}}
+                        </div>
+                    </div>
+                    <footer class="card-footer has-text-left">
+                        <p class="card-footer-item" [ngClass]="achievement.completed ? 'has-text-success' : 'has-text-info'">
+                            {{achievement.requirements}}
+                        </p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

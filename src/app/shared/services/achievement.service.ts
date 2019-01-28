@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Quest } from '../interfaces/quest';
+import { Achievement } from '../interfaces/achievement';
 
 @Injectable({
     providedIn: 'root'
 })
-export class QuestsService {
+export class AchievementsService {
 
-    getQuests(): Promise<Quest[]> {
+    getAchievements(): Promise<Achievement[]> {
         return new Promise(resolve => {
             resolve([{
+                id: 1,
                 name: 'Premiers pas',
                 difficulty: 'Facile',
                 description: 'Vos pigeons sont affamés ! Occupez-vous de les nourrir.',
@@ -16,6 +17,7 @@ export class QuestsService {
                 completed: true
             },
             {
+                id: 2,
                 name: 'Nouveaux arrivants',
                 difficulty: 'Facile',
                 description: 'Votre pigeonnier s\'agrandit, il va falloir produire plus de graines.',
@@ -23,6 +25,7 @@ export class QuestsService {
                 completed: false
             },
             {
+                id: 3,
                 name: 'Premiers pas',
                 difficulty: 'Facile',
                 description: 'Vos pigeons sont affamés ! Occupez-vous de les nourrir.',
@@ -30,6 +33,7 @@ export class QuestsService {
                 completed: false
             },
             {
+                id: 4,
                 name: 'Premiers pas',
                 difficulty: 'Moyen',
                 description: 'Vos pigeons sont affamés ! Occupez-vous de les nourrir.',
@@ -37,6 +41,7 @@ export class QuestsService {
                 completed: false
             },
             {
+                id: 5,
                 name: 'Premiers pas',
                 difficulty: 'Moyen',
                 description: 'Vos pigeons sont affamés ! Occupez-vous de les nourrir.',
@@ -44,6 +49,7 @@ export class QuestsService {
                 completed: false
             },
             {
+                id: 6,
                 name: 'Premiers pas',
                 difficulty: 'Difficile',
                 description: 'Vos pigeons sont affamés ! Occupez-vous de les nourrir.',

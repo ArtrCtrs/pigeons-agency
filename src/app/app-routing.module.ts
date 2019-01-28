@@ -1,4 +1,5 @@
-import { QuestsComponent } from './components/quests/quests.component';
+import { AchievementsComponent } from './components/achievements/achievements.component';
+import { AviaryComponent } from './components/aviary/aviary.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
@@ -24,8 +25,12 @@ const routes: Routes = [
         component: HomeComponent
     },
     {
-        path: 'quests',
-        component: QuestsComponent
+        path: 'achievements',
+        component: AchievementsComponent
+    },
+    {
+        path: 'aviary',
+        component: AviaryComponent
     }
 ];
 

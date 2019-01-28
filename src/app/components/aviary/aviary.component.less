@@ -1,0 +1,81 @@
+.pigeon.card {
+    top: 0px;
+    transition: all 0.15s ease 0s;
+
+    .card-image {
+        padding-top: 20px;
+    }
+
+    .points {
+        right: 10px;
+        top: 10px;
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: rgb(175,175,175);
+        color: white;
+        text-align: center;
+        line-height: 35px;
+    }
+
+    &:hover {
+        cursor: pointer;
+        top: -5px;
+    }
+
+    &.atypique {
+        .points {
+            background-color: rgb(135,199,255);
+        }
+
+        &.selected {
+            border: 2px solid rgb(135,199,255);
+        }
+    }
+
+    &.exotique {
+        .points {
+            background-color: rgb(136,71,255);
+        }
+
+        &.selected {
+            border: 2px solid rgb(136,71,255);
+        }
+    }
+
+    &.rare {
+        .points {
+            background-color: rgb(242,188,75);
+        }
+
+        &.selected {
+            border: 2px solid rgb(242,188,75);
+        }
+    }
+
+    &.legendaire {
+        .points {
+            background-color: rgb(235,75,75);
+        }
+
+        &.selected {
+            border: 2px solid rgb(235,75,75);
+        }
+    }
+
+    &.selected {
+        top: -5px;
+        border: 2px solid rgb(175,175,175);
+    }
+}
+
+.progress {
+    display: inline-block;
+    margin-bottom: 0;
+    width: 75%;
+}
+
+.progress-value {
+    float: right;
+}
