@@ -23,7 +23,7 @@ export class MapComponent implements OnInit {
     }).addTo(pigeon_map);
 
     let pigeonIcon = L.icon({
-      iconUrl: '/assets/images/marker_pigeon.png'
+      iconUrl: '/assets/marker/marker_pigeon.png'
     });
 
     let pigeon_marker = L.marker([5, 5], {icon: pigeonIcon}).addTo(pigeon_map);
