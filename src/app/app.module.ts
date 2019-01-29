@@ -21,6 +21,7 @@ import { faFeatherAlt } from '@fortawesome/pro-regular-svg-icons';
 import { faTrophy } from '@fortawesome/pro-regular-svg-icons';
 import { faTrophyAlt } from '@fortawesome/pro-regular-svg-icons';
 import { faSearch } from '@fortawesome/pro-regular-svg-icons';
+import { MapComponent } from './components/map/map.component';
 
 library.add(faMap);
 library.add(faScroll);
@@ -40,7 +41,8 @@ library.add(faSearch);
         HomeComponent,
         MenuComponent,
         AchievementsComponent,
-        AviaryComponent
+        AviaryComponent,
+        MapComponent
     ],
     imports: [
         BrowserModule,
