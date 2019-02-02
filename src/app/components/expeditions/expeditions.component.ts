@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import expeditionsList from '../../shared/lists/expeditionsList';
-import { ExpeditionsService } from 'src/app/shared/services/expeditions.service';
-import { Expedition } from 'src/app/shared/interfaces/public-expedition';
+import expeditionsList from '../../lists/expeditionsList';
+import { ExpeditionsService } from 'src/app/services/expeditions.service';
+import { Expedition } from 'src/app/interfaces/public-expedition';
 
 
 @Component({
