@@ -1,6 +1,6 @@
-import { Expedition } from '../interfaces/public-expedition';
+import { ExpeditionInfo } from '../interfaces/expedition-info';
 
-const expeditionsList:Expedition[] =
+const expeditionsList:ExpeditionInfo[] =
 [{
     id: 0,
     seeds: 10,
