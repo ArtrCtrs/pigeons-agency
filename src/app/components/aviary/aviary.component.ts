@@ -25,7 +25,6 @@ export class AviaryComponent implements OnInit {
         this.pageLoading = false;
 
         const pigeons: Pigeon[] = apiReturn.data;
-        console.log(apiReturn);
 
         for (const pigeon of pigeons) {
             const statisticsTotal = pigeon.defense + pigeon.life + pigeon.attack;

@@ -1,31 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import expeditionsList from '../../lists/expeditionsList';
-import { ExpeditionsService } from 'src/app/services/expeditions.service';
+import { ExpeditionsService, ExpeditionPageDataAPIReturn } from 'src/app/services/expeditions.service';
 import { ExpeditionInfo } from 'src/app/interfaces/expedition-info';
-import { ExpeditionPageDataAPIReturn } from 'src/app/services/expeditions.service';
-
 
 @Component({
-  selector: 'app-expeditions',
-  templateUrl: './expeditions.component.html',
-  styleUrls: ['./expeditions.component.less']
+    selector: 'app-expeditions',
+    templateUrl: './expeditions.component.html',
+    styleUrls: ['./expeditions.component.less']
 })
 export class ExpeditionsComponent implements OnInit {
-  filteredExpeditionsInfo: ExpeditionInfo[] = [];
-  expeditionsInfo: ExpeditionInfo[] = [];
-  myExpeditions:ExpeditionPageDataAPIReturn;
 
-  constructor(public expeditionsService: ExpeditionsService) { }
+    pageLoading: boolean = true;
+    filteredExpeditionsInfo: ExpeditionInfo[] = [];
+    expeditionsInfo: ExpeditionInfo[] = [];
+    myExpeditions: ExpeditionPageDataAPIReturn;
 
-  ngOnInit() {
-    this.expeditionsInfo = expeditionsList;
-    this.filteredExpeditionsInfo = this.expeditionsInfo;
-  }
+    constructor(public expeditionsService: ExpeditionsService) { }
 
-  async getExpeditionsData() {
-    this.myExpeditions = await this.expeditionsService.getExpeditionsData();
-    console.log(this.myExpeditions)
+    ngOnInit() {
+        this.expeditionsInfo = expeditionsList;
+        this.filteredExpeditionsInfo = this.expeditionsInfo;
+        this.getExpeditionsData();
+    }
 
-}
-
+    async getExpeditionsData() {
+        this.myExpeditions = await this.expeditionsService.getExpeditionsData();
+        this.pageLoading = false;
+        console.log(this.myExpeditions)
+    }
 }

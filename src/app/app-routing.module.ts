@@ -39,7 +39,8 @@ const routes: Routes = [
     },
     {
         path: 'expeditions',
-        component: ExpeditionsComponent
+        component: ExpeditionsComponent,
+        canActivate: [IsLoggedInGuard]
     },
     {
         path: 'aviary',
