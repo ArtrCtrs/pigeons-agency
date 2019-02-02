@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import expeditionsList from '../../lists/expeditionsList';
 import { ExpeditionsService } from 'src/app/services/expeditions.service';
-import { Expedition } from 'src/app/interfaces/public-expedition';
+import { ExpeditionInfo } from 'src/app/interfaces/expedition-info';
+import { ExpeditionPageDataAPIReturn } from 'src/app/services/expeditions.service';
 
 
 @Component({
@@ -10,17 +11,21 @@ import { Expedition } from 'src/app/interfaces/public-expedition';
   styleUrls: ['./expeditions.component.less']
 })
 export class ExpeditionsComponent implements OnInit {
-  filteredExpeditions: Expedition[] = [];
-  expeditions: Expedition[] = [];
+  filteredExpeditionsInfo: ExpeditionInfo[] = [];
+  expeditionsInfo: ExpeditionInfo[] = [];
+  myExpeditions:ExpeditionPageDataAPIReturn;
 
-  constructor() { }
+  constructor(public expeditionsService: ExpeditionsService) { }
 
   ngOnInit() {
-    this.expeditions = expeditionsList;
-    this.filteredExpeditions = this.expeditions;
-
-    
-  console.log(this.filteredExpeditions)
+    this.expeditionsInfo = expeditionsList;
+    this.filteredExpeditionsInfo = this.expeditionsInfo;
   }
+
+  async getExpeditionsData() {
+    this.myExpeditions = await this.expeditionsService.getExpeditionsData();
+    console.log(this.myExpeditions)
+
+}
 
 }

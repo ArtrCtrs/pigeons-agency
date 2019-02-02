@@ -26,7 +26,8 @@
           </div>
       </div>
       <div class="column is-9">
-          <div *ngFor="let expedition of filteredExpeditions" class="column">
+                    <button (click)="getExpeditionsData()"  type="text" >get data</button>
+          <div *ngFor="let expedition of filteredExpeditionsInfo" class="column">
               <div class="card">
                   <div class="card-content">
                       <div class="media">
@@ -46,6 +47,7 @@
                           <div class="media-content">
                               <p class="title is-4">Expedition id : {{expedition.id}}</p>
                               <p class="subtitle is-6">Durée: {{expedition.duration}}</p>
+                              <p class="subtitle is-6">Coût: {{expedition.seeds}} graines</p>
                           </div>
                       </div>
 
@@ -54,7 +56,6 @@
                   </div>
                   <footer class="card-footer has-text-left">
                       <p class="card-footer-item">
-                          {{expedition.cost}}
                       </p>
                   </footer>
               </div>
