@@ -1,5 +1,8 @@
-<div class="container">
-    <div class="column is-fullheight">
+<div class="container" [ngClass]="{'is-loading': pageLoading, 'is-loaded': !pageLoading}">
+    <div class="page-loader-wrapper">
+        <div class="page-loader"></div>
+    </div>
+    <div *ngIf="!pageLoading" class="column is-fullheight">
         <div class="card">
             <div class="card-image">
                 <figure class="image">
@@ -17,8 +20,11 @@
                 <div class="content">
                     <div class="columns is-multiline">
                         <div *ngFor="let detailedPigeon of detailedPigeons" class="column is-2-widescreen is-3-desktop is-4-tablet is-12-mobile">
-                            <div class="pigeon card" (click)="selectPigeon(detailedPigeon.pigeon)"
-                            [ngClass]="detailedPigeon.pigeon.rarity + ' ' + (detailedPigeon.pigeon.id === selectedPigeonId ? 'selected' : '')">
+                            <div class="pigeon card" (click)="selectPigeon(detailedPigeon.pigeon)">
+                                <!--
+                                    FIXME utiliser la rareté venant du back-end
+                                    [ngClass]="detailedPigeon.pigeon.rarity + ' ' + (detailedPigeon.pigeon.id === selectedPigeonId ? 'selected' : '')"
+                                -->
                                 <div class="card-image">
                                     <figure class="image">
                                         <img [src]="getPigeonImage(detailedPigeon.pigeon)">
@@ -28,8 +34,12 @@
                                 <div class="card-content">
                                     <div class="media">
                                         <div class="media-content">
-                                            <p class="title is-4">Pigeon {{detailedPigeon.pigeon.rarity | lowercase}}</p>
-                                            <p class="subtitle is-6">Niveau {{detailedPigeon.pigeon.level}}</p>
+                                            <p class="title is-4">Pigeon commun</p>
+                                            <!--
+                                                FIXME utiliser la rareté venant du back-end
+                                                {{detailedPigeon.pigeon.rarity | lowercase}}
+                                            -->
+                                            <p class="subtitle is-6">Niveau {{detailedPigeon.pigeon.lvl}}</p>
                                         </div>
                                     </div>
 

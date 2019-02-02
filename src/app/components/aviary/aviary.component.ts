@@ -1,6 +1,6 @@
-import { Pigeon } from './../../interfaces/pigeon';
-import { AviaryService } from './../../services/aviary.service';
+import { AviaryService, getPigeonsAPIReturn } from './../../services/aviary.service';
 import { Component, OnInit } from '@angular/core';
+import { Pigeon } from 'src/app/interfaces/pigeon';
 
 @Component({
     selector: 'app-aviary',
@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AviaryComponent implements OnInit {
 
+    pageLoading: boolean = true;
     detailedPigeons: DetailedPigeon[] = [];
     selectedPigeonId: number;
 
@@ -20,9 +21,13 @@ export class AviaryComponent implements OnInit {
 
     async initPigeons() {
         const detailedPigeons: DetailedPigeon[] = [];
-        const pigeons = await this.aviaryService.getPigeons();
+        const apiReturn: getPigeonsAPIReturn = await this.aviaryService.getPigeons();
+        this.pageLoading = false;
 
-        for(const pigeon of pigeons) {
+        const pigeons: Pigeon[] = apiReturn.data;
+        console.log(apiReturn);
+
+        for (const pigeon of pigeons) {
             const statisticsTotal = pigeon.defense + pigeon.life + pigeon.attack;
 
             const detailedPigeon: DetailedPigeon = {
@@ -50,7 +55,7 @@ export class AviaryComponent implements OnInit {
     }
 
     getPigeonImage(pigeon: Pigeon) {
-        return '../../assets/pigeons/' + pigeon.rarity + '.png';
+        return '../../assets/pigeons/' + 'commun' + '.png'; // FIXME utiliser la rareté venant du back-end
     }
 }
 

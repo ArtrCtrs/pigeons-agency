@@ -11,30 +11,50 @@ html, body {
 @grey: #444444;
 @blue: #209cee;
 
-.container.is-loading {
-    .loader {
-        position: absolute;
-        top: 50%;
-        display: block;
-    }
+.page-loader-wrapper {
+    position: fixed;
+    z-index: 10;
+    top: 52px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: white;
 
-    .column {
-        display: none;
+    transition: opacity 300ms ease-in-out;
+    -webkit-transition: opacity 300ms ease-in-out;
+    -moz-transition: opacity 300ms ease-in-out;
+    -ms-transition: opacity 300ms ease-in-out;
+    -o-transition: opacity 300ms ease-in-out;
+    opacity: 1;
+}
+
+.container.is-loading {
+    .page-loader-wrapper {
+        opacity: 1;
+        display: block;
     }
 }
 
-.loader,
-.loader:after {
+.container.is-loaded {
+    .page-loader-wrapper {
+        opacity: 0;
+
+        .page-loader {
+            display: none;
+        }
+    }
+}
+
+.page-loader,
+.page-loader:after {
     border-radius: 50%;
     width: 10em;
     height: 10em;
 }
 
-.loader {
-    display: none;
-    z-index: 10;
-    margin-top: 200px;
+.page-loader {
     font-size: 10px;
+    top: calc(50% - 68px);
     left: calc(50% - 60px);
     position: absolute;
     text-indent: -9999em;
