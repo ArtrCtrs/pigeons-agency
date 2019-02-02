@@ -1,3 +1,4 @@
+import { PageDataService, HomePageDataAPIReturn } from './../../services/page-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-    constructor() { }
+    pageLoading: boolean = true;
+    pageData: HomePageDataAPIReturn;
 
-    ngOnInit() {
+    constructor(private PageDataService: PageDataService) { }
+
+    async ngOnInit() {
+        this.pageData = await this.PageDataService.getHomePageData();
+        this.pageLoading = false;
     }
 }

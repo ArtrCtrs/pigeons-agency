@@ -1,15 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { AuthentificationService } from './../../services/authentification.service';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.less']
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.less']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
-  constructor() { }
+    sendAttempt: boolean = false;
+    loading: boolean = false;
+    form: FormGroup;
 
-  ngOnInit() {
-  }
+    constructor(private formBuilder: FormBuilder,
+        private authService: AuthentificationService,
+        public router: Router) {
+        this.form = formBuilder.group({
+            username: [null, [Validators.required]],
+            password: [null, [Validators.required]]
+        });
+    }
 
+    async register() {
+        this.sendAttempt = true;
+
+        if (this.form.valid) {
+            this.loading = true;
+            try {
+                await this.authService.register({
+                    username: this.form.get('username').value,
+                    password: this.form.get('password').value
+                });
+                this.loading = false;
+                alert('Votre compte a été créé avec succès !');
+                this.router.navigate(['/login']);
+            } catch (err) {
+                this.loading = false;
+                alert(err.error.message);
+            }
+        }
+    }
 }

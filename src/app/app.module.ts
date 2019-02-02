@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -22,6 +25,8 @@ import { faTrophy } from '@fortawesome/pro-regular-svg-icons';
 import { faTrophyAlt } from '@fortawesome/pro-regular-svg-icons';
 import { faSearch } from '@fortawesome/pro-regular-svg-icons';
 import { MapComponent } from './components/map/map.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ExpeditionsComponent } from './components/expeditions/expeditions.component';
 
 library.add(faMap);
 library.add(faScroll);
@@ -42,12 +47,17 @@ library.add(faSearch);
         MenuComponent,
         AchievementsComponent,
         AviaryComponent,
-        MapComponent
+        MapComponent,
+        PageNotFoundComponent,
+        ExpeditionsComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FontAwesomeModule
+        FontAwesomeModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]

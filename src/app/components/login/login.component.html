@@ -4,25 +4,25 @@
             Login
         </h3>
         <div class="box">
-            <form>
+            <form [formGroup]="form" (submit)="register()">
                 <div class="field">
                     <div class="control">
-                        <input class="input" type="email" placeholder="Your Email" autofocus="">
+                        <input formControlName="username" class="input" placeholder="Votre nom d'utilisateur" [ngClass]="{'is-danger': sendAttempt && !form.get('username').valid}">
                     </div>
                 </div>
 
                 <div class="field">
                     <div class="control">
-                        <input class="input" type="password" placeholder="Your Password">
+                        <input formControlName="password" class="input" type="password" placeholder="Votre mot de passe"
+                            [ngClass]="{'is-danger': sendAttempt && !form.get('password').valid}">
                     </div>
                 </div>
-                <button [routerLink]="['/home']" class="button is-block is-info is-fullwidth">Login</button>
+                <button class="button is-block is-info is-fullwidth" [ngClass]="{'is-loading': loading}">Login</button>
             </form>
         </div>
         <p class="has-text-grey">
-            <a [routerLink]="['/register']">Sign Up</a> &nbsp;·&nbsp;
-            <a [routerLink]="['/forgot-password']">Forgot Password</a> &nbsp;·&nbsp;
-            <a [routerLink]="['/help']">Need Help?</a>
+            <a [routerLink]="['/register']">Inscription</a> &nbsp;·&nbsp;
+            <a [routerLink]="['/forgot-password']">Mot de passe oublié</a>
         </p>
     </div>
 </div>
