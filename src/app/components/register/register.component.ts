@@ -15,7 +15,7 @@ export class RegisterComponent {
     form: FormGroup;
 
     constructor(private formBuilder: FormBuilder,
-        public authService: AuthentificationService,
+        private authService: AuthentificationService,
         public router: Router) {
         this.form = formBuilder.group({
             username: [null, [Validators.required]],

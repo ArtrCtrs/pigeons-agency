@@ -7,6 +7,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { MapComponent } from './components/map/map.component';
+import { IsLoggedInGuard } from './shared/guards/is-logged-in.guard';
+import { IsLoggedOutGuard } from './shared/guards/is-logged-out.guard';
 
 const routes: Routes = [
     {
@@ -16,27 +18,33 @@ const routes: Routes = [
     },
     {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [IsLoggedOutGuard]
     },
     {
         path: 'register',
-        component: RegisterComponent
+        component: RegisterComponent,
+        canActivate: [IsLoggedOutGuard]
     },
     {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [IsLoggedInGuard]
     },
     {
         path: 'achievements',
-        component: AchievementsComponent
+        component: AchievementsComponent,
+        canActivate: [IsLoggedInGuard]
     },
     {
         path: 'aviary',
-        component: AviaryComponent
+        component: AviaryComponent,
+        canActivate: [IsLoggedInGuard]
     },
     {
         path: 'map',
-        component: MapComponent
+        component: MapComponent,
+        canActivate: [IsLoggedInGuard]
     },
     {
         path: '**',

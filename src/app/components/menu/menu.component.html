@@ -1,4 +1,4 @@
-<nav *ngIf="router.url !== '/login' && router.url !== '/register'" class="navbar has-shadow">
+<nav *ngIf="username" class="navbar has-shadow">
     <div class="container">
         <div class="navbar-brand">
             <a class="navbar-item">
@@ -64,7 +64,7 @@
             <div class="navbar-end">
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
-                        Hugo
+                        {{username | titlecase}}
                     </a>
                     <div class="navbar-dropdown is-right">
                         <a class="navbar-item" (click)="redirect(['/account'])" routerLinkActive="is-active">
@@ -73,7 +73,7 @@
                         <a class="navbar-item" (click)="redirect(['/settings'])" routerLinkActive="is-active">
                             Paramètres
                         </a>
-                        <a class="navbar-item" (click)="redirect(['/login'])" routerLinkActive="is-active">
+                        <a class="navbar-item" (click)="logout()" routerLinkActive="is-active">
                             Déconnexion
                         </a>
                     </div>
