@@ -4,19 +4,21 @@
             Register
         </h3>
         <div class="box">
-            <form>
+            <form [formGroup]="form" (submit)="register()">
                 <div class="field">
                     <div class="control">
-                        <input class="input" type="email" placeholder="Your Email" autofocus="">
+                        <input formControlName="username" class="input" type="email" placeholder="Your Email"
+                        [ngClass]="{'is-danger': sendAttempt && !form.get('username').valid}">
                     </div>
                 </div>
 
                 <div class="field">
                     <div class="control">
-                        <input class="input" type="password" placeholder="Your Password">
+                        <input formControlName="password" class="input" type="password" placeholder="Your Password"
+                        [ngClass]="{'is-danger': sendAttempt && !form.get('password').valid}">
                     </div>
                 </div>
-                <button type = "button" (click)="test()" class="button is-block is-info is-fullwidth">Register</button>
+                <button class="button is-block is-info is-fullwidth">Register</button>
             </form>
         </div>
         <p class="has-text-grey">

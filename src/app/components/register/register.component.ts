@@ -1,23 +1,41 @@
-import { Component, OnInit } from '@angular/core';
-
-import { AuthentificationService } from './../../shared/services/authentification.service';
+import { Component } from '@angular/core';
+import { AuthentificationService, RegisterAPIReturn } from './../../shared/services/authentification.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.less']
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.less']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
-  constructor(public authService: AuthentificationService) { }
+    sendAttempt: boolean = false;
+    form: FormGroup;
 
-  ngOnInit() {
-  }
+    constructor(private formBuilder: FormBuilder,
+        public authService: AuthentificationService,
+        public router: Router) {
+        this.form = formBuilder.group({
+            username: [null, [Validators.required]],
+            password: [null, [Validators.required]]
+        });
+    }
 
-  test(){
-    console.log("test");
-    this.authService.register("ee");
+    async register() {
+        this.sendAttempt = true;
 
-  }
-
+        if (this.form.valid) {
+            try {
+                await this.authService.register({
+                    username: this.form.get('username').value,
+                    password: this.form.get('password').value
+                });
+                alert('Votre compte a été créé avec succès !');
+                this.router.navigate(['/login']);
+            } catch (err) {
+                alert(err.error.message);
+            }
+        }
+    }
 }

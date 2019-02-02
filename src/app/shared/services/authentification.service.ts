@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -7,26 +8,47 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AuthentificationService {
     constructor(private http: HttpClient) { }
 
-    async registers(body: string) {
-        console.log("1");
-            let apiURL = `localhost:5000/testget`;
-            // const res = (await this.http.get(apiURL).catch((err: HttpErrorResponse) => {
-            //     // simple logging, but you can do a lot more, see below
-            //     console.error('An error occurred:', err.error);
-            //   }).toPromise();
-            // console.log("res");
-            // console.log(res);
-            // //return res;
-            //return "rr";
+    login(APIParameter: LoginAPIParameter): Promise<LoginAPIReturn> {
+        return new Promise((resolve, reject) => {
+            this.http.post(environment.apiBaseUrl + 'login', APIParameter)
+                .subscribe((res: LoginAPIReturn) => {
+                    resolve(res);
+                }, err => {
+                    reject(err);
+                });
+        });
     }
 
-    register(body:string) {
-        let apiURL = "localhost:5000/testget";
-        this.http.get<string>(apiURL,{responseType: 'json'}).toPromise().then(data => {
-          //this.promiseResult = data;
-          console.log('Promise resolved.');
+    register(APIParameter: RegisterAPIParameter): Promise<RegisterAPIReturn> {
+        return new Promise((resolve, reject) => {
+            this.http.post(environment.apiBaseUrl + 'register', APIParameter)
+                .subscribe((res: RegisterAPIReturn) => {
+                    resolve(res);
+                }, err => {
+                    reject(err);
+                });
         });
-        console.log('I will not wait until promise is resolved..');
-      }
+    }
 }
-      
+
+export interface LoginAPIParameter {
+    username: string;
+    password: string;
+}
+
+export interface LoginAPIReturn {
+    message: string;
+    data: {
+        token: string
+    }
+}
+
+export interface RegisterAPIParameter {
+    username: string;
+    password: string;
+}
+
+export interface RegisterAPIReturn {
+    message: string;
+    data: any;
+}
