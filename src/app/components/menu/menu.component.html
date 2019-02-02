@@ -53,6 +53,12 @@
                     </span>
                     <span>Réalisations</span>
                 </a>
+                <a class="navbar-item" (click)="redirect(['/expeditions'])" routerLinkActive="is-active">
+                    <span class="icon">
+                        <fa-icon [icon]="['far', 'scroll']"></fa-icon>
+                    </span>
+                    <span>Expeditions</span>
+                </a>
                 <a class="navbar-item" (click)="redirect(['/map'])" routerLinkActive="is-active">
                     <span class="icon">
                         <fa-icon [icon]="['far', 'map']"></fa-icon>

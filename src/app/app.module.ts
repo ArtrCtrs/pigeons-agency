@@ -26,6 +26,7 @@ import { faTrophyAlt } from '@fortawesome/pro-regular-svg-icons';
 import { faSearch } from '@fortawesome/pro-regular-svg-icons';
 import { MapComponent } from './components/map/map.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ExpeditionsComponent } from './components/expeditions/expeditions.component';
 
 library.add(faMap);
 library.add(faScroll);
@@ -47,7 +48,8 @@ library.add(faSearch);
         AchievementsComponent,
         AviaryComponent,
         MapComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        ExpeditionsComponent
     ],
     imports: [
         BrowserModule,

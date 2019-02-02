@@ -1,5 +1,6 @@
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AchievementsComponent } from './components/achievements/achievements.component';
+import { ExpeditionsComponent } from './components/expeditions/expeditions.component';
 import { AviaryComponent } from './components/aviary/aviary.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -29,6 +30,10 @@ const routes: Routes = [
     {
         path: 'achievements',
         component: AchievementsComponent
+    },
+    {
+        path: 'expeditions',
+        component: ExpeditionsComponent
     },
     {
         path: 'aviary',
