@@ -27,7 +27,7 @@ export class AuthentificationService {
                     this.updateUser();
                     resolve(res);
                 }, err => {
-                    reject(err);
+                    reject(err); 
                 });
         });
     }
