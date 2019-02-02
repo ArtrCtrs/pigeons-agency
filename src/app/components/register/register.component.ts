@@ -1,5 +1,5 @@
+import { AuthentificationService } from './../../services/authentification.service';
 import { Component } from '@angular/core';
-import { AuthentificationService, RegisterAPIReturn } from './../../shared/services/authentification.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 

@@ -7,8 +7,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { MapComponent } from './components/map/map.component';
-import { IsLoggedInGuard } from './shared/guards/is-logged-in.guard';
-import { IsLoggedOutGuard } from './shared/guards/is-logged-out.guard';
+import { IsLoggedInGuard } from './guards/is-logged-in.guard';
+import { IsLoggedOutGuard } from './guards/is-logged-out.guard';
 
 const routes: Routes = [
     {

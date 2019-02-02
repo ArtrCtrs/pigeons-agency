@@ -11,6 +11,65 @@ html, body {
 @grey: #444444;
 @blue: #209cee;
 
+.container.is-loading {
+    .loader {
+        position: absolute;
+        top: 50%;
+        display: block;
+    }
+
+    .column {
+        display: none;
+    }
+}
+
+.loader,
+.loader:after {
+    border-radius: 50%;
+    width: 10em;
+    height: 10em;
+}
+
+.loader {
+    display: none;
+    z-index: 10;
+    margin-top: 200px;
+    font-size: 10px;
+    left: calc(50% - 60px);
+    position: absolute;
+    text-indent: -9999em;
+    border-top: 0.5em solid rgba(255, 255, 255, 0.2);
+    border-right: 0.5em solid rgba(255, 255, 255, 0.2);
+    border-bottom: 0.5em solid rgba(255, 255, 255, 0.2);
+    border-left: 0.5em solid #209cee;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load8 1s infinite linear;
+    animation: load8 1s infinite linear;
+}
+
+@-webkit-keyframes load8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes load8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
 .mt-20 {
     margin-top: 20px;
 }
@@ -41,4 +100,20 @@ html, body {
 
 .mt-10 {
     margin-left: 10px;
+}
+
+.mt-5 {
+    margin-top: 5px;
+}
+
+.mb-5 {
+    margin-bottom: 5px;
+}
+
+.mr-5 {
+    margin-right: 5px;
+}
+
+.mt-5 {
+    margin-left: 5px;
 }

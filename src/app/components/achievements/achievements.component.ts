@@ -1,6 +1,6 @@
-import { Achievement } from '../../shared/interfaces/achievement';
-import { AchievementsService } from '../../shared/services/achievement.service';
+import { Achievement } from './../../interfaces/achievement';
 import { Component, OnInit } from '@angular/core';
+import { AchievementsService } from 'src/app/services/achievement.service';
 
 @Component({
     selector: 'app-achievements',
