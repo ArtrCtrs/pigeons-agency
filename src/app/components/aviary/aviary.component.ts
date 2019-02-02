@@ -1,5 +1,5 @@
-import { Pigeon } from './../../shared/interfaces/pigeon';
-import { AviaryService } from './../../shared/services/aviary.service';
+import { Pigeon } from './../../interfaces/pigeon';
+import { AviaryService } from './../../services/aviary.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
