@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
     sendAttempt: boolean = false;
+    loading: boolean = false;
     form: FormGroup;
 
     constructor(private formBuilder: FormBuilder,
@@ -26,13 +27,16 @@ export class LoginComponent {
         this.sendAttempt = true;
 
         if (this.form.valid) {
+            this.loading = true;
             try {
                 await this.authService.login({
                     username: this.form.get('username').value,
                     password: this.form.get('password').value
                 });
+                this.loading = false;
                 this.router.navigate(['/home']);
             } catch (err) {
+                this.loading = false;
                 alert(err.error.message);
             }
         }

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
 
     sendAttempt: boolean = false;
+    loading: boolean = false;
     form: FormGroup;
 
     constructor(private formBuilder: FormBuilder,
@@ -26,14 +27,17 @@ export class RegisterComponent {
         this.sendAttempt = true;
 
         if (this.form.valid) {
+            this.loading = true;
             try {
                 await this.authService.register({
                     username: this.form.get('username').value,
                     password: this.form.get('password').value
                 });
+                this.loading = false;
                 alert('Votre compte a été créé avec succès !');
                 this.router.navigate(['/login']);
             } catch (err) {
+                this.loading = false;
                 alert(err.error.message);
             }
         }

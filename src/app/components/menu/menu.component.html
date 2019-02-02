@@ -8,7 +8,7 @@
                 <strong>Pigeons Agency</strong>
             </a>
 
-            <div (click)="toggleMobileMenu()" class="navbar-burger burger" data-target="navMenu" aria-label="menu"
+            <div (click)="toggleMobileMenu(!this.burgerActive)" class="navbar-burger burger" data-target="navMenu" aria-label="menu"
                 aria-expanded="false" [ngClass]="{'is-active': burgerActive}">
                 <span></span>
                 <span></span>
@@ -18,7 +18,7 @@
 
         <div id="navMenu" class="navbar-menu" [ngClass]="{'is-active': burgerActive}">
             <div class="navbar-start">
-                <a class="navbar-item" [routerLink]="['/home']" routerLinkActive="is-active">
+                <a class="navbar-item" (click)="redirect(['/home'])" routerLinkActive="is-active">
                     Vue d'ensemble
                 </a>
                 <div class="navbar-item has-dropdown is-hoverable">
@@ -27,19 +27,19 @@
                     </a>
 
                     <div class="navbar-dropdown">
-                        <a class="navbar-item" [routerLink]="['/aviary']" routerLinkActive="is-active">
+                        <a class="navbar-item" (click)="redirect(['/aviary'])" routerLinkActive="is-active">
                             <span class="icon">
                                 <fa-icon [icon]="['far', 'home']"></fa-icon>
                             </span>
                             <span>Pigeonnier</span>
                         </a>
-                        <a class="navbar-item" [routerLink]="['/incubator']" routerLinkActive="is-active">
+                        <a class="navbar-item" (click)="redirect(['/incubator'])" routerLinkActive="is-active">
                             <span class="icon">
                                 <fa-icon [icon]="['far', 'warehouse']"></fa-icon>
                             </span>
                             <span>Incubateur</span>
                         </a>
-                        <a class="navbar-item" [routerLink]="['/laboratory']" routerLinkActive="is-active">
+                        <a class="navbar-item" (click)="redirect(['/laboratory'])" routerLinkActive="is-active">
                             <span class="icon">
                                 <fa-icon [icon]="['far', 'flask']"></fa-icon>
                             </span>
@@ -47,13 +47,13 @@
                         </a>
                     </div>
                 </div>
-                <a class="navbar-item" [routerLink]="['/achievements']" routerLinkActive="is-active">
+                <a class="navbar-item" (click)="redirect(['/achievements'])" routerLinkActive="is-active">
                     <span class="icon">
                         <fa-icon [icon]="['far', 'scroll']"></fa-icon>
                     </span>
                     <span>Réalisations</span>
                 </a>
-                <a class="navbar-item" [routerLink]="['/map']" routerLinkActive="is-active">
+                <a class="navbar-item" (click)="redirect(['/map'])" routerLinkActive="is-active">
                     <span class="icon">
                         <fa-icon [icon]="['far', 'map']"></fa-icon>
                     </span>
@@ -67,13 +67,13 @@
                         Hugo
                     </a>
                     <div class="navbar-dropdown is-right">
-                        <a class="navbar-item" [routerLink]="['/account']" routerLinkActive="is-active">
+                        <a class="navbar-item" (click)="redirect(['/account'])" routerLinkActive="is-active">
                             Compte
                         </a>
-                        <a class="navbar-item" [routerLink]="['/settings']" routerLinkActive="is-active">
+                        <a class="navbar-item" (click)="redirect(['/settings'])" routerLinkActive="is-active">
                             Paramètres
                         </a>
-                        <a class="navbar-item" [routerLink]="['/login']" routerLinkActive="is-active">
+                        <a class="navbar-item" (click)="redirect(['/login'])" routerLinkActive="is-active">
                             Déconnexion
                         </a>
                     </div>

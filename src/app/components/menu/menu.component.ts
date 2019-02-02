@@ -15,7 +15,12 @@ export class MenuComponent implements OnInit {
     ngOnInit() {
     }
 
-    toggleMobileMenu() {
-        this.burgerActive = !this.burgerActive;
+    toggleMobileMenu(open: boolean) {
+        this.burgerActive = open;
+    }
+
+    redirect(destination: any) {
+        this.toggleMobileMenu(false);
+        this.router.navigate(destination);
     }
 }

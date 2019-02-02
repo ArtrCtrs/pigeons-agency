@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AchievementsComponent } from './components/achievements/achievements.component';
 import { AviaryComponent } from './components/aviary/aviary.component';
 import { NgModule } from '@angular/core';
@@ -36,6 +37,10 @@ const routes: Routes = [
     {
         path: 'map',
         component: MapComponent
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent
     }
 ];
 
