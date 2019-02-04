@@ -28,11 +28,23 @@
                     </div>
                 </div>
             </div>
+            <h1>My expeditions</h1>
+            <div *ngFor="let myexpedition of myExpeditions">
+                <div *ngIf="!myexpedition.finished" class="my-expedition">
+                    <p>Type : {{myexpedition.type}}</p>
+                    <p>lvl : {{myexpedition.lvl}}</p>
+                    <p>starttime : {{myexpedition.starttime}}</p>
+                    <p>duration : {{myexpedition.duration}}</p>
+                    <p>finished : {{myexpedition.finished}}</p>
+                </div>
+
+            </div>
+            <button (click)="getExpeditionsData()" type="text">update data</button>
         </div>
         <div class="column is-9">
-            <button (click)="getExpeditionsData()" type="text">get data</button>
+
             <div *ngFor="let expedition of filteredExpeditionsInfo" class="column">
-                <div class="card">
+                <div (click)="launchExpedition(expedition.id)" class="card expedition">
                     <div class="card-content">
                         <div class="media">
                             <div class="media-left">

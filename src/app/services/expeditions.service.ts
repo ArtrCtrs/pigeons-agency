@@ -27,11 +27,11 @@ export class ExpeditionsService {
     }
 
 //todo
-    launchExpedition() {
+    launchExpedition(req:ExpeditionPageRequest) {
         return new Promise((resolve, reject) => {
-            this.http.post(environment.apiBaseUrl + 'expeditions', {
+            this.http.post(environment.apiBaseUrl + 'expeditions',req, {
                 headers: {
-                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                    'Authorization': 'Bearer ' + localStorage.getItem('token'),
                 }
             })
                 .subscribe((res: ExpeditionPageDataAPIReturn) => {
@@ -43,6 +43,9 @@ export class ExpeditionsService {
     }
 }
 
+export interface ExpeditionPageRequest{
+    expeditiontype:number
+}
 
 
 export interface ExpeditionPageDataAPIReturn {
