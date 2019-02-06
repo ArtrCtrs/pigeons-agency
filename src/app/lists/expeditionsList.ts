@@ -5,6 +5,7 @@ const expeditionsList:ExpeditionInfo[] =
     id: 0,
     seeds: 10,
     duration: 15000,
+    name:"Tour du jardin",
     reward: [{
         pigeontype: 0,
         probability: 90
@@ -18,6 +19,7 @@ const expeditionsList:ExpeditionInfo[] =
     id: 1,
     seeds: 100,
     duration: 60000,
+    name:"Grand tour du jardin",
     reward: [{
         pigeontype: 0,
         probability: 50
@@ -35,6 +37,7 @@ const expeditionsList:ExpeditionInfo[] =
     id: 2,
     seeds: 500,
     duration: 90000,
+    name:"Espionnage chez la voisine",
     reward: [{
         pigeontype: 0,
         probability: 10
@@ -52,6 +55,7 @@ const expeditionsList:ExpeditionInfo[] =
     id: 3,
     seeds: 2000,
     duration: 180000,
+    name:"Sous la voiture",
     reward: [
     {
         pigeontype: 1,

@@ -1,11 +1,13 @@
 export interface Pigeon {
     id: number;
+    name:string;
     type: number;
-    lvl: number;
+    rank: number;
     attack: number;
     defense: number;
     life: number;
     droppingsminute: number;
-    wings: number;
+    feathers: number;
+    creationtime:number;
     ownerid: number;
 }

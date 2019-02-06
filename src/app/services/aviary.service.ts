@@ -25,9 +25,28 @@ export class AviaryService {
                 });
         });
     }
+
+    deletePigeon(req: deletePigeonRequest) {
+        return new Promise((resolve, reject) => {
+            this.http.post(environment.apiBaseUrl + 'pigeons', req, {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            })
+                .subscribe((res: getPigeonsAPIReturn) => {
+                    resolve(res);
+                }, err => {
+                    reject(err);
+                });
+        });
+    }
 }
 
 export interface getPigeonsAPIReturn {
     message: string;
     data: Pigeon[];
+}
+
+export interface deletePigeonRequest {
+    pigeonid: number
 }

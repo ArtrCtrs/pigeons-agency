@@ -27,26 +27,30 @@
                     <div class="columns is-multiline">
                         <div class="column is-3-widescreen is-3-desktop is-6-tablet is-12-mobile has-text-centered">
                             <article class="tile is-child box">
-                                <p class="title">{{pageData.data.maxbirds}}</p>
+                                <p class="title">{{pageData.data.birds}}/{{pageData.data.maxbirds}}</p>
                                 <p class="subtitle">Pigeons</p>
+                                <p class="subtitle">-</p>
                             </article>
                         </div>
                         <div class="column is-3-widescreen is-3-desktop is-6-tablet is-12-mobile has-text-centered">
                             <article class="tile is-child box">
                                 <p class="title">{{pageData.data.seeds}}</p>
                                 <p class="subtitle">Graines</p>
+                                <p class="subtitle">+ {{pageData.data.seedsminute}} / s</p>
                             </article>
                         </div>
                         <div class="column is-3-widescreen is-3-desktop is-6-tablet is-12-mobile has-text-centered">
                             <article class="tile is-child box">
-                                <p class="title">0</p>
-                                <p class="subtitle">Oeufs</p>
+                                <p class="title">{{pageData.data.feathers}}</p>
+                                <p class="subtitle">Plumes</p>
+                                <p class="subtitle">-</p>
                             </article>
                         </div>
                         <div class="column is-3-widescreen is-3-desktop is-6-tablet is-12-mobile has-text-centered">
                             <article class="tile is-child box">
                                 <p class="title">{{pageData.data.droppings}}</p>
                                 <p class="subtitle">Fiente</p>
+                                <p class="subtitle">+ {{pageData.data.totaldroppingsminute}} / s</p>
                             </article>
                         </div>
                     </div>

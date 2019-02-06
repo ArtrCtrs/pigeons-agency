@@ -14,7 +14,7 @@ export class ExpeditionsComponent implements OnInit {
     pageLoading: boolean = true;
     filteredExpeditionsInfo: ExpeditionInfo[] = [];
     expeditionsInfo: ExpeditionInfo[] = [];
-    myExpeditions:Expedition[];
+    myExpeditions: Expedition[];
 
     constructor(public expeditionsService: ExpeditionsService) { }
 
@@ -27,15 +27,21 @@ export class ExpeditionsComponent implements OnInit {
     async getExpeditionsData() {
         this.myExpeditions = (await this.expeditionsService.getExpeditionsData()).data;
         this.pageLoading = false;
-        console.log(this.myExpeditions)
     }
 
-    async launchExpedition(id:number){
+    async launchExpedition(id: number) {
         await this.expeditionsService.launchExpedition({
             expeditiontype: id
         });
         await this.getExpeditionsData();
-        
 
+    }
+
+    getExpeditionName(id: number): string {
+        return this.expeditionsInfo[id].name;
+    }
+    getRemainingTime(start: string, duration: number):number {
+        const t = Math.floor((Number.parseInt(start)+duration-Date.now())/1000);
+        return (t);
     }
 }

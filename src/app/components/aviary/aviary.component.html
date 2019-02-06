@@ -13,7 +13,7 @@
                 <div class="media">
                     <div class="media-content">
                         <p class="title is-4">Pigeonnier</p>
-                        <p class="subtitle is-6">3 emplacements disponibles</p>
+                        <p class="subtitle is-6">? emplacements disponibles</p>
                     </div>
                 </div>
 
@@ -21,10 +21,7 @@
                     <div class="columns is-multiline">
                         <div *ngFor="let detailedPigeon of detailedPigeons" class="column is-2-widescreen is-3-desktop is-4-tablet is-12-mobile">
                             <div class="pigeon card" (click)="selectPigeon(detailedPigeon.pigeon)">
-                                <!--
-                                    FIXME utiliser la rareté venant du back-end
-                                    [ngClass]="detailedPigeon.pigeon.rarity + ' ' + (detailedPigeon.pigeon.id === selectedPigeonId ? 'selected' : '')"
-                                -->
+                                <div class="delete-pigeon" (click)="deletePigeon(detailedPigeon.pigeon.id)"></div>
                                 <div class="card-image">
                                     <figure class="image">
                                         <img [src]="getPigeonImage(detailedPigeon.pigeon)">
@@ -34,22 +31,18 @@
                                 <div class="card-content">
                                     <div class="media">
                                         <div class="media-content">
-                                            <p class="title is-4">Pigeon commun</p>
-                                            <!--
-                                                FIXME utiliser la rareté venant du back-end
-                                                {{detailedPigeon.pigeon.rarity | lowercase}}
-                                            -->
-                                            <p class="subtitle is-6">Niveau {{detailedPigeon.pigeon.lvl}}</p>
+                                            <p class="title is-4">{{detailedPigeon.pigeon.name}}</p>
+                                            <p class="subtitle is-6">Rang : {{detailedPigeon.pigeon.rank}}</p>
                                         </div>
                                     </div>
 
                                     <div class="content">
+                                        <progress class="progress is-danger" [value]="detailedPigeon.statistics.attackPercentage"
+                                            max="100"></progress><span class="progress-value">{{detailedPigeon.pigeon.attack}}</span>
                                         <progress class="progress is-link" [value]="detailedPigeon.statistics.defensePercentage"
                                             max="100"></progress><span class="progress-value">{{detailedPigeon.pigeon.defense}}</span>
                                         <progress class="progress is-success" [value]="detailedPigeon.statistics.lifePercentage"
                                             max="100"></progress><span class="progress-value">{{detailedPigeon.pigeon.life}}</span>
-                                        <progress class="progress is-danger" [value]="detailedPigeon.statistics.attackPercentage"
-                                            max="100"></progress><span class="progress-value">{{detailedPigeon.pigeon.attack}}</span>
                                     </div>
                                 </div>
                             </div>

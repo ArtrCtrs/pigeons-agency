@@ -23,8 +23,11 @@ export class AviaryComponent implements OnInit {
         const detailedPigeons: DetailedPigeon[] = [];
         const apiReturn: getPigeonsAPIReturn = await this.aviaryService.getPigeons();
         this.pageLoading = false;
+        
 
         const pigeons: Pigeon[] = apiReturn.data;
+        
+        console.log(pigeons);
 
         for (const pigeon of pigeons) {
             const statisticsTotal = pigeon.defense + pigeon.life + pigeon.attack;
@@ -54,9 +57,34 @@ export class AviaryComponent implements OnInit {
     }
 
     getPigeonImage(pigeon: Pigeon) {
-        return '../../assets/pigeons/' + 'commun' + '.png'; // FIXME utiliser la rareté venant du back-end
+        let imgName = "";
+        switch (pigeon.type) {
+            case 0:
+                imgName = "commun"
+                break;
+            case 1:
+                imgName = "atypique";
+                break;
+            case 2:
+                imgName = "rare";
+                break;
+            case 3:
+                imgName = "exotique";
+                break;
+            default:
+                imgName = "commun";
+        }
+        return '../../assets/pigeons/' + imgName + '.png';
+    }
+
+    async deletePigeon(id:number){
+        await this.aviaryService.deletePigeon({
+            pigeonid: id
+        });
+        await this.initPigeons();
     }
 }
+
 
 interface DetailedPigeon {
     statistics: {

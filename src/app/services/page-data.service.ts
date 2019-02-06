@@ -32,12 +32,13 @@ export interface HomePageDataAPIReturn {
         username: string;
         password: string;
         lvl: number;
+        birds:number;
         maxbirds: number;
         seeds: number;
         seedsminute: number;
         droppings: number;
         totaldropingsminute: number;
-        wings: number;
+        feathers: number;
         xcoord: number;
         ycoord: number;
         lastupdate: number;

@@ -28,14 +28,12 @@
                     </div>
                 </div>
             </div>
-            <h1>My expeditions</h1>
+            <h1>Expeditions en cours</h1>
             <div *ngFor="let myexpedition of myExpeditions">
                 <div *ngIf="!myexpedition.finished" class="my-expedition">
-                    <p>Type : {{myexpedition.type}}</p>
+                    <p>Expedition : {{getExpeditionName(myexpedition.type)}}</p>
                     <p>lvl : {{myexpedition.lvl}}</p>
-                    <p>starttime : {{myexpedition.starttime}}</p>
-                    <p>duration : {{myexpedition.duration}}</p>
-                    <p>finished : {{myexpedition.finished}}</p>
+                    <p>Moins de {{getRemainingTime(myexpedition.starttime,myexpedition.duration)}} secondes restantes</p>
                 </div>
 
             </div>
@@ -61,8 +59,8 @@
                                 </ng-template>
                             </div>
                             <div class="media-content">
-                                <p class="title is-4">Expedition id : {{expedition.id}}</p>
-                                <p class="subtitle is-6">Durée: {{expedition.duration}}</p>
+                                <p class="title is-4">Expedition : {{getExpeditionName(expedition.id)}}</p>
+                                <p class="subtitle is-6">Durée: {{expedition.duration/1000}} secondes</p>
                                 <p class="subtitle is-6">Coût: {{expedition.seeds}} graines</p>
                             </div>
                         </div>
