@@ -23,10 +23,10 @@ export class AviaryComponent implements OnInit {
         const detailedPigeons: DetailedPigeon[] = [];
         const apiReturn: getPigeonsAPIReturn = await this.aviaryService.getPigeons();
         this.pageLoading = false;
-        
+
 
         const pigeons: Pigeon[] = apiReturn.data;
-        
+
         console.log(pigeons);
 
         for (const pigeon of pigeons) {
@@ -60,16 +60,34 @@ export class AviaryComponent implements OnInit {
         let imgName = "";
         switch (pigeon.type) {
             case 0:
-                imgName = "commun"
+                imgName = "little_common"
                 break;
             case 1:
-                imgName = "atypique";
+                imgName = "little_uncommon";
                 break;
             case 2:
-                imgName = "rare";
+                imgName = "little_rare";
                 break;
             case 3:
-                imgName = "exotique";
+                imgName = "little_epic";
+                break;
+            case 4:
+                imgName = "little_legendary";
+                break;
+            case 5:
+                imgName = "fat_common";
+                break;
+            case 6:
+                imgName = "fat_uncommon";
+                break;
+            case 7:
+                imgName = "fat_rare";
+                break;
+            case 8:
+                imgName = "fat_epic";
+                break;
+            case 9:
+                imgName = "fat_legendary";
                 break;
             default:
                 imgName = "commun";
@@ -77,7 +95,7 @@ export class AviaryComponent implements OnInit {
         return '../../assets/pigeons/' + imgName + '.png';
     }
 
-    async deletePigeon(id:number){
+    async deletePigeon(id: number) {
         await this.aviaryService.deletePigeon({
             pigeonid: id
         });

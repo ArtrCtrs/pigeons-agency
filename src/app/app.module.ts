@@ -27,6 +27,7 @@ import { faSearch } from '@fortawesome/pro-regular-svg-icons';
 import { MapComponent } from './components/map/map.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ExpeditionsComponent } from './components/expeditions/expeditions.component';
+import { UpgradesComponent } from './components/upgrades/upgrades.component';
 
 library.add(faMap);
 library.add(faScroll);
@@ -49,7 +50,8 @@ library.add(faSearch);
         AviaryComponent,
         MapComponent,
         PageNotFoundComponent,
-        ExpeditionsComponent
+        ExpeditionsComponent,
+        UpgradesComponent
     ],
     imports: [
         BrowserModule,

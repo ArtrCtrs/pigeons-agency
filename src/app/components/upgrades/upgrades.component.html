@@ -1,0 +1,17 @@
+<div class="container" [ngClass]="{'is-loading': pageLoading, 'is-loaded': !pageLoading}">
+
+  <div class="page-loader-wrapper">
+    <div class="page-loader"></div>
+  </div>
+  <div class="media-content mycont" (click)="upgradeFarm()">
+    <p class="title is-4">Actual Farm lvl : {{currentSeedsUpgrade.lvl}}</p>
+    <p class="subtitle is-6">To upgrade : {{currentSeedsUpgrade.droppingsCost}} droppings</p>
+    <p class="subtitle is-6">Next seeds per minute : {{currentSeedsUpgrade.newSeeds}}</p>
+  </div>
+  <div class="media-content mycont" (click)="upgradeAviary()">
+    <p class="title is-4">Actual Aviary lvl : {{currentAviaryUpgrade.lvl}}</p>
+    <p class="subtitle is-6">To upgrade : {{currentAviaryUpgrade.feathersCost}} feathers</p>
+    <p class="subtitle is-6">Next max birds : {{currentAviaryUpgrade.newBirds}}</p>
+  </div>
+
+</div>

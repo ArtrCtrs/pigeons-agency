@@ -1,7 +1,7 @@
 <nav *ngIf="username" class="navbar has-shadow">
     <div class="container">
         <div class="navbar-brand">
-            <a class="navbar-item">
+            <a class="navbar-item" (click)="redirect(['/home'])">
                 <span class="icon mr-5">
                     <img src="../../../assets/logo/logo.png">
                 </span>
@@ -27,17 +27,17 @@
                     </a>
 
                     <div class="navbar-dropdown">
-                        <a class="navbar-item" (click)="redirect(['/aviary'])" routerLinkActive="is-active">
+                        <a class="navbar-item" (click)="redirect(['/upgrades'])" routerLinkActive="is-active">
                             <span class="icon">
                                 <fa-icon [icon]="['far', 'home']"></fa-icon>
                             </span>
-                            <span>Pigeonnier</span>
+                            <span>Améliorations</span>
                         </a>
-                        <a class="navbar-item" (click)="redirect(['/incubator'])" routerLinkActive="is-active">
+                        <a class="navbar-item" (click)="redirect(['/achievements'])" routerLinkActive="is-active">
                             <span class="icon">
                                 <fa-icon [icon]="['far', 'warehouse']"></fa-icon>
                             </span>
-                            <span>Incubateur</span>
+                            <span>Achievements</span>
                         </a>
                         <a class="navbar-item" (click)="redirect(['/laboratory'])" routerLinkActive="is-active">
                             <span class="icon">
@@ -47,11 +47,11 @@
                         </a>
                     </div>
                 </div>
-                <a class="navbar-item" (click)="redirect(['/achievements'])" routerLinkActive="is-active">
+                <a class="navbar-item" (click)="redirect(['/aviary'])" routerLinkActive="is-active">
                     <span class="icon">
                         <fa-icon [icon]="['far', 'scroll']"></fa-icon>
                     </span>
-                    <span>Réalisations</span>
+                    <span>Pigeonnier</span>
                 </a>
                 <a class="navbar-item" (click)="redirect(['/expeditions'])" routerLinkActive="is-active">
                     <span class="icon">
