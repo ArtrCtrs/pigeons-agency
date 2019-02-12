@@ -16,9 +16,9 @@ export class MapComponent implements OnInit {
     ngOnInit() {
         const pigeon_map = L.map('pigeon_map').setView([5, 5], 4);
 
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-            minZoom: 3,
-            maxZoom: 6,
+        L.tileLayer('/assets/tiles/{z}/{x}/{y}.png', {
+            minZoom: 4,
+            maxZoom: 4,
             attribution: 'Carte des pigeons'
         }).addTo(pigeon_map);
 

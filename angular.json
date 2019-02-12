@@ -28,7 +28,8 @@
                         ],
                         "styles": [
                             "src/styles.less",
-                            "node_modules/bulma/css/bulma.min.css"
+                            "node_modules/bulma/css/bulma.min.css",
+                            "node_modules/leaflet/dist/leaflet.css"
                         ],
                         "scripts": []
                     },
