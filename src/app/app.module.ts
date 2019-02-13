@@ -28,6 +28,7 @@ import { MapComponent } from './components/map/map.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ExpeditionsComponent } from './components/expeditions/expeditions.component';
 import { UpgradesComponent } from './components/upgrades/upgrades.component';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 
 library.add(faMap);
 library.add(faScroll);
@@ -51,7 +52,8 @@ library.add(faSearch);
         MapComponent,
         PageNotFoundComponent,
         ExpeditionsComponent,
-        UpgradesComponent
+        UpgradesComponent,
+        LeaderboardComponent
     ],
     imports: [
         BrowserModule,

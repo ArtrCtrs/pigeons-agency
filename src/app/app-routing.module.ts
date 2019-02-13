@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { MapComponent } from './components/map/map.component';
 import { UpgradesComponent } from './components/upgrades/upgrades.component';
@@ -46,6 +47,11 @@ const routes: Routes = [
     {
         path: 'aviary',
         component: AviaryComponent,
+        canActivate: [IsLoggedInGuard]
+    },
+    {
+        path: 'leaderboard',
+        component: LeaderboardComponent,
         canActivate: [IsLoggedInGuard]
     },
     {
