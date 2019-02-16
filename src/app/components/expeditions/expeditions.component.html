@@ -6,7 +6,9 @@
     <div class="columns">
         <div class="column is-3">
             <div class="column">
-                <div class="field">
+                <div class="field" *ngIf="user" >
+                    <p>seeds : {{user.seeds | number: '1.0-0'}}/{{user.maxseeds}}</p>
+                    <p>birds : {{user.birds}}/{{user.maxbirds}}</p>
                     <label class="label">Recherche (en dev)</label>
                     <div class="control">
                         <input #input class="input" type="text" placeholder="Rechercher une expédition">
@@ -31,9 +33,9 @@
             <h1>Expeditions en cours</h1>
             <div *ngFor="let myexpedition of myExpeditions">
                 <div *ngIf="!myexpedition.finished" class="my-expedition">
-                    <p>Expedition : {{getExpeditionName(myexpedition.type)}}</p>
-                    <p>lvl : {{myexpedition.lvl}}</p>
-                    <p>Moins de {{getRemainingTime(myexpedition.starttime,myexpedition.duration)}} secondes restantes</p>
+                    <p>Expedition : {{myexpedition.expeditionname}}</p>
+                    <p>lvl : {{myexpedition.expedition.lvl}}</p>
+                    <p>Moins de {{myexpedition.remainingtime}} secondes restantes</p>
                 </div>
 
             </div>

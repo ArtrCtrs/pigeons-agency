@@ -1,3 +1,14 @@
-<p>
-  leaderboard works!
-</p>
+<div class="container" [ngClass]="{'is-loading': pageLoading, 'is-loaded': !pageLoading}">
+
+  <div class="page-loader-wrapper">
+    <div class="page-loader"></div>
+  </div>
+  <div *ngIf="!pageLoading">
+    username : spentseeds --- spentdroppings --- spentfeathers
+      <div *ngFor="let user of allusers">
+        {{user.username}} : {{user.totalspentseeds}}  --- {{user.totalspentdroppings}}  --- {{user.totalspentfeathers}} 
+
+      </div>
+
+  </div>
+</div>
