@@ -1,3 +1,5 @@
+import { PageDataService } from 'src/app/services/page-data.service';
+import { User } from './../../interfaces/user';
 import { Component, OnInit } from '@angular/core';
 import aviaryUpgradesList from '../../lists/aviaryUpgradesList';
 import seedsUpgradesList from '../../lists/seedsUpgradesList';
@@ -21,6 +23,8 @@ export class UpgradesComponent implements OnInit {
   aviaryUpgradesInfo: aviaryUpgrade[] = aviaryUpgradesList;
   seedsStorageInfo: seedsStorage[] = seedsStorageList;
   droppingsStorageInfo: droppingsStorage[] = droppingsStorageList;
+  user: User;
+  interval: any;
 
   currentSeedsUpgrade: seedsUpgrade;
   nextSeedsUpgrade: seedsUpgrade;
@@ -32,10 +36,11 @@ export class UpgradesComponent implements OnInit {
   nextDroppingsStorage: droppingsStorage;
 
 
-  constructor(public upgradesService: UpgradesService) { }
+  constructor(public upgradesService: UpgradesService, public pageDataService: PageDataService) { }
 
   ngOnInit() {
     this.getCurrentUpgrades();
+    this.interval = setInterval(() => { this.upDateFrontInfo(); }, 1000);
   }
 
   async getCurrentUpgrades() {
@@ -50,7 +55,7 @@ export class UpgradesComponent implements OnInit {
     this.currentDroppingsStorage = this.droppingsStorageInfo[res.data.droppingsstoragelvl];
     this.nextDroppingsStorage = this.droppingsStorageInfo[res.data.droppingsstoragelvl + 1];
 
-
+    this.user = (await this.pageDataService.getHomePageData()).data;
     this.pageLoading = false;
   }
 
@@ -69,6 +74,15 @@ export class UpgradesComponent implements OnInit {
   async upgradeDroppingsStorage() {
     await this.upgradesService.upgradeDroppingsStorage();
     this.getCurrentUpgrades();
+  }
+
+  upDateFrontInfo() {
+    this.user.seeds = this.user.seeds < this.user.maxseeds ? this.user.seeds + (this.user.seedsminute / 60) : this.user.maxseeds;
+    this.user.droppings = this.user.droppings < this.user.maxdroppings ? this.user.droppings + (this.user.totaldroppingsminute / 60) : this.user.maxdroppings;
+
+  }
+  ngOnDestroy() {
+    clearInterval(this.interval);
   }
 
 

@@ -4,6 +4,11 @@
     <div class="page-loader"></div>
   </div>
   <div *ngIf="!pageLoading">
+    <p>
+      {{user.seeds| number: '1.0-0'}}/{{user.maxseeds}} seeds ---
+      {{user.droppings| number: '1.0-0'}}/{{user.maxdroppings}} droppings ---
+      {{user.feathers}} feathers
+    </p>
     <div class="media-content mycont" (click)="upgradeFarm()">
       <p class="title is-4">Farm lvl : {{currentSeedsUpgrade.lvl}} -> {{nextSeedsUpgrade.lvl}}</p>
       <p class="subtitle is-6">Seeds per minute : {{currentSeedsUpgrade.newSeeds}} -> {{nextSeedsUpgrade.newSeeds}}</p>

@@ -32,7 +32,7 @@
             </div>
             <h1>Expeditions en cours</h1>
             <div *ngFor="let myexpedition of myExpeditions">
-                <div *ngIf="!myexpedition.finished" class="my-expedition">
+                <div *ngIf="!myexpedition.expedition.finished" class="my-expedition">
                     <p>Expedition : {{myexpedition.expeditionname}}</p>
                     <p>lvl : {{myexpedition.expedition.lvl}}</p>
                     <p>Moins de {{myexpedition.remainingtime}} secondes restantes</p>
