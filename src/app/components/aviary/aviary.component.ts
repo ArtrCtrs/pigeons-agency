@@ -1,3 +1,5 @@
+import { User } from './../../services/authentification.service';
+import { PageDataService } from 'src/app/services/page-data.service';
 import { AviaryService, getPigeonsAPIReturn } from './../../services/aviary.service';
 import { Component, OnInit } from '@angular/core';
 import { Pigeon } from 'src/app/interfaces/pigeon';
@@ -12,8 +14,9 @@ export class AviaryComponent implements OnInit {
     pageLoading: boolean = true;
     detailedPigeons: DetailedPigeon[] = [];
     selectedPigeonId: number;
+    user:User;
 
-    constructor(public aviaryService: AviaryService) { }
+    constructor(public aviaryService: AviaryService,public pageDataService: PageDataService) { }
 
     ngOnInit() {
         this.initPigeons();
@@ -22,18 +25,19 @@ export class AviaryComponent implements OnInit {
     async initPigeons() {
         const detailedPigeons: DetailedPigeon[] = [];
         const apiReturn: getPigeonsAPIReturn = await this.aviaryService.getPigeons();
+        this.user = (await this.pageDataService.getHomePageData()).data;
         this.pageLoading = false;
 
 
         const pigeons: Pigeon[] = apiReturn.data;
 
         for (const pigeon of pigeons) {
-            const statisticsTotal = pigeon.defense + pigeon.life + pigeon.attack;
+            const statisticsTotal = pigeon.defense + pigeon.shield + pigeon.attack;
 
             const detailedPigeon: DetailedPigeon = {
                 statistics: {
                     defensePercentage: Math.round((pigeon.defense / statisticsTotal) * 100),
-                    lifePercentage: Math.round((pigeon.life / statisticsTotal) * 100),
+                    lifePercentage: Math.round((pigeon.shield / statisticsTotal) * 100),
                     attackPercentage: Math.round((pigeon.attack / statisticsTotal) * 100),
                     totalPoints: statisticsTotal
                 },

@@ -13,7 +13,7 @@
                 <div class="media">
                     <div class="media-content">
                         <p class="title is-4">Pigeonnier</p>
-                        <p class="subtitle is-6">? emplacements disponibles</p>
+                        <p class="subtitle is-6">{{user.birds}}/{{user.maxbirds}} emplacements disponibles</p>
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@
                                         <progress class="progress is-link" [value]="detailedPigeon.statistics.defensePercentage"
                                             max="100"></progress><span class="progress-value">{{detailedPigeon.pigeon.defense}}</span>
                                         <progress class="progress is-success" [value]="detailedPigeon.statistics.lifePercentage"
-                                            max="100"></progress><span class="progress-value">{{detailedPigeon.pigeon.life}}</span>
+                                            max="100"></progress><span class="progress-value">{{detailedPigeon.pigeon.shield}}</span>
                                             <div>DroppingsMinute : {{detailedPigeon.pigeon.droppingsminute}}</div>
                                     </div>
                                 </div>

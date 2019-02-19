@@ -23,4 +23,10 @@ export interface User {
     totalspentseeds:number;
     totalspentdroppings:number;
     totalspentfeathers:number;
+    hasnotifications:boolean;
+    istravelling:boolean;
+    militaryscore:number;
+    totalattacks:number;
+    totaldefenses:number;
+    creationtime:number;
 }
