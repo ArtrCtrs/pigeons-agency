@@ -24,6 +24,8 @@ import { faFeatherAlt } from '@fortawesome/pro-regular-svg-icons';
 import { faTrophy } from '@fortawesome/pro-regular-svg-icons';
 import { faTrophyAlt } from '@fortawesome/pro-regular-svg-icons';
 import { faSearch } from '@fortawesome/pro-regular-svg-icons';
+import { faSeedling } from '@fortawesome/pro-regular-svg-icons';
+import { faPoop } from '@fortawesome/pro-regular-svg-icons';
 import { MapComponent } from './components/map/map.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ExpeditionsComponent } from './components/expeditions/expeditions.component';
@@ -39,6 +41,8 @@ library.add(faFeatherAlt);
 library.add(faTrophy);
 library.add(faTrophyAlt);
 library.add(faSearch);
+library.add(faSeedling);
+library.add(faPoop);
 
 @NgModule({
     declarations: [

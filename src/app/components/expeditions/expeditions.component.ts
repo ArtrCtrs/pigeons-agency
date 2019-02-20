@@ -56,12 +56,14 @@ export class ExpeditionsComponent implements OnInit {
     }
 
     upDateFrontInfo() {
-        console.log("y")
         this.user.seeds = this.user.seeds < this.user.maxseeds ? this.user.seeds + (this.user.seedsminute / 60) : this.user.maxseeds;
         this.myExpeditions.forEach(function (exp) {
-            exp.remainingtime = this.getRemainingTime(exp.expedition.starttime, exp.expedition.duration);
-            if (exp.remainingtime <= 0) {
-                exp.expedition.finished = true;
+            if (!exp.expedition.finished) {
+                exp.remainingtime = this.getRemainingTime(exp.expedition.starttime, exp.expedition.duration);
+                if (exp.remainingtime <= 0) {
+                    this.user.birds = this.user.birds < this.user.maxbirds ? this.user.birds + 1 : this.user.maxbirds;
+                    exp.expedition.finished = true;
+                }
             }
         }, this);
     }
