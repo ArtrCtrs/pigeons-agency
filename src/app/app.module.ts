@@ -14,6 +14,11 @@ import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { AviaryComponent } from './components/aviary/aviary.component';
 import { AchievementsComponent } from './components/achievements/achievements.component';
+import { MapComponent } from './components/map/map.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ExpeditionsComponent } from './components/expeditions/expeditions.component';
+import { UpgradesComponent } from './components/upgrades/upgrades.component';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 
 import { faMap } from '@fortawesome/pro-regular-svg-icons';
 import { faScroll } from '@fortawesome/pro-regular-svg-icons';
@@ -26,11 +31,10 @@ import { faTrophyAlt } from '@fortawesome/pro-regular-svg-icons';
 import { faSearch } from '@fortawesome/pro-regular-svg-icons';
 import { faSeedling } from '@fortawesome/pro-regular-svg-icons';
 import { faPoop } from '@fortawesome/pro-regular-svg-icons';
-import { MapComponent } from './components/map/map.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { ExpeditionsComponent } from './components/expeditions/expeditions.component';
-import { UpgradesComponent } from './components/upgrades/upgrades.component';
-import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+import { faCrow } from '@fortawesome/pro-regular-svg-icons';
+import { faPennant } from '@fortawesome/pro-regular-svg-icons';
+import { faAngleDoubleUp } from '@fortawesome/pro-regular-svg-icons';
+
 
 library.add(faMap);
 library.add(faScroll);
@@ -43,6 +47,9 @@ library.add(faTrophyAlt);
 library.add(faSearch);
 library.add(faSeedling);
 library.add(faPoop);
+library.add(faCrow);
+library.add(faPennant);
+library.add(faAngleDoubleUp);
 
 @NgModule({
     declarations: [

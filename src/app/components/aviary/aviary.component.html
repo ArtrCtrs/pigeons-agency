@@ -1,7 +1,10 @@
+<div id="feathers">
+</div>
 <div class="container" [ngClass]="{'is-loading': pageLoading, 'is-loaded': !pageLoading}">
     <div class="page-loader-wrapper">
         <div class="page-loader"></div>
     </div>
+
     <div *ngIf="!pageLoading" class="column is-fullheight">
         <div class="card">
             <div class="card-image">
@@ -43,7 +46,7 @@
                                             max="100"></progress><span class="progress-value">{{detailedPigeon.pigeon.defense}}</span>
                                         <progress class="progress is-success" [value]="detailedPigeon.statistics.lifePercentage"
                                             max="100"></progress><span class="progress-value">{{detailedPigeon.pigeon.shield}}</span>
-                                            <div>DroppingsMinute : {{detailedPigeon.pigeon.droppingsminute}}</div>
+                                        <div>DroppingsMinute : {{detailedPigeon.pigeon.droppingsminute}}</div>
                                     </div>
                                 </div>
                             </div>

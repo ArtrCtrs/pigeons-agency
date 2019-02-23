@@ -6,77 +6,50 @@
     <div class="columns">
         <div class="column is-3">
             <div class="column">
-                <div class="field" *ngIf="user" >
-                    <p>seeds : {{user.seeds | number: '1.0-0'}}/{{user.maxseeds}}</p>
-                    <p>birds : {{user.birds}}/{{user.maxbirds}}</p>
-                    <label class="label">Recherche (en dev)</label>
-                    <div class="control">
-                        <input #input class="input" type="text" placeholder="Rechercher une expédition">
-                        <!-- (input)="filterAchievements(input.value)" -->
-                    </div>
+                <div class="field" *ngIf="user">
+                    <article class="tile is-child box">
+                        <p>Seeds : {{user.seeds | number: '1.0-0'}}/{{user.maxseeds}} <fa-icon [icon]="['far', 'seedling']" size="1x"></fa-icon></p>
+                        <p>Birds : {{user.birds}}/{{user.maxbirds}} <fa-icon [icon]="['far', 'crow']" size="1x"></fa-icon></p>
+                    </article>
                 </div>
 
-                <div class="field">
-                    <label class="label">Difficulté</label>
-                    <div class="control">
-                        <div class="select">
-                            <select>
-                                <option>Toutes</option>
-                                <option>Facile</option>
-                                <option>Moyen</option>
-                                <option>Difficile</option>
-                            </select>
-                        </div>
+                <h1>Current Expeditions : </h1>
+                <div *ngFor="let myexpedition of myExpeditions">
+                    <div *ngIf="!myexpedition.expedition.finished" class="my-expedition">
+                        <p>Expedition : {{myexpedition.expeditionname}}</p>
+                        <p>Lvl : {{myexpedition.expedition.lvl}}</p>
+                        <p>{{myexpedition.remainingtime}} seconds remaining</p>
                     </div>
-                </div>
-            </div>
-            <h1>Expeditions en cours</h1>
-            <div *ngFor="let myexpedition of myExpeditions">
-                <div *ngIf="!myexpedition.expedition.finished" class="my-expedition">
-                    <p>Expedition : {{myexpedition.expeditionname}}</p>
-                    <p>lvl : {{myexpedition.expedition.lvl}}</p>
-                    <p>Moins de {{myexpedition.remainingtime}} secondes restantes</p>
-                </div>
 
+                </div>
+                <!-- <button (click)="getExpeditionsData()" type="text">update data</button> -->
             </div>
-            <button (click)="getExpeditionsData()" type="text">update data</button>
         </div>
         <div class="column is-9">
 
             <div *ngFor="let expedition of filteredExpeditionsInfo" class="column">
-                <div (click)="launchExpedition(expedition.id)" class="card expedition">
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-left">
-                                <div *ngIf="expedition.id; then completedBlock else unCompletedBlock"></div>
-                                <ng-template #completedBlock>
-                                    <span class="icon">
-                                        <fa-icon [icon]="['far', 'trophy-alt']" size="2x"></fa-icon>
-                                    </span>
-                                </ng-template>
-                                <ng-template #unCompletedBlock>
-                                    <span class="icon">
-                                        <fa-icon [icon]="['far', 'trophy']" size="2x"></fa-icon>
-                                    </span>
-                                </ng-template>
-                            </div>
+                <div class="card expedition">
+                    <div class="box">
+                        <article class="media">
                             <div class="media-content">
-                                <p class="title is-4">Expedition : {{getExpeditionName(expedition.id)}}</p>
-                                <p class="subtitle is-6">Durée: {{expedition.duration/1000}} secondes</p>
-                                <p class="subtitle is-6">Coût: {{expedition.seeds}} graines</p>
-                            </div>
-                        </div>
+                                <div *ngIf="user" class="content">
+                                    <p class="title is-4">Expedition : {{getExpeditionName(expedition.id)}}</p>
+                                    <p class="subtitle is-6">Duration: {{expedition.duration/1000}} secondes</p>
+                                    <button class="button is-primary" [disabled]="user.seeds<expedition.seeds"
+                                        (click)="launchExpedition(expedition.id)">Launch Expedition
+                                        {{expedition.seeds}}&nbsp;
+                                        <fa-icon [icon]="['far', 'seedling']" size="1x"></fa-icon>
+                                    </button>
 
-                        <div class="content">
-                        </div>
+                                </div>
+
+                            </div>
+                        </article>
                     </div>
-                    <footer class="card-footer has-text-left">
-                        <p class="card-footer-item">
-                        </p>
-                    </footer>
+
                 </div>
             </div>
+
         </div>
     </div>
-
 </div>

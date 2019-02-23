@@ -4,11 +4,29 @@
     <div class="page-loader"></div>
   </div>
   <div *ngIf="!pageLoading">
-    username : spentseeds --- spentdroppings --- spentfeathers
-      <div *ngFor="let user of allusers">
-        {{user.username}} : {{user.totalspentseeds}}  --- {{user.totalspentdroppings}}  --- {{user.totalspentfeathers}} 
+    <table class="table table is-bordered">
+      <thead>
+        <tr>
+            <th>Rank</th>
+          <th>Player</th>
+          <th>Military Score</th>
+          <th>Spent Seeds</th>
+          <th>Spent Droppings</th>
+          <th>Spent Feathers</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of allusers; index as i">
+            <td>{{i+1}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.militaryscore}}</td>
+          <td>{{user.totalspentseeds}}</td>
+          <td>{{user.totalspentdroppings}}</td>
+          <td>{{user.totalspentfeathers}}</td>
+        </tr>
+    </tbody>
+    </table>
 
-      </div>
 
   </div>
 </div>

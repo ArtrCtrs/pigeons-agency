@@ -14,9 +14,10 @@ export class AviaryComponent implements OnInit {
     pageLoading: boolean = true;
     detailedPigeons: DetailedPigeon[] = [];
     selectedPigeonId: number;
-    user:User;
+    user: User;
+    feathers: any;
 
-    constructor(public aviaryService: AviaryService,public pageDataService: PageDataService) { }
+    constructor(public aviaryService: AviaryService, public pageDataService: PageDataService) { }
 
     ngOnInit() {
         this.initPigeons();
@@ -27,6 +28,7 @@ export class AviaryComponent implements OnInit {
         const apiReturn: getPigeonsAPIReturn = await this.aviaryService.getPigeons();
         this.user = (await this.pageDataService.getHomePageData()).data;
         this.pageLoading = false;
+        this.feathers = document.getElementById("feathers");
 
 
         const pigeons: Pigeon[] = apiReturn.data;
@@ -102,8 +104,39 @@ export class AviaryComponent implements OnInit {
             pigeonid: id
         });
         await this.initPigeons();
+        this.sellPigeonAnimation();
+    }
+
+    sellPigeonAnimation() {
+        this.feathers.style.display = "block";
+        const h = window.innerHeight;
+        const w = window.innerWidth;
+        for (let i = 0; i < 50; i++) {
+            let x = document.createElement("IMG");
+            x.setAttribute("src", "../../assets/img/feather.png");
+            x.style.position = "absolute";
+            x.style.zIndex = "101";
+            x.style.top = (Math.random() * h * 1.4) - h * 0.2 + "px";
+            x.style.left = (Math.random() * w * 1.4) - w * 0.2 + "px";
+            x.style.height = (Math.random() * 100) + 50 + "px";
+            x.style.width = (Math.random() * 100) + 50 + "px";
+            x.style.transition = "all 0.5s ease-out";
+
+            this.feathers.appendChild(x);
+
+            setTimeout(function () {
+                x.style.top = Math.random() * h + "px";
+                x.style.left = Math.random() * w + "px";
+            }, 10)
+        }
+        setTimeout(function () {
+            this.feathers.innerHTML = '';
+            this.feathers.style.display = "none";
+        }, 500)
     }
 }
+
+
 
 
 interface DetailedPigeon {
