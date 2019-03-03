@@ -28,29 +28,40 @@ export class MapComponent implements OnInit {
             attribution: 'Players Map'
         }).addTo(this.pigeon_map);
 
-        let pigeonIcon = L.icon({
-            iconUrl: '/assets/marker/marker_pigeon.png'
-        });
+        // let pigeonIcon = L.icon({
+        //     iconUrl: '/assets/marker/marker_pigeon.png'
+        // });
 
-        let pigeon_marker = L.marker([5, 5], { icon: pigeonIcon }).addTo(this.pigeon_map);
+        // let pigeon_marker = L.marker([5, 5], { icon: pigeonIcon }).addTo(this.pigeon_map);
 
         this.updateMapInfo()
         this.pageLoading = false;
     }
 
     async updateMapInfo() {
-        let pigeonIcon = L.icon({
-            iconUrl: '/assets/marker/marker_pigeon.png'
-        });
 
         this.allusers = (await this.PageDataService.getLeaderboardData()).data;
         this.allusers.forEach(function (user) {
-            console.log(user)
-            L.marker([1.5, 5], { icon: pigeonIcon }).on('mouseover', this.onHover).addTo(this.pigeon_map);
+            let popup: string = "<p>" + user.username + "</p>" + "<button class=\"button is-primary\" [disabled]=\"" + "\"(click)=\"attackPlayer(" + user.id + ")\">attack Player</button>\""
+
+
+
+            L.marker([user.xcoord, user.ycoord], {
+                icon: L.icon({
+                    iconUrl: '/assets/marker/' + user.icon,
+                    iconSize: [50, 50]
+                })
+            })
+                .addTo(this.pigeon_map)
+                .bindPopup(popup)
         }, this);
     }
 
     onHover() {
         console.log("yee")
+    }
+
+    attackPlayer() {
+        console.log("atack")
     }
 }

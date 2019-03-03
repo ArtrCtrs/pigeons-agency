@@ -1,13 +1,14 @@
-export interface User { 
+export interface User {
     id: number;
     username: string;
     password: string;
+    icon: string;
     lvl: number;
-    birds:number;
+    birds: number;
     maxbirds: number;
-    maxseeds:number;
-    maxdroppings:number;
-    maxexpeditions:number,
+    maxseeds: number;
+    maxdroppings: number;
+    maxexpeditions: number,
     seeds: number;
     seedsminute: number;
     droppings: number;
@@ -16,17 +17,17 @@ export interface User {
     xcoord: number;
     ycoord: number;
     lastupdate: number;
-    farmlvl:number;
-    aviarylvl:number;
-    farmstoragelvl:number;
-    droppingsstoragelvl:number;
-    totalspentseeds:number;
-    totalspentdroppings:number;
-    totalspentfeathers:number;
-    hasnotifications:boolean;
-    istravelling:boolean;
-    militaryscore:number;
-    totalattacks:number;
-    totaldefenses:number;
-    creationtime:number;
+    farmlvl: number;
+    aviarylvl: number;
+    farmstoragelvl: number;
+    droppingsstoragelvl: number;
+    totalspentseeds: number;
+    totalspentdroppings: number;
+    totalspentfeathers: number;
+    hasnotifications: boolean;
+    istravelling: boolean;
+    militaryscore: number;
+    totalattacks: number;
+    totaldefenses: number;
+    creationtime: number;
 }

@@ -14,5 +14,7 @@ export interface Pigeon {
     feathers: number,
     creationtime:number,
     element:number,
+    attacker:boolean,
+    defender:boolean,
     ownerid:number
 }
