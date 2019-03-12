@@ -19,6 +19,7 @@ export class ExpeditionsComponent implements OnInit {
     expeditionsInfo: ExpeditionInfo[] = [];
     myExpeditions: ActiveExpedition[] = [];
     user: User;
+    nbrExpeditions: number=0;
     interval: any;
 
     constructor(public expeditionsService: ExpeditionsService, public pageDataService: PageDataService) {
@@ -33,12 +34,13 @@ export class ExpeditionsComponent implements OnInit {
     }
 
     async getExpeditionsData() {
-
+        this.nbrExpeditions=0;
         const expeditions: Expedition[] = (await this.expeditionsService.getExpeditionsData()).data;
         this.myExpeditions = [];
         expeditions.forEach(exp => {
             const activeExp: ActiveExpedition = { expedition: exp, expeditionname: this.getExpeditionName(exp.type), remainingtime: this.getRemainingTime(exp.starttime, exp.duration) };
             this.myExpeditions.push(activeExp);
+            this.nbrExpeditions++;
         }, this);
         await this.getPlayerInfo();
         this.pageLoading = false;
@@ -48,6 +50,7 @@ export class ExpeditionsComponent implements OnInit {
     }
 
     async launchExpedition(id: number) {
+        this.nbrExpeditions++;
         await this.expeditionsService.launchExpedition({
             expeditiontype: id
         });
@@ -57,12 +60,14 @@ export class ExpeditionsComponent implements OnInit {
 
     upDateFrontInfo() {
         this.user.seeds = this.user.seeds < this.user.maxseeds ? this.user.seeds + (this.user.seedsminute / 60) : this.user.maxseeds;
+        console.log(this.nbrExpeditions)
         this.myExpeditions.forEach(function (exp) {
             if (!exp.expedition.finished) {
                 exp.remainingtime = this.getRemainingTime(exp.expedition.starttime, exp.expedition.duration);
                 if (exp.remainingtime <= 0) {
                     this.user.birds = this.user.birds < this.user.maxbirds ? this.user.birds + 1 : this.user.maxbirds;
                     exp.expedition.finished = true;
+                    this.nbrExpeditions--;
                 }
             }
         }, this);

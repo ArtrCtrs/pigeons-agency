@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
     }
 
     upDateFrontInfo() {
-        console.log("m")
         this.user.seeds = this.user.seeds < this.user.maxseeds ? this.user.seeds + (this.user.seedsminute / 60) : this.user.maxseeds;
         this.user.droppings = this.user.droppings < this.user.maxdroppings ? this.user.droppings + (this.user.totaldroppingsminute / 60) : this.user.maxdroppings;
     }

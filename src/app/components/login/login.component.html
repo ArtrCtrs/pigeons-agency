@@ -7,13 +7,13 @@
             <form [formGroup]="form" (submit)="register()">
                 <div class="field">
                     <div class="control">
-                        <input formControlName="username" class="input" placeholder="Votre nom d'utilisateur" [ngClass]="{'is-danger': sendAttempt && !form.get('username').valid}">
+                        <input formControlName="username" class="input" placeholder="Your username" [ngClass]="{'is-danger': sendAttempt && !form.get('username').valid}">
                     </div>
                 </div>
 
                 <div class="field">
                     <div class="control">
-                        <input formControlName="password" class="input" type="password" placeholder="Votre mot de passe"
+                        <input formControlName="password" class="input" type="password" placeholder="Your password"
                             [ngClass]="{'is-danger': sendAttempt && !form.get('password').valid}">
                     </div>
                 </div>
@@ -21,8 +21,8 @@
             </form>
         </div>
         <p class="has-text-grey">
-            <a [routerLink]="['/register']">Inscription</a> &nbsp;·&nbsp;
-            <a [routerLink]="['/forgot-password']">Mot de passe oublié</a>
+            <a [routerLink]="['/register']">Register</a> &nbsp;·&nbsp;
+            <a [routerLink]="['/forgot-password']">Forgotten password</a>
         </p>
     </div>
 </div>

@@ -1,27 +1,27 @@
 <div class="container has-text-centered">
     <div class="column is-4 is-offset-4">
         <h3 class="title">
-            Inscription
+            Register
         </h3>
         <div class="box">
             <form [formGroup]="form" (submit)="register()">
                 <div class="field">
                     <div class="control">
-                        <input formControlName="username" class="input" type="email" placeholder="Votre nom d'utilisateur" [ngClass]="{'is-danger': sendAttempt && !form.get('username').valid}">
+                        <input formControlName="username" class="input" type="email" placeholder="Your username" [ngClass]="{'is-danger': sendAttempt && !form.get('username').valid}">
                     </div>
                 </div>
 
                 <div class="field">
                     <div class="control">
-                        <input formControlName="password" class="input" type="password" placeholder="Votre mot de passe"
+                        <input formControlName="password" class="input" type="password" placeholder="Your password"
                             [ngClass]="{'is-danger': sendAttempt && !form.get('password').valid}">
                     </div>
                 </div>
-                <button class="button is-block is-info is-fullwidth" [ngClass]="{'is-loading': loading}">Inscription</button>
+                <button class="button is-block is-info is-fullwidth" [ngClass]="{'is-loading': loading}">Register</button>
             </form>
         </div>
         <p class="has-text-grey">
-            <a [routerLink]="['/login']">Retour à la page de connexion</a>
+            <a [routerLink]="['/login']">Return to connection page</a>
         </p>
     </div>
 </div>

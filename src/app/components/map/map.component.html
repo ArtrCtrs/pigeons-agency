@@ -1,3 +1,7 @@
-<div id="pigeon_map">
-  
+<div class="container" [ngClass]="{'is-loading': pageLoading, 'is-loaded': !pageLoading}">
+    <div class="page-loader-wrapper">
+        <div class="page-loader"></div>
+    </div>
+    <div id="pigeon_map">
+    </div>
 </div>

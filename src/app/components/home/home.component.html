@@ -18,7 +18,7 @@
                     </div>
                     <div class="media-content">
                         <p class="title is-4">{{user.username | titlecase}}</p>
-                        <p class="subtitle is-6">Niveau {{user.lvl}}</p>
+                        <p class="subtitle is-6">Level {{user.lvl}}</p>
                     </div>
                 </div>
 
@@ -34,21 +34,21 @@
                         <div class="column is-3-widescreen is-3-desktop is-6-tablet is-12-mobile has-text-centered">
                             <article class="tile is-child box">
                                 <p class="title">{{user.seeds | number: '1.0-0'}}/{{user.maxseeds}}</p>
-                                <p class="subtitle">Graines</p>
+                                <p class="subtitle">Seeds</p>
                                 <p class="subtitle">+ {{user.seedsminute}} / min</p>
                             </article>
                         </div>
                         <div class="column is-3-widescreen is-3-desktop is-6-tablet is-12-mobile has-text-centered">
                             <article class="tile is-child box">
                                 <p class="title">{{user.feathers}}</p>
-                                <p class="subtitle">Plumes</p>
+                                <p class="subtitle">Feathers</p>
                                 <p class="subtitle">&nbsp;</p>
                             </article>
                         </div>
                         <div class="column is-3-widescreen is-3-desktop is-6-tablet is-12-mobile has-text-centered">
                             <article class="tile is-child box">
                                 <p class="title">{{user.droppings| number: '1.0-0'}}/{{user.maxdroppings}}</p>
-                                <p class="subtitle">Fiente</p>
+                                <p class="subtitle">Droppings</p>
                                 <p class="subtitle">+ {{user.totaldroppingsminute}} / min</p>
                             </article>
                         </div>

@@ -19,6 +19,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ExpeditionsComponent } from './components/expeditions/expeditions.component';
 import { UpgradesComponent } from './components/upgrades/upgrades.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 import { faMap } from '@fortawesome/pro-regular-svg-icons';
 import { faScroll } from '@fortawesome/pro-regular-svg-icons';
@@ -34,6 +35,7 @@ import { faPoop } from '@fortawesome/pro-regular-svg-icons';
 import { faCrow } from '@fortawesome/pro-regular-svg-icons';
 import { faPennant } from '@fortawesome/pro-regular-svg-icons';
 import { faAngleDoubleUp } from '@fortawesome/pro-regular-svg-icons';
+import { faExclamationTriangle } from '@fortawesome/pro-regular-svg-icons';
 
 
 library.add(faMap);
@@ -50,6 +52,7 @@ library.add(faPoop);
 library.add(faCrow);
 library.add(faPennant);
 library.add(faAngleDoubleUp);
+library.add(faExclamationTriangle);
 
 @NgModule({
     declarations: [
@@ -64,7 +67,8 @@ library.add(faAngleDoubleUp);
         PageNotFoundComponent,
         ExpeditionsComponent,
         UpgradesComponent,
-        LeaderboardComponent
+        LeaderboardComponent,
+        MessagesComponent
     ],
     imports: [
         BrowserModule,

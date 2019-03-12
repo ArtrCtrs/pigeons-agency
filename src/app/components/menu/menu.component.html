@@ -70,6 +70,12 @@
                     </span>
                     <span>Map</span>
                 </a>
+                <a class="navbar-item" (click)="redirect(['/messages'])" routerLinkActive="is-active">
+                    <span class="icon">
+                        <fa-icon [icon]="['far', 'map']"></fa-icon>
+                    </span>
+                    <span>Messages</span>
+                </a>
             </div>
 
             <div class="navbar-end">

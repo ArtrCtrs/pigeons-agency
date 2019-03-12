@@ -12,6 +12,7 @@ import { MapComponent } from './components/map/map.component';
 import { UpgradesComponent } from './components/upgrades/upgrades.component';
 import { IsLoggedInGuard } from './guards/is-logged-in.guard';
 import { IsLoggedOutGuard } from './guards/is-logged-out.guard';
+import { MessagesComponent } from './components/messages/messages.component';
 
 const routes: Routes = [
     {
@@ -61,6 +62,10 @@ const routes: Routes = [
     },{
         path: 'upgrades',
         component: UpgradesComponent,
+        canActivate: [IsLoggedInGuard]
+    },{
+        path: 'messages',
+        component: MessagesComponent,
         canActivate: [IsLoggedInGuard]
     },
     {
