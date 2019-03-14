@@ -26,9 +26,52 @@ export class AviaryService {
         });
     }
 
-    deletePigeon(req: deletePigeonRequest) {
+    deletePigeon(req: pigeonRequest) {
         return new Promise((resolve, reject) => {
-            this.http.post(environment.apiBaseUrl + 'pigeons', req, {
+            this.http.post(environment.apiBaseUrl + 'pigeons/sell', req, {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            })
+                .subscribe((res: getPigeonsAPIReturn) => {
+                    resolve(res);
+                }, err => {
+                    reject(err);
+                });
+        });
+    }
+
+    feedPigeon(req: pigeonRequest) {
+        return new Promise((resolve, reject) => {
+            this.http.post(environment.apiBaseUrl + 'pigeons/feed', req, {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            })
+                .subscribe((res: getPigeonsAPIReturn) => {
+                    resolve(res);
+                }, err => {
+                    reject(err);
+                });
+        });
+    }
+    setAttacker(req: pigeonRequest) {
+        return new Promise((resolve, reject) => {
+            this.http.post(environment.apiBaseUrl + 'pigeons/attacker', req, {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            })
+                .subscribe((res: getPigeonsAPIReturn) => {
+                    resolve(res);
+                }, err => {
+                    reject(err);
+                });
+        });
+    }
+    setDefender(req: pigeonRequest) {
+        return new Promise((resolve, reject) => {
+            this.http.post(environment.apiBaseUrl + 'pigeons/defender', req, {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
@@ -47,6 +90,6 @@ export interface getPigeonsAPIReturn {
     data: Pigeon[];
 }
 
-export interface deletePigeonRequest {
+export interface pigeonRequest {
     pigeonid: number
 }

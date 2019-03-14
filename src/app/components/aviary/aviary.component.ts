@@ -106,12 +106,30 @@ export class AviaryComponent implements OnInit {
         await this.initPigeons();
         this.sellPigeonAnimation();
     }
+    async feedPigeon(id: number) {
+        await this.aviaryService.feedPigeon({
+            pigeonid: id
+        });
+        await this.initPigeons();
+    }
+    async setAttacker(id: number) {
+        await this.aviaryService.setAttacker({
+            pigeonid: id
+        });
+        await this.initPigeons();
+    }
+    async setDefender(id: number) {
+        await this.aviaryService.setDefender({
+            pigeonid: id
+        });
+        await this.initPigeons();
+    }
 
     sellPigeonAnimation() {
         this.feathers.style.display = "block";
         const h = window.innerHeight;
         const w = window.innerWidth;
-        for (let i = 0; i < 35; i++) {
+        for (let i = 0; i < 20; i++) {
             let x = document.createElement("IMG");
             x.setAttribute("src", "../../assets/img/feather.png");
             x.style.position = "absolute";
