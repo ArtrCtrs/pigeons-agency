@@ -26,32 +26,6 @@
                         Overview
                     </span>
                 </a>
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        Installations
-                    </a>
-
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" (click)="redirect(['/upgrades'])" routerLinkActive="is-active">
-                            <span class="icon">
-                                <fa-icon [icon]="['far', 'angle-double-up']"></fa-icon>
-                            </span>
-                            <span>Upgrades</span>
-                        </a>
-                        <a class="navbar-item" (click)="redirect(['/achievements'])" routerLinkActive="is-active">
-                            <span class="icon">
-                                <fa-icon [icon]="['far', 'trophy']"></fa-icon>
-                            </span>
-                            <span>Achievements</span>
-                        </a>
-                        <a class="navbar-item" (click)="redirect(['/leaderboard'])" routerLinkActive="is-active">
-                            <span class="icon">
-                                <fa-icon [icon]="['far', 'pennant']"></fa-icon>
-                            </span>
-                            <span>Leaderboard</span>
-                        </a>
-                    </div>
-                </div>
                 <a class="navbar-item" (click)="redirect(['/aviary'])" routerLinkActive="is-active">
                     <span class="icon">
                         <fa-icon [icon]="['far', 'crow']"></fa-icon>
@@ -70,12 +44,33 @@
                     </span>
                     <span>Map</span>
                 </a>
-                <a class="navbar-item" (click)="redirect(['/messages'])" routerLinkActive="is-active">
-                    <span class="icon">
-                        <fa-icon [icon]="['far', 'map']"></fa-icon>
-                    </span>
-                    <span>Messages</span>
-                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Other
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" (click)="redirect(['/upgrades'])" routerLinkActive="is-active">
+                            <span class="icon">
+                                <fa-icon [icon]="['far', 'angle-double-up']"></fa-icon>
+                            </span>
+                            <span>Upgrades</span>
+                        </a>
+                        <a class="navbar-item" (click)="redirect(['/messages'])" routerLinkActive="is-active">
+                            <span class="icon">
+                                <fa-icon [icon]="['far', 'envelope']"></fa-icon>
+                            </span>
+                            <span>Messages</span>
+                        </a>
+                        <a class="navbar-item" (click)="redirect(['/leaderboard'])" routerLinkActive="is-active">
+                            <span class="icon">
+                                <fa-icon [icon]="['far', 'pennant']"></fa-icon>
+                            </span>
+                            <span>Leaderboard</span>
+                        </a>
+                    </div>
+                </div>
+                
             </div>
 
             <div class="navbar-end">

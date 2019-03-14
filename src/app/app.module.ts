@@ -36,6 +36,7 @@ import { faCrow } from '@fortawesome/pro-regular-svg-icons';
 import { faPennant } from '@fortawesome/pro-regular-svg-icons';
 import { faAngleDoubleUp } from '@fortawesome/pro-regular-svg-icons';
 import { faExclamationTriangle } from '@fortawesome/pro-regular-svg-icons';
+import { faEnvelope } from '@fortawesome/pro-regular-svg-icons';
 
 
 library.add(faMap);
@@ -53,6 +54,7 @@ library.add(faCrow);
 library.add(faPennant);
 library.add(faAngleDoubleUp);
 library.add(faExclamationTriangle);
+library.add(faEnvelope);
 
 @NgModule({
     declarations: [

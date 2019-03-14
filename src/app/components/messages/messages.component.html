@@ -1,3 +1,19 @@
-<p>
-  messages works!
-</p>
+<div class="container" [ngClass]="{'is-loading': pageLoading, 'is-loaded': !pageLoading}">
+  <div class="page-loader-wrapper">
+    <div class="page-loader"></div>
+  </div>
+  <div *ngFor="let message of messages" class="column">
+    <div class="card expedition">
+      <div class="box">
+        <article class="media">
+          <div class="media-content">
+              <p class="title is-4">{{message.title}}</p>
+              <p class="subtitle is-6">{{message.body}}</p>
+              <p class="subtitle is-6">From {{message.sender}} on {{timestampToString(message.date)}}</p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</div>

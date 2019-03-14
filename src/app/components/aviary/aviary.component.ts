@@ -111,7 +111,7 @@ export class AviaryComponent implements OnInit {
         this.feathers.style.display = "block";
         const h = window.innerHeight;
         const w = window.innerWidth;
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 35; i++) {
             let x = document.createElement("IMG");
             x.setAttribute("src", "../../assets/img/feather.png");
             x.style.position = "absolute";
