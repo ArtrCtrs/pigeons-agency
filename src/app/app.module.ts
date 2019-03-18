@@ -21,7 +21,7 @@ import { UpgradesComponent } from './components/upgrades/upgrades.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { MessagesComponent } from './components/messages/messages.component';
 
-import { faMap } from '@fortawesome/pro-regular-svg-icons';
+import { faMap, faHelmetBattle } from '@fortawesome/pro-regular-svg-icons';
 import { faScroll } from '@fortawesome/pro-regular-svg-icons';
 import { faFlask } from '@fortawesome/pro-regular-svg-icons';
 import { faWarehouse } from '@fortawesome/pro-regular-svg-icons';
@@ -37,7 +37,10 @@ import { faPennant } from '@fortawesome/pro-regular-svg-icons';
 import { faAngleDoubleUp } from '@fortawesome/pro-regular-svg-icons';
 import { faExclamationTriangle } from '@fortawesome/pro-regular-svg-icons';
 import { faEnvelope } from '@fortawesome/pro-regular-svg-icons';
-
+import { faBolt } from '@fortawesome/pro-regular-svg-icons';
+import { faSword } from '@fortawesome/pro-regular-svg-icons';
+import { faShield } from '@fortawesome/pro-regular-svg-icons';
+import { faStop } from '@fortawesome/pro-regular-svg-icons';
 
 library.add(faMap);
 library.add(faScroll);
@@ -55,6 +58,11 @@ library.add(faPennant);
 library.add(faAngleDoubleUp);
 library.add(faExclamationTriangle);
 library.add(faEnvelope);
+library.add(faBolt);
+library.add(faSword);
+library.add(faShield);
+library.add(faStop);
+library.add(faHelmetBattle);
 
 @NgModule({
     declarations: [

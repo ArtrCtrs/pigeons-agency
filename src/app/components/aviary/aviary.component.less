@@ -1,3 +1,32 @@
+@import "../../../styles.less";
+.stat{
+    width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgb(175,175,175);
+        color: white;
+        text-align: center;
+        line-height: 35px;
+        margin-left:10px;
+        padding-top:3px;
+        float:left;
+}
+.attack{
+    
+    background-color:@red;
+    color: white;
+}
+.defense{
+    
+    background-color:@blue;
+    color: white;
+}
+.shield{
+    
+    background-color:@green;
+    color: white;
+}
+
 .pigeon.card {
     top: 0px;
     transition: all 0.15s ease 0s;
@@ -82,10 +111,11 @@
     float: right;
 }
 
-.delete-pigeon{
-    background-color:red;
-    width:20px;
-    height:20px;
+.is-danger{
+    padding:0.4em;
+    font-size: .9rem;
+    float:right;
+    z-index:50;
 }
 
 #feathers{

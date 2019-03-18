@@ -6,14 +6,15 @@
         <div class="card">
             <div class="card-image">
                 <figure class="image">
-                    <img style="height: 400px;" src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                    <img style="height: 400px;" src="https://bulma.io/images/placeholders/1280x960.png"
+                        alt="Placeholder image">
                 </figure>
             </div>
             <div class="card-content">
                 <div class="media">
                     <div class="media-left">
                         <figure class="image is-48x48">
-                                <img src="/assets/marker/{{user.icon}}" alt="icon">
+                            <img src="/assets/marker/{{user.icon}}" alt="icon">
                         </figure>
                     </div>
                     <div class="media-content">
@@ -27,28 +28,43 @@
                         <div class="column is-3-widescreen is-3-desktop is-6-tablet is-12-mobile has-text-centered">
                             <article class="tile is-child box">
                                 <p class="title">{{user.birds}}/{{user.maxbirds}}</p>
-                                <p class="subtitle">Pigeons</p>
+                                <p class="subtitle">Pigeons
+                                    <span class="icon">
+                                        <fa-icon [icon]="['far', 'crow']"></fa-icon>
+                                    </span>
+                                </p>
                                 <p class="subtitle">&nbsp;</p>
                             </article>
                         </div>
                         <div class="column is-3-widescreen is-3-desktop is-6-tablet is-12-mobile has-text-centered">
                             <article class="tile is-child box">
                                 <p class="title">{{user.seeds | number: '1.0-0'}}/{{user.maxseeds}}</p>
-                                <p class="subtitle">Seeds</p>
+                                <p class="subtitle">Seeds
+                                    <span class="icon">
+                                        <fa-icon [icon]="['far', 'seedling']"></fa-icon>
+                                    </span></p>
                                 <p class="subtitle">+ {{user.seedsminute}} / min</p>
                             </article>
                         </div>
                         <div class="column is-3-widescreen is-3-desktop is-6-tablet is-12-mobile has-text-centered">
                             <article class="tile is-child box">
                                 <p class="title">{{user.feathers}}</p>
-                                <p class="subtitle">Feathers</p>
+                                <p class="subtitle">Feathers
+                                    <span class="icon">
+                                        <fa-icon [icon]="['far', 'feather-alt']"></fa-icon>
+                                    </span>
+                                </p>
                                 <p class="subtitle">&nbsp;</p>
                             </article>
                         </div>
                         <div class="column is-3-widescreen is-3-desktop is-6-tablet is-12-mobile has-text-centered">
                             <article class="tile is-child box">
                                 <p class="title">{{user.droppings| number: '1.0-0'}}/{{user.maxdroppings}}</p>
-                                <p class="subtitle">Droppings</p>
+                                <p class="subtitle">Droppings
+                                    <span class="icon">
+                                        <fa-icon [icon]="['far', 'poop']"></fa-icon>
+                                    </span>
+                                </p>
                                 <p class="subtitle">+ {{user.totaldroppingsminute}} / min</p>
                             </article>
                         </div>
