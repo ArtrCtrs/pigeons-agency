@@ -9,7 +9,8 @@
         line-height: 35px;
         margin-left:10px;
         padding-top:3px;
-        float:left;
+        display:inline-block;
+        // float:left;
 }
 .attack{
     
@@ -26,7 +27,17 @@
     background-color:@green;
     color: white;
 }
-
+.attacker{
+    color:white;
+    background-color: @red;
+}
+.defender{
+    color:white;
+    background-color: @blue;
+}
+.stats-container{
+    position: relative;
+}
 .pigeon.card {
     top: 0px;
     transition: all 0.15s ease 0s;
@@ -50,10 +61,10 @@
 
 
 
-    &:hover {
-        cursor: pointer;
-        top: -5px;
-    }
+    // &:hover {
+    //     cursor: pointer;
+    //     top: -5px;
+    // }
 
     &.atypique {
         .points {

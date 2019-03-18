@@ -26,9 +26,10 @@
                         <div *ngFor="let detailedPigeon of detailedPigeons"
                             class="column is-2-widescreen is-3-desktop is-4-tablet is-12-mobile">
                             <div class="pigeon card" (click)="selectPigeon(detailedPigeon.pigeon)">
-                                <a class="button is-danger is-small" (click)="deletePigeon(detailedPigeon.pigeon.id)">Sell 
+                                <a class="button is-danger is-small"
+                                    (click)="deletePigeon(detailedPigeon.pigeon.id)">Sell
                                     {{detailedPigeon.pigeon.feathers}}
-                                    &nbsp; 
+                                    &nbsp;
                                     <span class="icon">
                                         <fa-icon [icon]="['far', 'feather-alt']"></fa-icon>
                                     </span>
@@ -46,26 +47,46 @@
                                             <p class="subtitle is-6">Rank : {{detailedPigeon.pigeon.rank}}</p>
                                         </div>
                                     </div>
+                                    <div class="buttons has-addons is-centered">
+                                        <button class="button" [class.attacker]="detailedPigeon.pigeon.attacker" [disabled]="nbrAttackers>=5 && !detailedPigeon.pigeon.attacker" (click)="setAttacker(detailedPigeon.pigeon.id)">Set
+                                            attacker
+                                            &nbsp;
+                                            <span class="icon">
+                                                <fa-icon [icon]="['far', 'sword']"></fa-icon>
+                                            </span>
+                                        </button>
+
+                                        <button class="button"  [class.defender]="detailedPigeon.pigeon.defender" [disabled]="nbrDefenders>=5 && !detailedPigeon.pigeon.defender" (click)="setDefender(detailedPigeon.pigeon.id)">Set
+                                            defender
+                                            &nbsp;
+                                            <span class="icon">
+                                                <fa-icon [icon]="['far', 'shield']"></fa-icon>
+                                            </span>
+                                        </button>
+                                    </div>
+
 
                                     <div class="content">
-                                        <div class="stat attack">{{detailedPigeon.pigeon.attack}}
+                                        <div class="stats-container">
+                                            <div class="stat attack">{{detailedPigeon.pigeon.attack}}
                                                 <fa-icon [icon]="['far', 'sword']" size="1x"></fa-icon>
-                                        </div>
-                                        <div class="stat defense">{{detailedPigeon.pigeon.defense}}
+                                            </div>
+                                            <div class="stat defense">{{detailedPigeon.pigeon.defense}}
                                                 <fa-icon [icon]="['far', 'helmet-battle']" size="1x"></fa-icon>
-                                        </div>
-                                        <div class="stat shield">{{detailedPigeon.pigeon.shield}}
+                                            </div>
+                                            <div class="stat shield">{{detailedPigeon.pigeon.shield}}
                                                 <fa-icon [icon]="['far', 'shield']" size="1x"></fa-icon>
                                             </div>
-                                        <progress class="progress is-warning"
-                                            [value]="detailedPigeon.pigeon.energy"
+                                        </div>
+                                        <progress class="progress is-warning" [value]="detailedPigeon.pigeon.energy"
                                             max="detailedPigeon.pigeon.maxenergy"></progress>
-                                            <span
+                                        <span
                                             class="progress-value">{{detailedPigeon.pigeon.energy}}/{{detailedPigeon.pigeon.maxenergy}}
                                             <fa-icon [icon]="['far', 'bolt']" size="1x"></fa-icon>
                                         </span>
-                                        <div>+ {{detailedPigeon.pigeon.droppingsminute}} <fa-icon [icon]="['far', 'poop']" size="1x"></fa-icon>
-                                            dropping/minute</div>
+                                        <div>+ {{detailedPigeon.pigeon.droppingsminute}} <fa-icon
+                                                [icon]="['far', 'poop']" size="1x"></fa-icon>
+                                           /min</div>
                                     </div>
                                 </div>
                             </div>

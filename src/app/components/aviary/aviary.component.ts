@@ -15,6 +15,8 @@ export class AviaryComponent implements OnInit {
     detailedPigeons: DetailedPigeon[] = [];
     selectedPigeonId: number;
     user: User;
+    nbrAttackers:number;
+    nbrDefenders:number;
     feathers: any;
 
     constructor(public aviaryService: AviaryService, public pageDataService: PageDataService) { }
@@ -24,6 +26,8 @@ export class AviaryComponent implements OnInit {
     }
 
     async initPigeons() {
+        this.nbrAttackers=0;
+        this.nbrDefenders=0;
         const detailedPigeons: DetailedPigeon[] = [];
         const apiReturn: getPigeonsAPIReturn = await this.aviaryService.getPigeons();
         this.user = (await this.pageDataService.getHomePageData()).data;
@@ -44,6 +48,12 @@ export class AviaryComponent implements OnInit {
                     totalPoints: statisticsTotal
                 },
                 pigeon: pigeon
+            }
+            if(pigeon.attacker){
+                this.nbrAttackers++;
+            }
+            if(pigeon.defender){
+                this.nbrDefenders++;
             }
 
             detailedPigeons.push(detailedPigeon);
