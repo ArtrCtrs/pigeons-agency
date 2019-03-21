@@ -26,6 +26,8 @@ export interface User {
     totalspentfeathers: number;
     hasnotifications: boolean;
     istravelling: boolean;
+    nextpossibleattack:number;
+    protecteduntil:number;
     militaryscore: number;
     totalattacks: number;
     totaldefenses: number;

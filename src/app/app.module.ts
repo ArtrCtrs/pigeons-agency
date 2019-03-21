@@ -20,6 +20,7 @@ import { ExpeditionsComponent } from './components/expeditions/expeditions.compo
 import { UpgradesComponent } from './components/upgrades/upgrades.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { AttackComponent } from './components/attack/attack.component';
 
 import { faMap, faHelmetBattle } from '@fortawesome/pro-regular-svg-icons';
 import { faScroll } from '@fortawesome/pro-regular-svg-icons';
@@ -78,7 +79,8 @@ library.add(faHelmetBattle);
         ExpeditionsComponent,
         UpgradesComponent,
         LeaderboardComponent,
-        MessagesComponent
+        MessagesComponent,
+        AttackComponent
     ],
     imports: [
         BrowserModule,

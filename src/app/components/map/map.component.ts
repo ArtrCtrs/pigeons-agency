@@ -42,26 +42,26 @@ export class MapComponent implements OnInit {
 
         this.allusers = (await this.PageDataService.getLeaderboardData()).data;
         this.allusers.forEach(function (user) {
-            let popup: string = "<p>" + user.username + "</p>" + "<button class=\"button is-primary\" [disabled]=\"" + "\"(click)=\"attackPlayer(" + user.id + ")\">attack Player</button>\""
-
-
+            let popup: string = 
+            "<bold>" + user.username + "</bold>"+
+            "<p>Military score : " + user.militaryscore + "</p>"+
+            "<p>Spent seeds : " + user.totalspentseeds + "</p>"+
+            "<p>Spent droppings : " + user.totalspentdroppings + "</p>"+
+            "<p>Spent feathers : " + user.totalspentfeathers + "</p>"+
+            "<p>" + user.birds/user.maxbirds + " birds</p>"+
+            "<p>" + user.seedsminute + " seeds/minute</p>"+
+            "<p>" + user.totaldroppingsminute + " droppings/minute</p>"+
+            "<p>Number of attacks : " + user.totalattacks + "</p>"+
+            "<p>Number of defenses : " + user.totaldefenses + "</p>";
 
             L.marker([user.xcoord, user.ycoord], {
                 icon: L.icon({
                     iconUrl: '/assets/marker/' + user.icon,
-                    iconSize: [50, 50]
+                    iconSize: [38, 38]
                 })
             })
                 .addTo(this.pigeon_map)
                 .bindPopup(popup)
         }, this);
-    }
-
-    onHover() {
-        console.log("yee")
-    }
-
-    attackPlayer() {
-        console.log("atack")
     }
 }

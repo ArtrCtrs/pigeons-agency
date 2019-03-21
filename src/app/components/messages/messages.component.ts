@@ -24,7 +24,7 @@ export class MessagesComponent implements OnInit {
   }
 
   timestampToString(time:number){
-    let date = new Date(time);
+    let date = new Date(time/1000);
     return date.toString();
 
   }

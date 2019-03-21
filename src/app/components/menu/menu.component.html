@@ -38,11 +38,11 @@
                     </span>
                     <span>Expeditions</span>
                 </a>
-                <a class="navbar-item" (click)="redirect(['/map'])" routerLinkActive="is-active">
+                <a class="navbar-item" (click)="redirect(['/attack'])" routerLinkActive="is-active">
                     <span class="icon">
-                        <fa-icon [icon]="['far', 'map']"></fa-icon>
+                        <fa-icon [icon]="['far', 'sword']"></fa-icon>
                     </span>
-                    <span>Map</span>
+                    <span>Attacks</span>
                 </a>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
@@ -67,6 +67,12 @@
                                 <fa-icon [icon]="['far', 'pennant']"></fa-icon>
                             </span>
                             <span>Leaderboard</span>
+                        </a>
+                        <a class="navbar-item" (click)="redirect(['/map'])" routerLinkActive="is-active">
+                            <span class="icon">
+                                <fa-icon [icon]="['far', 'map']"></fa-icon>
+                            </span>
+                            <span>Map</span>
                         </a>
                     </div>
                 </div>

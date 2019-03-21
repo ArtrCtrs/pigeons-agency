@@ -1,3 +1,4 @@
+import { AttackComponent } from './components/attack/attack.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AchievementsComponent } from './components/achievements/achievements.component';
 import { ExpeditionsComponent } from './components/expeditions/expeditions.component';
@@ -66,6 +67,11 @@ const routes: Routes = [
     },{
         path: 'messages',
         component: MessagesComponent,
+        canActivate: [IsLoggedInGuard]
+    },
+    {
+        path: 'attack',
+        component: AttackComponent,
         canActivate: [IsLoggedInGuard]
     },
     {
