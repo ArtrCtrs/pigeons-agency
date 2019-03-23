@@ -22,7 +22,7 @@
           <td>{{user.totalspentseeds}}</td>
           <td>{{user.totalspentdroppings}}</td>
           <td>{{user.totalspentfeathers}}</td>
-          <td><button class="button is-primary" [disabled]="user.protecteduntil>now||mainuser.nextpossibleattack>now" (click)="attackPlayer(user.id)">attack Player</button></td>
+          <td><div *ngIf="user.id!=mainuser.id"><button class="button is-primary" [disabled]="user.protecteduntil>now||mainuser.nextpossibleattack>now" (click)="attackPlayer(user.id)">attack Player</button></div></td>
         </tr>
     </tbody>
     </table>

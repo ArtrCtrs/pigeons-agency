@@ -13,7 +13,7 @@ export class AttackService {
 
     getAttackboardData(): Promise<AttackDataAPIReturn> {
         return new Promise((resolve, reject) => {
-            this.http.get(environment.apiBaseUrl + 'allusers', {
+            this.http.get(environment.apiBaseUrl + 'allusers/attacks', {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
