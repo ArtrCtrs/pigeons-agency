@@ -7,12 +7,12 @@
 
     <div *ngIf="!pageLoading" class="column is-fullheight">
         <div class="card">
-            <div class="card-image">
+            <!-- <div class="card-image">
                 <figure class="image">
                     <img style="height: 400px;" src="https://bulma.io/images/placeholders/1280x960.png"
                         alt="Placeholder image">
-                </figure>
-            </div>
+                </figure> 
+            </div>-->
             <div class="card-content">
                 <div class="media">
                     <div class="media-content">
@@ -25,7 +25,7 @@
                     <div class="columns is-multiline">
                         <div *ngFor="let detailedPigeon of detailedPigeons"
                             class="column is-2-widescreen is-3-desktop is-4-tablet is-12-mobile">
-                            <div class="pigeon card" (click)="selectPigeon(detailedPigeon.pigeon)">
+                            <div class="pigeon card" [ngClass]="{'uncommon':detailedPigeon.pigeon.rank==2,'rare':detailedPigeon.pigeon.rank==3,'epic':detailedPigeon.pigeon.rank==4,'legendary':detailedPigeon.pigeon.rank==5}" (click)="selectPigeon(detailedPigeon.pigeon)">
                                 <a class="button is-danger is-small"
                                     (click)="deletePigeon(detailedPigeon.pigeon.id)">Sell
                                     {{detailedPigeon.pigeon.feathers}}

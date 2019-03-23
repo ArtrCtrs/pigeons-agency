@@ -1,11 +1,12 @@
 import { ExpeditionInfo } from '../interfaces/expedition-info';
 
+
 const expeditionsList:ExpeditionInfo[] =
     [{
         id: 0,
         seeds: 10,
         duration: 15000,
-        name:"Tour du jardin",
+        name:"Garden run",
         reward: [{
             pigeontype: 0,
             probability: 60
@@ -27,7 +28,7 @@ const expeditionsList:ExpeditionInfo[] =
         id: 1,
         seeds: 100,
         duration: 60000,
-        name:"Grand tour du jardin",
+        name:"Big garden run",
         reward: [{
             pigeontype: 0,
             probability: 15
@@ -63,7 +64,7 @@ const expeditionsList:ExpeditionInfo[] =
         id: 2,
         seeds: 500,
         duration: 90000,
-        name:"Espionnage chez la voisine",
+        name:"Under neighbor's car",
         reward: [{
             pigeontype: 1,
             probability: 5
@@ -103,7 +104,7 @@ const expeditionsList:ExpeditionInfo[] =
         id: 3,
         seeds: 2000,
         duration: 180000,
-        name:"Sous la voiture",
+        name:"At neighbor's window",
         reward: [{
             pigeontype: 1,
             probability: 5
@@ -141,3 +142,4 @@ const expeditionsList:ExpeditionInfo[] =
     }]
 
 export default expeditionsList;
+
