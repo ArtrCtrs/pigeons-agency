@@ -11,14 +11,14 @@
 
   <div class="box">
     An issue ? A question? 
-      <form [formGroup]="form" (submit)="sendmessage()">
+      <form [formGroup]="form" (submit)="sendMessage()">
           <div class="field">
               <div class="control">
                   <textarea rows="4" formControlName="message" class="textarea" placeholder="Your message Here"></textarea>
               </div>
           </div>
 
-          <button class="button is-block is-info" [ngClass]="{'is-loading': loading}">Send message</button>
+          <button class="button is-block is-info">Send message</button>
       </form>
   </div>
 </div>
