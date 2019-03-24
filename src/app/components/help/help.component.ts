@@ -22,7 +22,9 @@ export class HelpComponent implements OnInit {
 
   async sendMessage(){
     //event.preventDefault();
-    await this.messageService.sendMessage(this.form.get('message').value);
+    await this.messageService.sendMessage({
+      message: this.form.get('message').value
+  });
     this.router.navigate(['home']);
 
 
