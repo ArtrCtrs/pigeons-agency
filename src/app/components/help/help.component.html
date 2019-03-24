@@ -1,0 +1,24 @@
+<div class="card expedition">
+  <div class="box">
+    Launch <strong>Expeditions</strong> with seeds to collect pigeons in your <strong>Aviary</strong>.<br>
+    Pigeons generate droppings. Sell pigeons to collect feathers.<br>
+    Use ressources (seeds, droppings and feathers) to <strong>Upgrade</strong> your seeds generation, number of max pigeons, and ressources storage.<br>
+    <br>
+    Don't forget to set your pigeons as attackers and/or defenders to <strong>Attack</strong> other players and defend yourself from attacks.<br>
+    You have a maximum of 5 attackers and 5 defenders.
+    Attacks have a 1 minute cooldown. An attacked player can't be attacked for 15 minutes.
+  </div>
+
+  <div class="box">
+    An issue ? A question? 
+      <form [formGroup]="form" (submit)="sendmessage()">
+          <div class="field">
+              <div class="control">
+                  <textarea rows="4" formControlName="message" class="textarea" placeholder="Your message Here"></textarea>
+              </div>
+          </div>
+
+          <button class="button is-block is-info" [ngClass]="{'is-loading': loading}">Send message</button>
+      </form>
+  </div>
+</div>

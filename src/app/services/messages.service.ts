@@ -24,9 +24,26 @@ export class MessageService {
                 });
         });
     }
+    sendMessage(req:MessageRequest): Promise<MessagesAPIReturn> {
+        return new Promise((resolve, reject) => {
+            this.http.post(environment.apiBaseUrl + 'messages',req, {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            })
+                .subscribe((res: MessagesAPIReturn) => {
+                    resolve(res);
+                }, err => {
+                    reject(err);
+                });
+        });
+    }
 
 }
 export interface MessagesAPIReturn {
     message: string;
     data: Message[];
+}
+export interface MessageRequest{
+    message:string
 }

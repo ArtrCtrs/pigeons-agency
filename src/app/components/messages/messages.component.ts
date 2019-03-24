@@ -20,11 +20,10 @@ export class MessagesComponent implements OnInit {
   async getMessagesData() {
     this.messages = (await this.messageService.getMessages()).data;
     this.pageLoading = false;
-    console.log(this.messages)
   }
 
   timestampToString(time:number){
-    let date = new Date(time/1000);
+    let date = new Date(time/1);
     return date.toString();
 
   }

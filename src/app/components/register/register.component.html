@@ -4,6 +4,9 @@
             Register
         </h3>
         <div class="box">
+                <div *ngIf="this.form.get('username').hasError('minlength')&&sendAttempt">
+                        Name must be at least 4 characters long.
+                      </div>
             <form [formGroup]="form" (submit)="register()">
                 <div class="field">
                     <div class="control">

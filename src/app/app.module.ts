@@ -21,6 +21,7 @@ import { UpgradesComponent } from './components/upgrades/upgrades.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { AttackComponent } from './components/attack/attack.component';
+import { HelpComponent } from './components/help/help.component';
 
 import { faMap, faHelmetBattle } from '@fortawesome/pro-regular-svg-icons';
 import { faScroll } from '@fortawesome/pro-regular-svg-icons';
@@ -42,6 +43,7 @@ import { faBolt } from '@fortawesome/pro-regular-svg-icons';
 import { faSword } from '@fortawesome/pro-regular-svg-icons';
 import { faShield } from '@fortawesome/pro-regular-svg-icons';
 import { faStop } from '@fortawesome/pro-regular-svg-icons';
+import { faInfo } from '@fortawesome/pro-regular-svg-icons';
 
 library.add(faMap);
 library.add(faScroll);
@@ -64,6 +66,8 @@ library.add(faSword);
 library.add(faShield);
 library.add(faStop);
 library.add(faHelmetBattle);
+library.add(faInfo);
+
 
 @NgModule({
     declarations: [
@@ -80,7 +84,8 @@ library.add(faHelmetBattle);
         UpgradesComponent,
         LeaderboardComponent,
         MessagesComponent,
-        AttackComponent
+        AttackComponent,
+        HelpComponent
     ],
     imports: [
         BrowserModule,

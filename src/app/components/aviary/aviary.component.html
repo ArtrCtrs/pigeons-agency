@@ -24,7 +24,7 @@
                 <div class="content">
                     <div class="columns is-multiline">
                         <div *ngFor="let detailedPigeon of detailedPigeons"
-                            class="column is-2-widescreen is-3-desktop is-4-tablet is-12-mobile">
+                            class="column is--widescreen is-3-desktop is-6-tablet is-12-mobile">
                             <div class="pigeon card" [ngClass]="{'uncommon':detailedPigeon.pigeon.rank==2,'rare':detailedPigeon.pigeon.rank==3,'epic':detailedPigeon.pigeon.rank==4,'legendary':detailedPigeon.pigeon.rank==5}" (click)="selectPigeon(detailedPigeon.pigeon)">
                                 <a class="button is-danger is-small"
                                     (click)="deletePigeon(detailedPigeon.pigeon.id)">Sell
@@ -78,8 +78,8 @@
                                                 <fa-icon [icon]="['far', 'helmet-battle']" size="1x"></fa-icon>
                                             </div>
                                         </div>
-                                        <progress class="progress is-warning" [value]="detailedPigeon.pigeon.energy"
-                                            max="detailedPigeon.pigeon.maxenergy"></progress>
+                                        <!-- <progress class="progress is-warning" [value]="detailedPigeon.pigeon.energy"
+                                            max="detailedPigeon.pigeon.maxenergy"></progress> -->
                                         <!-- <span
                                             class="progress-value">{{detailedPigeon.pigeon.energy}}/{{detailedPigeon.pigeon.maxenergy}}
                                             <fa-icon [icon]="['far', 'bolt']" size="1x"></fa-icon>

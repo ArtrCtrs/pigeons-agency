@@ -14,6 +14,7 @@ import { UpgradesComponent } from './components/upgrades/upgrades.component';
 import { IsLoggedInGuard } from './guards/is-logged-in.guard';
 import { IsLoggedOutGuard } from './guards/is-logged-out.guard';
 import { MessagesComponent } from './components/messages/messages.component';
+import { HelpComponent } from './components/help/help.component';
 
 const routes: Routes = [
     {
@@ -72,6 +73,10 @@ const routes: Routes = [
     {
         path: 'attack',
         component: AttackComponent,
+        canActivate: [IsLoggedInGuard]
+    },{
+        path: 'help',
+        component: HelpComponent,
         canActivate: [IsLoggedInGuard]
     },
     {

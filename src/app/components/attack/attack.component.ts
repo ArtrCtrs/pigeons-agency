@@ -14,11 +14,14 @@ export class AttackComponent implements OnInit {
   allusers: User[];
   mainuser: User;
   now: number;
+  
+  interval: any;
 
   constructor(private router: Router, private AttackService: AttackService, public pageDataService: PageDataService) { }
 
   ngOnInit() {
     this.initAttackList();
+    this.interval = setInterval(() => { this.upDateFrontInfo(); }, 10000);
   }
 
   async initAttackList() {
@@ -38,5 +41,13 @@ export class AttackComponent implements OnInit {
   async getPlayerInfo() {
     this.mainuser = (await this.pageDataService.getHomePageData()).data;
   }
+
+  upDateFrontInfo() {
+    this.now=Date.now();
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.interval);
+}
 
 }
