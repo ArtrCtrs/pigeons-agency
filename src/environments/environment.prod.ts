@@ -1,4 +1,4 @@
 export const environment = {
-    production: false,
+    production: true,
     apiBaseUrl: 'http://pigeons.agency:5000/'
 };

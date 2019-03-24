@@ -72,18 +72,18 @@
                                                 <fa-icon [icon]="['far', 'sword']" size="1x"></fa-icon>
                                             </div>
                                             <div class="stat defense">{{detailedPigeon.pigeon.defense}}
-                                                <fa-icon [icon]="['far', 'helmet-battle']" size="1x"></fa-icon>
+                                                <fa-icon [icon]="['far', 'shield']" size="1x"></fa-icon>
                                             </div>
                                             <div class="stat shield">{{detailedPigeon.pigeon.shield}}
-                                                <fa-icon [icon]="['far', 'shield']" size="1x"></fa-icon>
+                                                <fa-icon [icon]="['far', 'helmet-battle']" size="1x"></fa-icon>
                                             </div>
                                         </div>
                                         <progress class="progress is-warning" [value]="detailedPigeon.pigeon.energy"
                                             max="detailedPigeon.pigeon.maxenergy"></progress>
-                                        <span
+                                        <!-- <span
                                             class="progress-value">{{detailedPigeon.pigeon.energy}}/{{detailedPigeon.pigeon.maxenergy}}
                                             <fa-icon [icon]="['far', 'bolt']" size="1x"></fa-icon>
-                                        </span>
+                                        </span> -->
                                         <div>+ {{detailedPigeon.pigeon.droppingsminute}} <fa-icon
                                                 [icon]="['far', 'poop']" size="1x"></fa-icon>
                                            /min</div>

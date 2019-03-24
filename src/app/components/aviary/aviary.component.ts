@@ -15,8 +15,8 @@ export class AviaryComponent implements OnInit {
     detailedPigeons: DetailedPigeon[] = [];
     selectedPigeonId: number;
     user: User;
-    nbrAttackers:number;
-    nbrDefenders:number;
+    nbrAttackers: number;
+    nbrDefenders: number;
     feathers: any;
 
     constructor(public aviaryService: AviaryService, public pageDataService: PageDataService) { }
@@ -26,8 +26,8 @@ export class AviaryComponent implements OnInit {
     }
 
     async initPigeons() {
-        this.nbrAttackers=0;
-        this.nbrDefenders=0;
+        this.nbrAttackers = 0;
+        this.nbrDefenders = 0;
         const detailedPigeons: DetailedPigeon[] = [];
         const apiReturn: getPigeonsAPIReturn = await this.aviaryService.getPigeons();
         this.user = (await this.pageDataService.getHomePageData()).data;
@@ -49,10 +49,10 @@ export class AviaryComponent implements OnInit {
                 },
                 pigeon: pigeon
             }
-            if(pigeon.attacker){
+            if (pigeon.attacker) {
                 this.nbrAttackers++;
             }
-            if(pigeon.defender){
+            if (pigeon.defender) {
                 this.nbrDefenders++;
             }
 
@@ -73,38 +73,53 @@ export class AviaryComponent implements OnInit {
     getPigeonImage(pigeon: Pigeon) {
         let imgName = "";
         switch (pigeon.type) {
-            case 0:
+            case 1:
                 imgName = "little_common"
                 break;
-            case 1:
+            case 2:
                 imgName = "little_uncommon";
                 break;
-            case 2:
+            case 3:
                 imgName = "little_rare";
                 break;
-            case 3:
+            case 4:
                 imgName = "little_epic";
                 break;
-            case 4:
+            case 5:
                 imgName = "little_legendary";
                 break;
-            case 5:
+            case 6:
                 imgName = "fat_common";
                 break;
-            case 6:
+            case 7:
                 imgName = "fat_uncommon";
                 break;
-            case 7:
+            case 8:
                 imgName = "fat_rare";
                 break;
-            case 8:
+            case 9:
                 imgName = "fat_epic";
                 break;
-            case 9:
+            case 10:
                 imgName = "fat_legendary";
                 break;
+            case 11:
+                imgName = "sneak_common";
+                break;
+            case 12:
+                imgName = "sneak_uncommon";
+                break;
+            case 13:
+                imgName = "sneak_rare";
+                break;
+            case 14:
+                imgName = "sneak_epic";
+                break;
+            case 15:
+                imgName = "sneak_legendary";
+                break;
             default:
-                imgName = "commun";
+                imgName = "dummy";
         }
         return '../../assets/pigeons/' + imgName + '.png';
     }

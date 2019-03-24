@@ -8,7 +8,7 @@
         <article class="media">
           <div class="media-content">
               <p class="title is-4">{{message.title}}</p>
-              <p class="subtitle is-6">{{message.body}}</p>
+              <p class="subtitle is-6" [innerHtml]="message.body"></p>
               <p class="subtitle is-6">From {{message.sender}} on {{timestampToString(message.date)}}</p>
           </div>
         </article>

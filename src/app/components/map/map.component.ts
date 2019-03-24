@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { User } from 'src/app/interfaces/user';
 import { PageDataService } from 'src/app/services/page-data.service';
+import { TestBed } from '@angular/core/testing';
 
 @Component({
     selector: 'app-map',
@@ -63,5 +64,9 @@ export class MapComponent implements OnInit {
                 .addTo(this.pigeon_map)
                 .bindPopup(popup)
         }, this);
+    }
+
+    tewt() {
+        alert('1');
     }
 }
