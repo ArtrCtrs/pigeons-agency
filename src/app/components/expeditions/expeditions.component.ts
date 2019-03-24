@@ -6,6 +6,7 @@ import { PageDataService } from 'src/app/services/page-data.service';
 import { User } from 'src/app/interfaces/user';
 import ActiveExpedition from 'src/app/interfaces/active-expedition';
 import Expedition from 'src/app/interfaces/expedition';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-expeditions',
@@ -22,7 +23,7 @@ export class ExpeditionsComponent implements OnInit {
     nbrExpeditions: number=0;
     interval: any;
 
-    constructor(public expeditionsService: ExpeditionsService, public pageDataService: PageDataService) {
+    constructor(public router: Router,public expeditionsService: ExpeditionsService, public pageDataService: PageDataService) {
     }
 
     ngOnInit() {
@@ -56,6 +57,9 @@ export class ExpeditionsComponent implements OnInit {
         });
         await this.getExpeditionsData();
 
+    }
+    redirect(destination: any) {
+        this.router.navigate(destination);
     }
 
     upDateFrontInfo() {

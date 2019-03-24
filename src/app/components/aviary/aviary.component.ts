@@ -3,6 +3,7 @@ import { PageDataService } from 'src/app/services/page-data.service';
 import { AviaryService, getPigeonsAPIReturn } from './../../services/aviary.service';
 import { Component, OnInit } from '@angular/core';
 import { Pigeon } from 'src/app/interfaces/pigeon';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-aviary',
@@ -19,7 +20,7 @@ export class AviaryComponent implements OnInit {
     nbrDefenders: number;
     feathers: any;
 
-    constructor(public aviaryService: AviaryService, public pageDataService: PageDataService) { }
+    constructor(public router: Router,public aviaryService: AviaryService, public pageDataService: PageDataService) { }
 
     ngOnInit() {
         this.initPigeons();
@@ -118,10 +119,16 @@ export class AviaryComponent implements OnInit {
             case 15:
                 imgName = "sneak_legendary";
                 break;
+            case 16:
+                imgName = "h_pigeon";
+                break;
             default:
                 imgName = "dummy";
         }
         return '../../assets/pigeons/' + imgName + '.png';
+    }
+    redirect(destination: any) {
+        this.router.navigate(destination);
     }
 
     async deletePigeon(id: number) {

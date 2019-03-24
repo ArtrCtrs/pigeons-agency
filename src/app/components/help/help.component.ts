@@ -1,6 +1,7 @@
 import { MessageService } from './../../services/messages.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-help',
@@ -10,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class HelpComponent implements OnInit {
   form: FormGroup;
 
-  constructor(public messageService: MessageService,private formBuilder: FormBuilder) {
+  constructor(private router: Router,public messageService: MessageService,private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
         message: [null, [Validators.required]]
     });
@@ -22,6 +23,8 @@ export class HelpComponent implements OnInit {
   async sendMessage(){
     //event.preventDefault();
     await this.messageService.sendMessage(this.form.get('message').value);
+    this.router.navigate(['home']);
+
 
   }
 

@@ -1,6 +1,7 @@
 import { PageDataService, HomePageDataAPIReturn } from './../../services/page-data.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/interfaces/user';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
     user:User;
     interval:any;
 
-    constructor(private PageDataService: PageDataService) { }
+    constructor(public router: Router,private PageDataService: PageDataService) { }
 
     async ngOnInit() {
         this.user = (await this.PageDataService.getHomePageData()).data;
@@ -24,6 +25,9 @@ export class HomeComponent implements OnInit {
     upDateFrontInfo() {
         this.user.seeds = this.user.seeds < this.user.maxseeds ? this.user.seeds + (this.user.seedsminute / 60) : this.user.maxseeds;
         this.user.droppings = this.user.droppings < this.user.maxdroppings ? this.user.droppings + (this.user.totaldroppingsminute / 60) : this.user.maxdroppings;
+    }
+    redirect(destination: any) {
+        this.router.navigate(destination);
     }
 
     ngOnDestroy(){

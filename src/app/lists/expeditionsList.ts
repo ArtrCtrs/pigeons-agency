@@ -21,6 +21,9 @@ const expeditionsList:ExpeditionInfo[] =
         },
         {
             pigeontype: 6,
+            probability: 89
+        },{
+            pigeontype: 16,
             probability: 90
         },
         {
