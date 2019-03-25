@@ -11,23 +11,24 @@ import { Router } from '@angular/router';
 export class HelpComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private router: Router,public messageService: MessageService,private formBuilder: FormBuilder) {
+  constructor(private router: Router, public messageService: MessageService, private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
-        message: [null, [Validators.required]]
+      message: [null, [Validators.required]]
     });
   }
 
   ngOnInit() {
   }
 
-  async sendMessage(){
+  async sendMessage() {
     //event.preventDefault();
     await this.messageService.sendMessage({
       message: this.form.get('message').value
-  });
+    });
     this.router.navigate(['home']);
-
-
+  }
+  redirect(destination: any) {
+    this.router.navigate(destination);
   }
 
 

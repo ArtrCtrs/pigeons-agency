@@ -20,8 +20,6 @@ export class LeaderboardComponent implements OnInit {
   async initLeaderboard() {
     this.allusers = (await this.PageDataService.getLeaderboardData()).data;
     this.pageLoading = false;
-    console.log(this.allusers);
-
   }
 
 }

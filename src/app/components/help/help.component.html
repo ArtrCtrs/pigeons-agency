@@ -1,24 +1,32 @@
 <div class="card expedition">
   <div class="box">
-    Launch <strong>Expeditions</strong> with seeds to collect pigeons in your <strong>Aviary</strong>.<br>
-    Pigeons generate droppings. Sell pigeons to collect feathers.<br>
-    Use ressources (seeds, droppings and feathers) to <strong>Upgrade</strong> your seeds generation, number of max pigeons, and ressources storage.<br>
+    Launch <a (click)="redirect(['/expeditions'])"><strong>Expeditions</strong></a> with <strong>Seeds</strong> to collect pigeons in your 
+    <a (click)="redirect(['/aviary'])"><strong>Aviary</strong></a>.<br>
+    <div class="card-image">
+      <figure >
+        <img class = "image" style="height: auto;width:50%;" src="../../../assets/img/expe.PNG" alt="Placeholder image">
+      </figure>
+    </div>
+    Pigeons generate <strong>Droppings</strong>. <strong>Sell</strong> pigeons to collect <strong>Feathers</strong>.<br>
+    Use ressources (seeds, droppings and feathers) to <a (click)="redirect(['/upgrades'])"><strong>Upgrade</strong></a> your seeds generation, number of max
+    pigeons, and ressources storage.<br>
     <br>
-    Don't forget to set your pigeons as attackers and/or defenders to <strong>Attack</strong> other players and defend yourself from attacks.<br>
+    Don't forget to set your pigeons as attackers and/or defenders to <a (click)="redirect(['/attack'])"><strong>Attack</strong></a> other players and defend
+    yourself from attacks.<br><br>
     You have a maximum of 5 attackers and 5 defenders.
     Attacks have a 1 minute cooldown. An attacked player can't be attacked for 15 minutes.
   </div>
 
   <div class="box">
-    An issue ? A question? 
-      <form [formGroup]="form" (submit)="sendMessage()">
-          <div class="field">
-              <div class="control">
-                  <textarea rows="4" formControlName="message" class="textarea" placeholder="Your message Here"></textarea>
-              </div>
-          </div>
+    <strong>An issue ? A question? Feedback ?</strong>
+    <form [formGroup]="form" (submit)="sendMessage()">
+      <div class="field">
+        <div class="control">
+          <textarea rows="4" formControlName="message" class="textarea" placeholder="Your message Here"></textarea>
+        </div>
+      </div>
 
-          <button class="button is-block is-info">Send message</button>
-      </form>
+      <button class="button is-block is-info">Send message</button>
+    </form>
   </div>
 </div>

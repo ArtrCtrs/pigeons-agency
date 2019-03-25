@@ -11,13 +11,15 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
     pageLoading: boolean = true;
-    user:User;
-    interval:any;
+    user: User;
+    interval: any;
+    allusers: User[];
 
-    constructor(public router: Router,private PageDataService: PageDataService) { }
+    constructor(public router: Router, private PageDataService: PageDataService) { }
 
     async ngOnInit() {
         this.user = (await this.PageDataService.getHomePageData()).data;
+        await this.initLeaderboard();
         this.pageLoading = false;
         this.interval = setInterval(() => { this.upDateFrontInfo(); }, 1000);
     }
@@ -29,8 +31,13 @@ export class HomeComponent implements OnInit {
     redirect(destination: any) {
         this.router.navigate(destination);
     }
+    async initLeaderboard() {
+        this.allusers = (await this.PageDataService.getLeaderboardData()).data.slice(0,5);
+        this.pageLoading = false;
 
-    ngOnDestroy(){
+    }
+
+    ngOnDestroy() {
         clearInterval(this.interval);
     }
 }
