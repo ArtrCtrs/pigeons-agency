@@ -27,14 +27,15 @@
                         <div *ngFor="let detailedPigeon of detailedPigeons"
                             class="column is--widescreen is-3-desktop is-6-tablet is-12-mobile">
                             <div class="pigeon card" [ngClass]="{'uncommon':detailedPigeon.pigeon.rank==2,'rare':detailedPigeon.pigeon.rank==3,'epic':detailedPigeon.pigeon.rank==4,'legendary':detailedPigeon.pigeon.rank==5}" (click)="selectPigeon(detailedPigeon.pigeon)">
-                                <a class="button is-danger is-small"
-                                    (click)="deletePigeon(detailedPigeon.pigeon.id)">Sell
-                                    {{detailedPigeon.pigeon.feathers}}
-                                    &nbsp;
-                                    <span class="icon">
-                                        <fa-icon [icon]="['far', 'feather-alt']"></fa-icon>
-                                    </span>
-                                </a>
+                                <div class="top">
+                                    <a class="button is-danger is-small"
+                                        (click)="deletePigeon(detailedPigeon.pigeon.id)">Sell
+                                        {{detailedPigeon.pigeon.feathers}}
+                                        &nbsp;
+                                        <span class="icon">
+                                            <fa-icon [icon]="['far', 'feather-alt']"></fa-icon>
+                                        </span>
+                                    </a></div>
                                 <div class="card-image">
                                     <figure class="image">
                                         <img [src]="getPigeonImage(detailedPigeon.pigeon)">
@@ -44,8 +45,9 @@
                                 <div class="card-content">
                                     <div class="media">
                                         <div class="media-content">
-                                            <p class="title is-4">{{detailedPigeon.pigeon.name}}</p>
-                                            <p class="subtitle is-6">Rank : {{detailedPigeon.pigeon.rank}}</p>
+                                            <p class="title is-4">{{detailedPigeon.pigeon.nickname}}</p>
+                                            <p class="subtitle is-5">{{detailedPigeon.pigeon.name}} - Rank {{detailedPigeon.pigeon.rank}}</p>
+                                            <!-- <p class="subtitle is-6">Rank : {{detailedPigeon.pigeon.rank}}</p> -->
                                         </div>
                                     </div>
                                     <div class="buttons has-addons is-centered">

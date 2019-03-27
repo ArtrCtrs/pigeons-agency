@@ -12,7 +12,8 @@
             </div> -->
             <button *ngIf="user.hasnotifications" class="button is-danger" (click)="redirect(['/messages'])"> You have
                 new messages !</button>
-                <button  class="button is-warning" (click)="redirect(['/help'])"><strong> Don't know where to start ? Go to Help</strong></button>
+            <button class="button is-warning" (click)="redirect(['/help'])"><strong> Don't know where to start ? Go to
+                    Help</strong></button>
 
             <div class="card-content">
                 <div class="media">
@@ -23,7 +24,7 @@
                     </div>
                     <div class="media-content">
                         <p class="title is-4">{{user.username | titlecase}}</p>
-                        <p class="subtitle is-6">Level {{user.lvl}}</p>
+                        <p class="subtitle is-6">Pigeons Agency v0.2</p>
                     </div>
                 </div>
 
@@ -75,29 +76,34 @@
                     </div>
                 </div>
             </div>
-            <table class="table table is-bordered">
-                <thead>
-                    <tr><th>Top 5 players</th></tr>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Player</th>
-                        <th>Military Score</th>
-                        <th>Spent Seeds</th>
-                        <th>Spent Droppings</th>
-                        <th>Spent Feathers</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let user of allusers; index as i" [ngClass]="{'first':i==0,'second':i==1,'third':i==2}">
+            <div class="overflow">
+                <table class="table table is-bordered">
+                    <thead>
+                        <tr>
+                            <th>Top 5 players</th>
+                        </tr>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Military Score</th>
+                            <th>Spent Seeds</th>
+                            <th>Spent Droppings</th>
+                            <th>Spent Feathers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of allusers; index as i"
+                            [ngClass]="{'first':i==0,'second':i==1,'third':i==2}">
                             <td>{{i+1}}</td>
                             <td>{{user.username}}</td>
                             <td>{{user.militaryscore}}</td>
                             <td>{{user.totalspentseeds}}</td>
                             <td>{{user.totalspentdroppings}}</td>
                             <td>{{user.totalspentfeathers}}</td>
-                    </tr>
-                </tbody>
-            </table>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

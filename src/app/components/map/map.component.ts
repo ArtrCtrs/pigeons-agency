@@ -49,7 +49,7 @@ export class MapComponent implements OnInit {
             "<p>Spent seeds : " + user.totalspentseeds + "</p>"+
             "<p>Spent droppings : " + user.totalspentdroppings + "</p>"+
             "<p>Spent feathers : " + user.totalspentfeathers + "</p>"+
-            "<p>" + user.birds/user.maxbirds + " birds</p>"+
+            "<p>" + user.birds+"/"+user.maxbirds + " birds</p>"+
             "<p>" + user.seedsminute + " seeds/minute</p>"+
             "<p>" + user.totaldroppingsminute + " droppings/minute</p>"+
             "<p>Number of attacks : " + user.totalattacks + "</p>"+

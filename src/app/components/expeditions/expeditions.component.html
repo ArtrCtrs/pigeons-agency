@@ -15,7 +15,7 @@
                     </article>
                 </div>
 
-                <h1><strong>Current Expeditions (Max 8 simultaneous) : </strong></h1>
+                <h1><strong>Current Expeditions (Max 8 at once) : </strong></h1>
                 <div *ngFor="let myexpedition of myExpeditions">
                     <div *ngIf="!myexpedition.expedition.finished" class=" card my-expedition">
                         <p>Expedition : {{myexpedition.expeditionname}}</p>

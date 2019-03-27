@@ -20,7 +20,7 @@ export class AviaryComponent implements OnInit {
     nbrDefenders: number;
     feathers: any;
 
-    constructor(public router: Router,public aviaryService: AviaryService, public pageDataService: PageDataService) { }
+    constructor(public router: Router, public aviaryService: AviaryService, public pageDataService: PageDataService) { }
 
     ngOnInit() {
         this.initPigeons();
@@ -121,6 +121,36 @@ export class AviaryComponent implements OnInit {
                 break;
             case 16:
                 imgName = "h_pigeon";
+                break;
+            case 21:
+                imgName = "king_common";
+                break;
+            case 22:
+                imgName = "king_uncommon";
+                break;
+            case 23:
+                imgName = "king_rare";
+                break;
+            case 24:
+                imgName = "king_epic";
+                break;
+            case 25:
+                imgName = "king_legendary";
+                break;
+            case 26:
+                imgName = "assassin_common";
+                break;
+            case 27:
+                imgName = "assassin_uncommon";
+                break;
+            case 28:
+                imgName = "assassin_rare";
+                break;
+            case 29:
+                imgName = "assassin_epic";
+                break;
+            case 30:
+                imgName = "assassin_legendary";
                 break;
             default:
                 imgName = "dummy";
