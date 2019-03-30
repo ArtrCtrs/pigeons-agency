@@ -11,9 +11,9 @@ export class AviaryService {
 
     constructor(private http: HttpClient) { }
 
-    getPigeons(): Promise<getPigeonsAPIReturn> {
+    getPigeons(orderBy:number): Promise<getPigeonsAPIReturn> {
         return new Promise((resolve, reject) => {
-            this.http.get(environment.apiBaseUrl + 'pigeons', {
+            this.http.get(environment.apiBaseUrl + 'pigeons?orderby='+orderBy, {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }

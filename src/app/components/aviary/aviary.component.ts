@@ -18,43 +18,59 @@ export class AviaryComponent implements OnInit {
     user: User;
     nbrAttackers: number;
     nbrDefenders: number;
+    totalAttack: number;
+    totalDefense: number;
     feathers: any;
+    sort: any;
+    orderBy: number;
 
     constructor(public router: Router, public aviaryService: AviaryService, public pageDataService: PageDataService) { }
 
     ngOnInit() {
+        this.orderBy = 1;
+        setTimeout(function () {
+            this.feathers = document.getElementById("feathers");
+            this.sort = document.getElementById("sortselect");
+
+            console.log(this.sort)
+            console.log(this.feathers)
+        }, 500)
         this.initPigeons();
+        ;
     }
 
     async initPigeons() {
         this.nbrAttackers = 0;
         this.nbrDefenders = 0;
+        this.totalAttack = 0;
+        this.totalDefense = 0;
         const detailedPigeons: DetailedPigeon[] = [];
-        const apiReturn: getPigeonsAPIReturn = await this.aviaryService.getPigeons();
+        const apiReturn: getPigeonsAPIReturn = await this.aviaryService.getPigeons(this.orderBy);
         this.user = (await this.pageDataService.getHomePageData()).data;
         this.pageLoading = false;
-        this.feathers = document.getElementById("feathers");
 
 
         const pigeons: Pigeon[] = apiReturn.data;
 
         for (const pigeon of pigeons) {
-            const statisticsTotal = pigeon.defense + pigeon.shield + pigeon.attack;
+            //const statisticsTotal = pigeon.defense + pigeon.shield + pigeon.attack;
 
             const detailedPigeon: DetailedPigeon = {
                 statistics: {
-                    defensePercentage: Math.round((pigeon.defense / statisticsTotal) * 100),
-                    lifePercentage: Math.round((pigeon.shield / statisticsTotal) * 100),
-                    attackPercentage: Math.round((pigeon.attack / statisticsTotal) * 100),
-                    totalPoints: statisticsTotal
+                    defensePercentage: 0,//Math.round((pigeon.defense / statisticsTotal) * 100),
+                    lifePercentage: 0,//Math.round((pigeon.shield / statisticsTotal) * 100),
+                    attackPercentage: 0,//Math.round((pigeon.attack / statisticsTotal) * 100),
+                    totalPoints: 0,//statisticsTotal
                 },
                 pigeon: pigeon
             }
             if (pigeon.attacker) {
                 this.nbrAttackers++;
+                this.totalAttack += pigeon.attack;
             }
             if (pigeon.defender) {
                 this.nbrDefenders++;
+                this.totalDefense += pigeon.defense;
             }
 
             detailedPigeons.push(detailedPigeon);
@@ -63,13 +79,13 @@ export class AviaryComponent implements OnInit {
         this.detailedPigeons = detailedPigeons;
     }
 
-    selectPigeon(pigeon: Pigeon) {
-        if (this.selectedPigeonId !== pigeon.id) {
-            this.selectedPigeonId = pigeon.id;
-        } else {
-            this.selectedPigeonId = null;
-        }
-    }
+    // selectPigeon(pigeon: Pigeon) {
+    //     if (this.selectedPigeonId !== pigeon.id) {
+    //         this.selectedPigeonId = pigeon.id;
+    //     } else {
+    //         this.selectedPigeonId = null;
+    //     }
+    // }
 
     getPigeonImage(pigeon: Pigeon) {
         let imgName = "";
@@ -214,7 +230,14 @@ export class AviaryComponent implements OnInit {
             this.feathers.style.display = "none";
         }, 500)
     }
+
+
+    async changeOrder(value) {
+        this.orderBy = value;
+        await this.initPigeons();
+    }
 }
+
 
 
 

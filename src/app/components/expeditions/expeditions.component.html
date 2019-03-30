@@ -11,7 +11,7 @@
                         <p>Seeds : {{user.seeds | number: '1.0-0'}}/{{user.maxseeds}} <fa-icon [icon]="['far', 'seedling']" size="1x"></fa-icon></p>
                         <p>Birds : {{user.birds}}/{{user.maxbirds}} <fa-icon [icon]="['far', 'crow']" size="1x"></fa-icon></p>
                         <p class="warning" *ngIf="user.birds>=user.maxbirds"><fa-icon [icon]="['far', 'exclamation-triangle']" size="1x"></fa-icon> Warning : Aviary full </p>
-                        <button *ngIf="user.hasnotifications" class="button is-danger" (click)="redirect(['/messages'])"> You have new messages !</button>
+                        <button *ngIf="user.hasnotifications" class="button is-danger" (click)="redirect(['/messages'])"> You have been atacked !</button>
                     </article>
                 </div>
 

@@ -4,28 +4,34 @@
     <div class="page-loader"></div>
   </div>
   <div *ngIf="!pageLoading">
-    <table class="table table is-bordered">
-      <thead>
-        <tr>
-          <th>Player</th>
-          <th>Military Score</th>
-          <th>Spent Seeds</th>
-          <th>Spent Droppings</th>
-          <th>Spent Feathers</th>
-          <th>Most interesting attacks first</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of allusers">
-          <td>{{user.username}}</td>
-          <td>{{user.militaryscore}}</td>
-          <td>{{user.totalspentseeds}}</td>
-          <td>{{user.totalspentdroppings}}</td>
-          <td>{{user.totalspentfeathers}}</td>
-          <td><div *ngIf="user.id!=mainuser.id"><button class="button is-primary" [disabled]="user.protecteduntil>now||mainuser.nextpossibleattack>now" (click)="attackPlayer(user.id)">attack Player</button></div></td>
-        </tr>
-    </tbody>
-    </table>
+    <div class="overflow">
+      <table class="table table is-bordered">
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Military Score</th>
+            <th>Spent Seeds</th>
+            <th>Spent Droppings</th>
+            <th>Spent Feathers</th>
+            <th>Most interesting attacks first</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of allusers">
+            <td>{{user.username}}</td>
+            <td>{{user.militaryscore}}</td>
+            <td>{{user.totalspentseeds}}</td>
+            <td>{{user.totalspentdroppings}}</td>
+            <td>{{user.totalspentfeathers}}</td>
+            <td>
+              <div *ngIf="user.id!=mainuser.id"><button class="button is-primary"
+                  [disabled]="user.protecteduntil>now||mainuser.nextpossibleattack>now"
+                  (click)="attackPlayer(user.id)">attack Player</button></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
 
   </div>

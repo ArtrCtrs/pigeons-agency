@@ -44,18 +44,19 @@
                     </span>
                     <span>Attacks</span>
                 </a>
+                <a class="navbar-item" (click)="redirect(['/upgrades'])" routerLinkActive="is-active">
+                    <span class="icon">
+                        <fa-icon [icon]="['far', 'angle-double-up']"></fa-icon>
+                    </span>
+                    <span>Upgrades</span>
+                </a>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
                         Other
                     </a>
 
                     <div class="navbar-dropdown">
-                        <a class="navbar-item" (click)="redirect(['/upgrades'])" routerLinkActive="is-active">
-                            <span class="icon">
-                                <fa-icon [icon]="['far', 'angle-double-up']"></fa-icon>
-                            </span>
-                            <span>Upgrades</span>
-                        </a>
+
                         <a class="navbar-item" (click)="redirect(['/messages'])" routerLinkActive="is-active">
                             <span class="icon">
                                 <fa-icon [icon]="['far', 'envelope']"></fa-icon>

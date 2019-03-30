@@ -7,18 +7,34 @@
 
     <div *ngIf="!pageLoading" class="column is-fullheight">
         <div class="card">
-            <!-- <div class="card-image">
-                <figure class="image">
-                    <img style="height: 400px;" src="https://bulma.io/images/placeholders/1280x960.png"
-                        alt="Placeholder image">
-                </figure> 
-            </div>-->
             <div class="card-content">
                 <div class="media">
                     <div class="media-content">
                         <p class="title is-4">Aviary</p>
-                        <p class="subtitle is-6">{{user.birds}}/{{user.maxbirds}} birds</p>
-                        <button *ngIf="user.hasnotifications" class="button is-danger" (click)="redirect(['/messages'])"> You have new messages !</button>
+                        <p class="subtitle is-6">{{user.birds}}/{{user.maxbirds}} birds<br>
+                            {{nbrAttackers}}/5 attackers - Total Attack : {{totalAttack}}<br>
+                            {{nbrDefenders}}/5 defenders - Total Defense : {{totalDefense}}
+                        </p>
+                        <button *ngIf="user.hasnotifications" class="button is-danger"
+                            (click)="redirect(['/messages'])"> You have been attacked !</button>
+                    </div>
+                    <div class="field">
+                        <label class="label">Order by</label>
+                        <div class="control" >
+                            <div class="select" id="sortselect">
+                                <select (change)="changeOrder($event.target.value)">
+                                    <option value="1">Newest</option>
+                                    <option value="2">Oldest</option>
+                                    <option value="3">Best attack</option>
+                                    <option value="4">Best defense</option>
+                                    <option value="5">Rank</option>
+                                    <option value="6">Type</option>
+                                    <option value="7">Droppings</option>
+                                    <option value="8">Attack position</option>
+                                    <option value="9">Defense position</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -26,16 +42,18 @@
                     <div class="columns is-multiline">
                         <div *ngFor="let detailedPigeon of detailedPigeons"
                             class="column is--widescreen is-3-desktop is-6-tablet is-12-mobile">
-                            <div class="pigeon card" [ngClass]="{'uncommon':detailedPigeon.pigeon.rank==2,'rare':detailedPigeon.pigeon.rank==3,'epic':detailedPigeon.pigeon.rank==4,'legendary':detailedPigeon.pigeon.rank==5}" (click)="selectPigeon(detailedPigeon.pigeon)">
+                            <div class="pigeon card"
+                                [ngClass]="{'uncommon':detailedPigeon.pigeon.rank==2,'rare':detailedPigeon.pigeon.rank==3,'epic':detailedPigeon.pigeon.rank==4,'legendary':detailedPigeon.pigeon.rank==5}">
                                 <div class="top">
-                                    <a class="button is-danger is-small"
-                                        (click)="deletePigeon(detailedPigeon.pigeon.id)">Sell
+                                    <button class="button is-danger is-small"
+                                        (click)="deletePigeon(detailedPigeon.pigeon.id)"
+                                        [disabled]="detailedPigeon.pigeon.attacker || detailedPigeon.pigeon.defender">Sell
                                         {{detailedPigeon.pigeon.feathers}}
                                         &nbsp;
                                         <span class="icon">
                                             <fa-icon [icon]="['far', 'feather-alt']"></fa-icon>
                                         </span>
-                                    </a></div>
+                                    </button></div>
                                 <div class="card-image">
                                     <figure class="image">
                                         <img [src]="getPigeonImage(detailedPigeon.pigeon)">
@@ -46,12 +64,15 @@
                                     <div class="media">
                                         <div class="media-content">
                                             <p class="title is-4">{{detailedPigeon.pigeon.nickname}}</p>
-                                            <p class="subtitle is-5">{{detailedPigeon.pigeon.name}} - Rank {{detailedPigeon.pigeon.rank}}</p>
+                                            <p class="subtitle is-5">{{detailedPigeon.pigeon.name}} - Rank
+                                                {{detailedPigeon.pigeon.rank}}</p>
                                             <!-- <p class="subtitle is-6">Rank : {{detailedPigeon.pigeon.rank}}</p> -->
                                         </div>
                                     </div>
                                     <div class="buttons has-addons is-centered">
-                                        <button class="button" [class.attacker]="detailedPigeon.pigeon.attacker" [disabled]="nbrAttackers>=5 && !detailedPigeon.pigeon.attacker" (click)="setAttacker(detailedPigeon.pigeon.id)">Set
+                                        <button class="button" [class.attacker]="detailedPigeon.pigeon.attacker"
+                                            [disabled]="nbrAttackers>=5 && !detailedPigeon.pigeon.attacker"
+                                            (click)="setAttacker(detailedPigeon.pigeon.id)">Set
                                             attacker
                                             &nbsp;
                                             <span class="icon">
@@ -59,7 +80,9 @@
                                             </span>
                                         </button>
 
-                                        <button class="button"  [class.defender]="detailedPigeon.pigeon.defender" [disabled]="nbrDefenders>=5 && !detailedPigeon.pigeon.defender" (click)="setDefender(detailedPigeon.pigeon.id)">Set
+                                        <button class="button" [class.defender]="detailedPigeon.pigeon.defender"
+                                            [disabled]="nbrDefenders>=5 && !detailedPigeon.pigeon.defender"
+                                            (click)="setDefender(detailedPigeon.pigeon.id)">Set
                                             defender
                                             &nbsp;
                                             <span class="icon">
@@ -89,7 +112,7 @@
                                         </span> -->
                                         <div>+ {{detailedPigeon.pigeon.droppingsminute}} <fa-icon
                                                 [icon]="['far', 'poop']" size="1x"></fa-icon>
-                                           /min</div>
+                                            /min</div>
                                     </div>
                                 </div>
                             </div>
