@@ -15,7 +15,7 @@
                             {{nbrAttackers}}/5 attackers - Total Attack : {{totalAttack}}<br>
                             {{nbrDefenders}}/5 defenders - Total Defense : {{totalDefense}}
                         </p>
-                        <button *ngIf="user.hasnotifications" class="button is-danger"
+                        <button *ngIf="user.hasnotifications" class="button is-danger" id="attacked-notification"
                             (click)="redirect(['/messages'])"> You have been attacked !</button>
                     </div>
                     <div class="field">

@@ -28,22 +28,22 @@ export class AviaryComponent implements OnInit {
 
     ngOnInit() {
         this.orderBy = 1;
-        setTimeout(function () {
-            this.feathers = document.getElementById("feathers");
-            this.sort = document.getElementById("sortselect");
 
-            console.log(this.sort)
-            console.log(this.feathers)
-        }, 500)
-        this.initPigeons();
-        ;
-    }
-
-    async initPigeons() {
         this.nbrAttackers = 0;
         this.nbrDefenders = 0;
         this.totalAttack = 0;
         this.totalDefense = 0;
+        this.feathers = document.getElementById("feathers");
+
+        this.initPigeons();
+
+    }
+
+    async initPigeons() {
+        let tmpNbrAttackers=0;
+        let tmpNbrDefenders=0;
+        let tmpTotalAttack=0;
+        let tmpTotalDefense=0;
         const detailedPigeons: DetailedPigeon[] = [];
         const apiReturn: getPigeonsAPIReturn = await this.aviaryService.getPigeons(this.orderBy);
         this.user = (await this.pageDataService.getHomePageData()).data;
@@ -65,18 +65,22 @@ export class AviaryComponent implements OnInit {
                 pigeon: pigeon
             }
             if (pigeon.attacker) {
-                this.nbrAttackers++;
-                this.totalAttack += pigeon.attack;
+                tmpNbrAttackers++;
+                tmpTotalAttack += pigeon.attack;
             }
             if (pigeon.defender) {
-                this.nbrDefenders++;
-                this.totalDefense += pigeon.defense;
+                tmpNbrDefenders++;
+                tmpTotalDefense += pigeon.defense;
             }
 
             detailedPigeons.push(detailedPigeon);
         }
 
         this.detailedPigeons = detailedPigeons;
+        this.totalAttack=tmpTotalAttack;
+        this.totalDefense=tmpTotalDefense;
+        this.nbrAttackers=tmpNbrAttackers;
+        this.nbrDefenders=tmpNbrDefenders;
     }
 
     // selectPigeon(pigeon: Pigeon) {

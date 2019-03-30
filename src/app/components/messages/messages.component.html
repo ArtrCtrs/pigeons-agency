@@ -4,12 +4,48 @@
   </div>
   <div *ngFor="let message of messages" class="column">
     <div class="card expedition">
-      <div class="box">
+      <div class="box"
+        [ngClass]="{'attack':message.isattack==1,'defense':message.isattack==2,'info':message.isattack==0}">
+
         <article class="media">
           <div class="media-content">
-              <p class="title is-4">{{message.title}}</p>
-              <p class="subtitle is-6" [innerHtml]="message.body"></p>
-              <p class="subtitle is-6">From {{message.sender}} on {{timestampToString(message.date) | date:'medium'}}</p>
+            <p class="title is-4">{{message.title}}
+
+            </p>
+            <div *ngIf="message.isattack!=0" class=float>
+              <p class="result" [ngClass]="{'win':message.iswin==1,'loss':message.iswin==2}">
+                {{message.iswin==1?"Victory !":"Defeat..."}}</p>
+
+              <p class="subtitle is-6">
+                <strong>{{message.attackvalue}}</strong> total attack
+                <span class="icon">
+                  <fa-icon [icon]="['far', 'sword']"></fa-icon>
+                </span>
+                VS <strong>{{message.defensevalue}}</strong> total defense
+                <span class="icon">
+                  <fa-icon [icon]="['far', 'shield']"></fa-icon>
+                </span>
+                <br>
+                <strong>{{message.stolenfeathers}}</strong> stolen feathers
+                <span class="icon">
+                  <fa-icon [icon]="['far', 'feather-alt']"></fa-icon>
+                </span>
+                ( {{message.shieldvalue}} total shield
+                <span class="icon">
+                  <fa-icon [icon]="['far', 'helmet-battle']"></fa-icon>
+                </span>)
+                <br>
+
+                My new military score : <strong>{{message.myscore}}</strong> ( <strong><span
+                    *ngIf="message.mynewpoints>=0">+</span>{{message.mynewpoints}}</strong> )<br>
+                Opponent new military score : <strong>{{message.opponentscore}}</strong> ( <strong><span
+                    *ngIf="message.opponentnewpoints>=0">+</span>{{message.opponentnewpoints}}</strong> )
+              </p>
+            </div>
+            <p class="subtitle is-6" class="float" [innerHtml]="message.body"></p>
+            <p class="subtitle is-6 bottom">From {{message.sender}} on
+              {{timestampToString(message.date) | date:'medium'}}</p>
+
           </div>
         </article>
       </div>

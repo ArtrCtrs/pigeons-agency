@@ -1,11 +1,48 @@
+@import "../../../styles.less";
 .card .media .media-left {
     margin-top: 1rem;
 }
-.expedition:hover{
-    background-color:lightgrey;
-}
 .details{
     color:red;
+}
+.attack{
+background-color:rgba(255, 59, 0, 0.15);
+padding-bottom: 3em;
+}
+.defense{
+    background-color:rgba(27, 123, 212, 0.15);
+    padding-bottom: 3em;
+}
+.info{
+    background-color:rgba(255, 255, 34, 0.14);
+    padding-bottom: 3em;
+}
+.result{
+    background-color:rgba(255, 255, 255, 0.61);
+    display:inline-block;
+    padding-top:0.3em;
+    padding-bottom:0.3em;
+    padding-left:1em;
+    padding-right:1em;
+    font-size:1.4em;
+    border-radius: 10px;
+    margin-bottom: 0.3em;
+}
+.win{
+color:@green;
+}
+.loss{
+    color:@red;
+}
+.float{
+    float:left;
+    padding-right:5em;
+}
+.bottom{    
+    position: absolute;
+    bottom: -7px;
+    margin-top: 0em;
+    padding: 1em;
 }
 
 
