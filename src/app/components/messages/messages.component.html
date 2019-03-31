@@ -35,6 +35,11 @@
                   <fa-icon [icon]="['far', 'helmet-battle']"></fa-icon>
                 </span>)
                 <br>
+                <strong>{{message.stolendroppings}}</strong> stolen droppings
+                <span class="icon">
+                    <fa-icon [icon]="['far', 'poop']"></fa-icon>
+                  </span>
+                  <br>
 
                 My new military score : <strong>{{message.myscore}}</strong> ( <strong><span
                     *ngIf="message.mynewpoints>=0">+</span>{{message.mynewpoints}}</strong> )<br>

@@ -10,7 +10,7 @@
             <form [formGroup]="form" (submit)="register()">
                 <div class="field">
                     <div class="control">
-                        <input formControlName="username" class="input" type="email" placeholder="Your username" [ngClass]="{'is-danger': sendAttempt && !form.get('username').valid}">
+                        <input formControlName="username" class="input" placeholder="Your username" [ngClass]="{'is-danger': sendAttempt && !form.get('username').valid}">
                     </div>
                 </div>
 

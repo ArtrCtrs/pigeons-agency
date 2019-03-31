@@ -162,34 +162,109 @@ export class AviaryComponent implements OnInit {
                 imgName = "h_pigeon";
                 break;
             case 21:
-                imgName = "king_common";
+                imgName = "prince_common";
                 break;
             case 22:
-                imgName = "king_uncommon";
+                imgName = "prince_uncommon";
                 break;
             case 23:
-                imgName = "king_rare";
+                imgName = "prince_rare";
                 break;
             case 24:
-                imgName = "king_epic";
+                imgName = "prince_epic";
                 break;
             case 25:
-                imgName = "king_legendary";
+                imgName = "prince_legendary";
                 break;
             case 26:
-                imgName = "assassin_common";
+                imgName = "dangerous_common";
                 break;
             case 27:
-                imgName = "assassin_uncommon";
+                imgName = "dangerous_uncommon";
                 break;
             case 28:
-                imgName = "assassin_rare";
+                imgName = "dangerous_rare";
                 break;
             case 29:
-                imgName = "assassin_epic";
+                imgName = "dangerous_epic";
                 break;
             case 30:
+                imgName = "dangerous_legendary";
+                break;
+            case 31:
+                imgName = "protector_common";
+                break;
+            case 32:
+                imgName = "protector_uncommon";
+                break;
+            case 33:
+                imgName = "protector_rare";
+                break;
+            case 34:
+                imgName = "protector_epic";
+                break;
+            case 35:
+                imgName = "protector_legendary";
+                break;
+            case 36:
+                imgName = "assassin_common";
+                break;
+            case 37:
+                imgName = "assassin_uncommon";
+                break;
+            case 38:
+                imgName = "assassin_rare";
+                break;
+            case 39:
+                imgName = "assassin_epic";
+                break;
+            case 40:
                 imgName = "assassin_legendary";
+                break;
+            case 41:
+                imgName = "royal_common";
+                break;
+            case 42:
+                imgName = "royal_uncommon";
+                break;
+            case 43:
+                imgName = "royal_rare";
+                break;
+            case 44:
+                imgName = "royal_epic";
+                break;
+            case 45:
+                imgName = "royal_legendary";
+                break;
+            case 46:
+                imgName = "killer_common";
+                break;
+            case 47:
+                imgName = "killer_uncommon";
+                break;
+            case 48:
+                imgName = "killer_rare";
+                break;
+            case 49:
+                imgName = "killer_epic";
+                break;
+            case 50:
+                imgName = "killer_legendary";
+                break;
+            case 51:
+                imgName = "crazy_common";
+                break;
+            case 52:
+                imgName = "crazy_uncommon";
+                break;
+            case 53:
+                imgName = "crazy_rare";
+                break;
+            case 54:
+                imgName = "crazy_epic";
+                break;
+            case 55:
+                imgName = "crazy_legendary";
                 break;
             default:
                 imgName = "dummy";
@@ -271,7 +346,7 @@ interface DetailedPigeon {
         // lifePercentage: number;
         // attackPercentage: number;
         // totalPoints: number;
-        rankAsExpression:string;
+        rankAsExpression: string;
     },
     pigeon: Pigeon
 }

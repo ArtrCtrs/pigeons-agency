@@ -55,13 +55,17 @@
                   <br>
                   Seeds per minute : {{currentSeedsUpgrade.newSeeds}} -> {{nextSeedsUpgrade.newSeeds}}
                   <br>
-                  <button class="button is-small is-primary" [disabled]="user.droppings<nextSeedsUpgrade.droppingsCost"
+                  <button class="button is-small is-primary"
+                    [disabled]="user.droppings<nextSeedsUpgrade.droppingsCost || user.farmlvl>user.farmstoragelvl+4"
                     (click)="upgradeFarm()">Upgrade</button>
                   cost : {{nextSeedsUpgrade.droppingsCost}}
                   <span class="icon">
                     <fa-icon [icon]="['far', 'poop']" size="1x"></fa-icon>
                   </span>
                   droppings
+                  <span *ngIf="(user.farmlvl-4)>(-1)">
+                    and Farm Storage lvl > {{(user.farmlvl-4)}}
+                  </span>
                 </p>
               </div>
             </div>
@@ -108,7 +112,8 @@
                   <br>
                   Max seeds : {{currentSeedsStorage.seedsStorage}} -> {{nextSeedsStorage.seedsStorage}}
                   <br>
-                  <button class="button is-small is-primary" [disabled]="(user.droppings<nextSeedsStorage.droppingsCost)||(user.feathers<nextSeedsStorage.feathersCost)"
+                  <button class="button is-small is-primary"
+                    [disabled]="(user.droppings<nextSeedsStorage.droppingsCost)||(user.feathers<nextSeedsStorage.feathersCost)"
                     (click)="upgradeFarmStorage()">Upgrade</button>
                   cost : {{nextSeedsStorage.droppingsCost}}
                   <span class="icon">
@@ -141,7 +146,8 @@
                   Max droppings : {{currentDroppingsStorage.droppingsStorage}} ->
                   {{nextDroppingsStorage.droppingsStorage}}
                   <br>
-                  <button class="button is-small is-primary" [disabled]="(user.seeds<nextDroppingsStorage.seedsCost)||(user.feathers<nextDroppingsStorage.feathersCost)"
+                  <button class="button is-small is-primary"
+                    [disabled]="(user.seeds<nextDroppingsStorage.seedsCost)||(user.feathers<nextDroppingsStorage.feathersCost)"
                     (click)="upgradeDroppingsStorage()">Upgrade</button>
                   cost : {{nextDroppingsStorage.seedsCost}}
                   <span class="icon">
