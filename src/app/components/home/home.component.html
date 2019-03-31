@@ -23,7 +23,7 @@
                     </div>
                     <div class="media-content">
                         <p class="title is-4">{{user.username | titlecase}}</p>
-                        <p class="subtitle is-6">Pigeons Agency v0.2</p>
+                        <p class="subtitle is-6">Pigeons Agency V0.3</p>
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@
                         </div>
                         <div class="column is-3-widescreen is-3-desktop is-6-tablet is-12-mobile has-text-centered">
                             <article class="tile is-child box">
-                                <p class="title">{{user.seeds | number: '1.0-0'}}/{{user.maxseeds}}</p>
+                                <p class="title">{{user.seeds | number: '1.0-0'}}/ {{user.maxseeds| number: '1.0-0'}}</p>
                                 <p class="subtitle">Seeds
                                     <span class="icon">
                                         <fa-icon [icon]="['far', 'seedling']"></fa-icon>
@@ -63,7 +63,7 @@
                         </div>
                         <div class="column is-3-widescreen is-3-desktop is-6-tablet is-12-mobile has-text-centered">
                             <article class="tile is-child box">
-                                <p class="title">{{user.droppings| number: '1.0-0'}}/{{user.maxdroppings}}</p>
+                                <p class="title">{{user.droppings| number: '1.0-0'}}/ {{user.maxdroppings| number: '1.0-0'}}</p>
                                 <p class="subtitle">Droppings
                                     <span class="icon">
                                         <fa-icon [icon]="['far', 'poop']"></fa-icon>

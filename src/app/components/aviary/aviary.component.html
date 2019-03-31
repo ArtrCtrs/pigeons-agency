@@ -43,8 +43,9 @@
                         <div *ngFor="let detailedPigeon of detailedPigeons"
                             class="column is--widescreen is-3-desktop is-6-tablet is-12-mobile">
                             <div class="pigeon card"
-                                [ngClass]="{'uncommon':detailedPigeon.pigeon.rank==2,'rare':detailedPigeon.pigeon.rank==3,'epic':detailedPigeon.pigeon.rank==4,'legendary':detailedPigeon.pigeon.rank==5}">
+                                [ngClass]="{'common':detailedPigeon.pigeon.rank==1,'uncommon':detailedPigeon.pigeon.rank==2,'rare':detailedPigeon.pigeon.rank==3,'epic':detailedPigeon.pigeon.rank==4,'legendary':detailedPigeon.pigeon.rank==5}">
                                 <div class="top">
+                                    <p>{{detailedPigeon.statistics.rankAsExpression}}</p>
                                     <button class="button is-danger is-small"
                                         (click)="deletePigeon(detailedPigeon.pigeon.id)"
                                         [disabled]="detailedPigeon.pigeon.attacker || detailedPigeon.pigeon.defender">Sell
@@ -78,6 +79,7 @@
                                             <span class="icon">
                                                 <fa-icon [icon]="['far', 'sword']"></fa-icon>
                                             </span>
+                                            &nbsp;
                                         </button>
 
                                         <button class="button" [class.defender]="detailedPigeon.pigeon.defender"

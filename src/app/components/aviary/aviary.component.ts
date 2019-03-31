@@ -40,10 +40,10 @@ export class AviaryComponent implements OnInit {
     }
 
     async initPigeons() {
-        let tmpNbrAttackers=0;
-        let tmpNbrDefenders=0;
-        let tmpTotalAttack=0;
-        let tmpTotalDefense=0;
+        let tmpNbrAttackers = 0;
+        let tmpNbrDefenders = 0;
+        let tmpTotalAttack = 0;
+        let tmpTotalDefense = 0;
         const detailedPigeons: DetailedPigeon[] = [];
         const apiReturn: getPigeonsAPIReturn = await this.aviaryService.getPigeons(this.orderBy);
         this.user = (await this.pageDataService.getHomePageData()).data;
@@ -54,13 +54,32 @@ export class AviaryComponent implements OnInit {
 
         for (const pigeon of pigeons) {
             //const statisticsTotal = pigeon.defense + pigeon.shield + pigeon.attack;
+            let rae = "";
+            switch (pigeon.rank) {
+                case 1:
+                    rae = "Common";
+                    break;
+                case 2:
+                    rae = "Uncommon";
+                    break;
+                case 3:
+                    rae = "Rare";
+                    break;
+                case 4:
+                    rae = "Epic";
+                    break;
+                case 5:
+                    rae = "Legendary";
+                    break;
+            }
 
             const detailedPigeon: DetailedPigeon = {
                 statistics: {
-                    defensePercentage: 0,//Math.round((pigeon.defense / statisticsTotal) * 100),
-                    lifePercentage: 0,//Math.round((pigeon.shield / statisticsTotal) * 100),
-                    attackPercentage: 0,//Math.round((pigeon.attack / statisticsTotal) * 100),
-                    totalPoints: 0,//statisticsTotal
+                    // defensePercentage: 0,//Math.round((pigeon.defense / statisticsTotal) * 100),
+                    // lifePercentage: 0,//Math.round((pigeon.shield / statisticsTotal) * 100),
+                    // attackPercentage: 0,//Math.round((pigeon.attack / statisticsTotal) * 100),
+                    // totalPoints: 0,//statisticsTotal
+                    rankAsExpression: rae,
                 },
                 pigeon: pigeon
             }
@@ -77,10 +96,10 @@ export class AviaryComponent implements OnInit {
         }
 
         this.detailedPigeons = detailedPigeons;
-        this.totalAttack=tmpTotalAttack;
-        this.totalDefense=tmpTotalDefense;
-        this.nbrAttackers=tmpNbrAttackers;
-        this.nbrDefenders=tmpNbrDefenders;
+        this.totalAttack = tmpTotalAttack;
+        this.totalDefense = tmpTotalDefense;
+        this.nbrAttackers = tmpNbrAttackers;
+        this.nbrDefenders = tmpNbrDefenders;
     }
 
     // selectPigeon(pigeon: Pigeon) {
@@ -248,10 +267,11 @@ export class AviaryComponent implements OnInit {
 
 interface DetailedPigeon {
     statistics: {
-        defensePercentage: number;
-        lifePercentage: number;
-        attackPercentage: number;
-        totalPoints: number;
+        // defensePercentage: number;
+        // lifePercentage: number;
+        // attackPercentage: number;
+        // totalPoints: number;
+        rankAsExpression:string;
     },
     pigeon: Pigeon
 }

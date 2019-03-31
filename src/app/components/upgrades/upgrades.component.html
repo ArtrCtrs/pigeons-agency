@@ -10,7 +10,7 @@
           <div class="columns">
             <div class="column is-2">
               <h1 class="subtitle">
-                {{user.seeds| number: '1.0-0'}}/{{user.maxseeds}}
+                {{user.seeds| number: '1.0-0'}}/{{user.maxseeds| number: '1.0-0'}}
                 <span class="icon">
                   <fa-icon [icon]="['far', 'seedling']" size="1x"></fa-icon>
                 </span><br>
@@ -19,7 +19,7 @@
             </div>
             <div class="column is-2">
               <h1 class="subtitle">
-                {{user.droppings| number: '1.0-0'}}/{{user.maxdroppings}}
+                {{user.droppings| number: '1.0-0'}}/{{user.maxdroppings| number: '1.0-0'}}
                 <span class="icon">
                   <fa-icon [icon]="['far', 'poop']" size="1x"></fa-icon>
                 </span><br>
@@ -28,7 +28,7 @@
             </div>
             <div class="column is-2">
               <h1 class="subtitle">
-                {{user.feathers}}
+                {{user.feathers| number: '1.0-0'}}
                 <span class="icon">
                   <fa-icon [icon]="['far', 'feather-alt']" size="1x"></fa-icon>
                 </span>
