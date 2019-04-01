@@ -17,7 +17,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of allusers; index as i" [ngClass]="{'first':i==0,'second':i==1,'third':i==2}">
+        <tr *ngFor="let user of allusers; index as i" [ngClass]="{'first':i==0,'second':i==1,'third':i==2,'me':user.id==mainuser.id}">
             <td>{{i+1}}</td>
           <td>{{user.username}}</td>
           <td>{{user.militaryscore}}</td>

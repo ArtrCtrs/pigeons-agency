@@ -10,16 +10,22 @@ import { PageDataService } from 'src/app/services/page-data.service';
 export class LeaderboardComponent implements OnInit {
   pageLoading: boolean = true;
   allusers: User[];
+  mainuser: User;
 
-  constructor(private PageDataService: PageDataService) { }
+  constructor(private pageDataService: PageDataService) { }
 
   ngOnInit() {
     this.initLeaderboard();
   }
 
   async initLeaderboard() {
-    this.allusers = (await this.PageDataService.getLeaderboardData()).data;
+    this.allusers = (await this.pageDataService.getLeaderboardData()).data;
+    await this.getPlayerInfo();
     this.pageLoading = false;
+  }
+
+  async getPlayerInfo() {
+    this.mainuser = (await this.pageDataService.getHomePageData()).data;
   }
 
 }

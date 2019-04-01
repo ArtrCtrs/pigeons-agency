@@ -25,14 +25,12 @@
             <td>{{user.totalspentfeathers}}</td>
             <td>
               <div *ngIf="user.id!=mainuser.id"><button class="button is-primary"
-                  [disabled]="user.protecteduntil>now||mainuser.nextpossibleattack>now"
+                  [disabled]="user.protecteduntil>now||mainuser.nextpossibleattack>now||mainuser.lastattack==user.id"
                   (click)="attackPlayer(user.id)">attack Player</button></div>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-
-
   </div>
 </div>

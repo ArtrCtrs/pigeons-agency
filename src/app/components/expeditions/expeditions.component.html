@@ -19,7 +19,6 @@
                 <div *ngFor="let myexpedition of myExpeditions">
                     <div *ngIf="!myexpedition.expedition.finished" class=" card my-expedition">
                         <p>Expedition : {{myexpedition.expeditionname}}</p>
-                        <p>Lvl : {{myexpedition.expedition.lvl}}</p>
                         <p>{{myexpedition.remainingtime}} seconds remaining</p>
                     </div>
 
