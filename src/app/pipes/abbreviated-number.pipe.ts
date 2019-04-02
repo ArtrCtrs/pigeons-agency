@@ -6,14 +6,14 @@ import {Pipe, PipeTransform} from '@angular/core';
 
 export class NumberAbbreviatedPipe implements PipeTransform {
     transform(value: number): any {
-        return this.nFormatter(value, 3);
+        return this.nFormatter(value, 1);
     }
 
     nFormatter(num, digits) {
 
-        if (num < 1000000) {
-            return num;
-        }
+        // if (num < 1000000) {
+        //     return num;
+        // }
 
         const si = [
             {value: 1, symbol: ''},

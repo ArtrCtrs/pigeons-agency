@@ -58,7 +58,7 @@
                   <button class="button is-small is-primary"
                     [disabled]="user.droppings<nextSeedsUpgrade.droppingsCost || user.farmlvl>user.farmstoragelvl+4"
                     (click)="upgradeFarm()">Upgrade</button>
-                  cost : {{nextSeedsUpgrade.droppingsCost}}
+                  cost : {{nextSeedsUpgrade.droppingsCost| numberAbbreviated}}
                   <span class="icon">
                     <fa-icon [icon]="['far', 'poop']" size="1x"></fa-icon>
                   </span>
@@ -108,14 +108,14 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong>Farm Storage Level : {{currentSeedsStorage.lvl}} -> {{nextSeedsStorage.lvl}}</strong>
+                  <strong>Farm Storage Level : {{currentSeedsStorage.lvl| numberAbbreviated}} -> {{nextSeedsStorage.lvl| numberAbbreviated}}</strong>
                   <br>
                   Max seeds : {{currentSeedsStorage.seedsStorage}} -> {{nextSeedsStorage.seedsStorage}}
                   <br>
                   <button class="button is-small is-primary"
                     [disabled]="(user.droppings<nextSeedsStorage.droppingsCost)||(user.feathers<nextSeedsStorage.feathersCost)"
                     (click)="upgradeFarmStorage()">Upgrade</button>
-                  cost : {{nextSeedsStorage.droppingsCost}}
+                  cost : {{nextSeedsStorage.droppingsCost| numberAbbreviated}}
                   <span class="icon">
                     <fa-icon [icon]="['far', 'poop']" size="1x"></fa-icon>
                   </span>
@@ -143,13 +143,13 @@
                   <strong>Droppings Storage Level : {{currentDroppingsStorage.lvl}} ->
                     {{nextDroppingsStorage.lvl}}</strong>
                   <br>
-                  Max droppings : {{currentDroppingsStorage.droppingsStorage}} ->
-                  {{nextDroppingsStorage.droppingsStorage}}
+                  Max droppings : {{currentDroppingsStorage.droppingsStorage| numberAbbreviated}} ->
+                  {{nextDroppingsStorage.droppingsStorage| numberAbbreviated}}
                   <br>
                   <button class="button is-small is-primary"
                     [disabled]="(user.seeds<nextDroppingsStorage.seedsCost)||(user.feathers<nextDroppingsStorage.feathersCost)"
                     (click)="upgradeDroppingsStorage()">Upgrade</button>
-                  cost : {{nextDroppingsStorage.seedsCost}}
+                  cost : {{nextDroppingsStorage.seedsCost| numberAbbreviated}}
                   <span class="icon">
                     <fa-icon [icon]="['far', 'seedling']" size="1x"></fa-icon>
                   </span>

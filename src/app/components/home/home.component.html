@@ -23,7 +23,7 @@
                     </div>
                     <div class="media-content">
                         <p class="title is-4">{{user.username | titlecase}}</p>
-                        <p class="subtitle is-6">Pigeons Agency V0.3</p>
+                        <p class="subtitle is-6">Pigeons Agency V0.3.2</p>
                     </div>
                 </div>
 
@@ -96,9 +96,9 @@
                             <td>{{i+1}}</td>
                             <td>{{user.username}}</td>
                             <td>{{user.militaryscore}}</td>
-                            <td>{{user.totalspentseeds}}</td>
-                            <td>{{user.totalspentdroppings}}</td>
-                            <td>{{user.totalspentfeathers}}</td>
+                            <td>{{user.totalspentseeds| numberAbbreviated}}</td>
+                            <td>{{user.totalspentdroppings| numberAbbreviated}}</td>
+                            <td>{{user.totalspentfeathers| numberAbbreviated}}</td>
                         </tr>
                     </tbody>
                 </table>

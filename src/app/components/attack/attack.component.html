@@ -20,9 +20,9 @@
           <tr *ngFor="let user of allusers">
             <td>{{user.username}}</td>
             <td>{{user.militaryscore}}</td>
-            <td>{{user.totalspentseeds}}</td>
-            <td>{{user.totalspentdroppings}}</td>
-            <td>{{user.totalspentfeathers}}</td>
+            <td>{{user.totalspentseeds| numberAbbreviated}}</td>
+            <td>{{user.totalspentdroppings| numberAbbreviated}}</td>
+            <td>{{user.totalspentfeathers| numberAbbreviated}}</td>
             <td>
               <div *ngIf="user.id!=mainuser.id"><button class="button is-primary"
                   [disabled]="user.protecteduntil>now||mainuser.nextpossibleattack>now||mainuser.lastattack==user.id"

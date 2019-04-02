@@ -266,6 +266,36 @@ export class AviaryComponent implements OnInit {
             case 55:
                 imgName = "crazy_legendary";
                 break;
+            case 61:
+                imgName = "savior_common";
+                break;
+            case 62:
+                imgName = "savior_uncommon";
+                break;
+            case 63:
+                imgName = "savior_rare";
+                break;
+            case 64:
+                imgName = "savior_epic";
+                break;
+            case 65:
+                imgName = "savior_legendary";
+                break;
+            case 66:
+                imgName = "eradicator_common";
+                break;
+            case 67:
+                imgName = "eradicator_uncommon";
+                break;
+            case 68:
+                imgName = "eradicator_rare";
+                break;
+            case 69:
+                imgName = "eradicator_epic";
+                break;
+            case 70:
+                imgName = "eradicator_legendary";
+                break;
             default:
                 imgName = "dummy";
         }
