@@ -44,6 +44,7 @@ import { faSword } from '@fortawesome/pro-regular-svg-icons';
 import { faShield } from '@fortawesome/pro-regular-svg-icons';
 import { faStop } from '@fortawesome/pro-regular-svg-icons';
 import { faInfo } from '@fortawesome/pro-regular-svg-icons';
+import { NumberAbbreviatedPipe } from './pipes/abbreviated-number.pipe';
 
 library.add(faMap);
 library.add(faScroll);
@@ -85,7 +86,8 @@ library.add(faInfo);
         LeaderboardComponent,
         MessagesComponent,
         AttackComponent,
-        HelpComponent
+        HelpComponent,
+        NumberAbbreviatedPipe
     ],
     imports: [
         BrowserModule,
