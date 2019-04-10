@@ -22,6 +22,8 @@ export class ExpeditionsComponent implements OnInit {
     user: User;
     nbrExpeditions: number=0;
     interval: any;
+    expeditionDef = [];
+    expeditionAtk = [];
 
     constructor(public router: Router,public expeditionsService: ExpeditionsService, public pageDataService: PageDataService) {
     }
@@ -30,8 +32,23 @@ export class ExpeditionsComponent implements OnInit {
         this.expeditionsInfo = expeditionsList;
         this.filteredExpeditionsInfo = this.expeditionsInfo;
         this.getExpeditionsData();
+        this.splitExpedition();
 
         this.interval = setInterval(() => { this.upDateFrontInfo(); }, 1000);
+        console.log("xxxxs", this.expeditionDef)
+        console.log("ccccc", this.expeditionAtk)
+
+
+    }
+
+    splitExpedition(){
+      for(let exp in this.filteredExpeditionsInfo){
+        if((this.filteredExpeditionsInfo[exp].id == 0) || ((this.filteredExpeditionsInfo[exp].id%2) != 0)){
+          this.expeditionDef.push(this.filteredExpeditionsInfo[exp]);
+        }else{
+          this.expeditionAtk.push(this.filteredExpeditionsInfo[exp]);
+        }
+      }
     }
 
     async getExpeditionsData() {
