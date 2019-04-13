@@ -40,13 +40,13 @@ export class AviaryComponent implements OnInit {
     }
 
     async initPigeons() {
+        this.user = (await this.pageDataService.getHomePageData()).data;
         let tmpNbrAttackers = 0;
         let tmpNbrDefenders = 0;
         let tmpTotalAttack = 0;
         let tmpTotalDefense = 0;
         const detailedPigeons: DetailedPigeon[] = [];
         const apiReturn: getPigeonsAPIReturn = await this.aviaryService.getPigeons(this.orderBy);
-        this.user = (await this.pageDataService.getHomePageData()).data;
         this.pageLoading = false;
 
 
