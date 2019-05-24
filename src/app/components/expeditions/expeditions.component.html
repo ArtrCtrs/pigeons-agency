@@ -15,7 +15,7 @@
                     </article>
                 </div>
 
-                <h1><strong>Current Expeditions (Max 8 at once) : </strong></h1>
+                <h1><strong>Current Expeditions : </strong></h1>
                 <div *ngFor="let myexpedition of myExpeditions">
                     <div *ngIf="!myexpedition.expedition.finished" class=" card my-expedition">
                         <p>Expedition : {{myexpedition.expeditionname}}</p>
@@ -36,7 +36,7 @@
                                 <div *ngIf="user" class="content">
                                     <p class="title is-4">Expedition : {{getExpeditionName(expedition.id)}}</p>
                                     <p class="subtitle is-6">Duration: {{expedition.duration/1000}} secondes</p>
-                                    <button class="button is-primary" [disabled]="user.seeds<expedition.seeds || user.lvl<expedition.exprank"
+                                    <button class="button is-primary" [disabled]="user.seeds<expedition.seeds || user.lvl<expedition.exprank || nbrExpeditions >= 10"
                                         (click)="launchExpedition(expedition.id)">Launch Expedition
                                         {{expedition.seeds}}&nbsp;
                                         <fa-icon [icon]="['far', 'seedling']" size="1x"></fa-icon>
