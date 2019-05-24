@@ -44,18 +44,19 @@ export class UpgradesComponent implements OnInit {
   }
 
   async getCurrentUpgrades() {
-    const res: any = await this.upgradesService.getCurrentUpgrades();
-
-    this.currentAviaryUpgrade = this.aviaryUpgradesInfo[res.data.aviarylvl];
-    this.nextAviaryUpgrade = this.aviaryUpgradesInfo[res.data.aviarylvl + 1];
-    this.currentSeedsUpgrade = this.seedsUpgradesInfo[res.data.farmlvl];
-    this.nextSeedsUpgrade = this.seedsUpgradesInfo[res.data.farmlvl + 1];
-    this.currentSeedsStorage = this.seedsStorageInfo[res.data.farmstoragelvl];
-    this.nextSeedsStorage = this.seedsStorageInfo[res.data.farmstoragelvl + 1];
-    this.currentDroppingsStorage = this.droppingsStorageInfo[res.data.droppingsstoragelvl];
-    this.nextDroppingsStorage = this.droppingsStorageInfo[res.data.droppingsstoragelvl + 1];
-
     this.user = (await this.pageDataService.getHomePageData()).data;
+    //const res: any = await this.upgradesService.getCurrentUpgrades();
+
+    this.currentAviaryUpgrade = this.aviaryUpgradesInfo[this.user.aviarylvl];
+    this.nextAviaryUpgrade = this.aviaryUpgradesInfo[this.user.aviarylvl + 1];
+    this.currentSeedsUpgrade = this.seedsUpgradesInfo[this.user.farmlvl];
+    this.nextSeedsUpgrade = this.seedsUpgradesInfo[this.user.farmlvl + 1];
+    this.currentSeedsStorage = this.seedsStorageInfo[this.user.farmstoragelvl];
+    this.nextSeedsStorage = this.seedsStorageInfo[this.user.farmstoragelvl + 1];
+    this.currentDroppingsStorage = this.droppingsStorageInfo[this.user.droppingsstoragelvl];
+    this.nextDroppingsStorage = this.droppingsStorageInfo[this.user.droppingsstoragelvl + 1];
+
+   
     this.pageLoading = false;
   }
 
