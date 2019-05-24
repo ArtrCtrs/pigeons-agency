@@ -36,7 +36,7 @@
                                 <div *ngIf="user" class="content">
                                     <p class="title is-4">Expedition : {{getExpeditionName(expedition.id)}}</p>
                                     <p class="subtitle is-6">Duration: {{expedition.duration/1000}} secondes</p>
-                                    <button class="button is-primary" [disabled]="user.seeds<expedition.seeds || nbrExpeditions >= 8"
+                                    <button class="button is-primary" [disabled]="user.seeds<expedition.seeds || user.lvl<expedition.exprank"
                                         (click)="launchExpedition(expedition.id)">Launch Expedition
                                         {{expedition.seeds}}&nbsp;
                                         <fa-icon [icon]="['far', 'seedling']" size="1x"></fa-icon>
