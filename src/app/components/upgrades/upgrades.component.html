@@ -40,6 +40,7 @@
       </div>
     </section>
     <div class="columns is desktop">
+      <h1>Lvl : {{user.lvl}}</h1>
       <div class="column">
         <div class="box">
           <article class="media">
@@ -56,16 +57,13 @@
                   Seeds per minute : {{currentSeedsUpgrade.newSeeds}} -> {{nextSeedsUpgrade.newSeeds}}
                   <br>
                   <button class="button is-small is-primary"
-                    [disabled]="user.droppings<nextSeedsUpgrade.droppingsCost || user.farmlvl>user.farmstoragelvl+4"
+                    [disabled]="user.droppings<nextSeedsUpgrade.droppingsCost || user.lvl<=user.farmlvl"
                     (click)="upgradeFarm()">Upgrade</button>
                   cost : {{nextSeedsUpgrade.droppingsCost| numberAbbreviated}}
                   <span class="icon">
                     <fa-icon [icon]="['far', 'poop']" size="1x"></fa-icon>
                   </span>
-                  droppings
-                  <span *ngIf="(user.farmlvl-4)>(-1)">
-                    and Farm Storage lvl > {{(user.farmlvl-5)}}
-                  </span>
+                  droppings and Level > {{user.farmlvl}}
                 </p>
               </div>
             </div>
@@ -85,12 +83,12 @@
                   <br>
                   Max birds : {{currentAviaryUpgrade.newBirds}} -> {{nextAviaryUpgrade.newBirds}}
                   <br>
-                  <button class="button is-small is-primary" [disabled]="user.feathers<nextAviaryUpgrade.feathersCost"
+                  <button class="button is-small is-primary" [disabled]="user.feathers<nextAviaryUpgrade.feathersCost || user.lvl<=user.aviarylvl"
                     (click)="upgradeAviary()">Upgrade</button>
                   cost : {{nextAviaryUpgrade.feathersCost}}
                   <span class="icon">
                     <fa-icon [icon]="['far', 'feather-alt']" size="1x"></fa-icon>
-                  </span> feathers
+                  </span> feathers and Level > {{user.aviarylvl}}
                 </p>
               </div>
             </div>
@@ -113,7 +111,7 @@
                   Max seeds : {{currentSeedsStorage.seedsStorage}} -> {{nextSeedsStorage.seedsStorage}}
                   <br>
                   <button class="button is-small is-primary"
-                    [disabled]="(user.droppings<nextSeedsStorage.droppingsCost)||(user.feathers<nextSeedsStorage.feathersCost)"
+                    [disabled]="(user.droppings<nextSeedsStorage.droppingsCost)||(user.feathers<nextSeedsStorage.feathersCost) || user.lvl<=user.farmstoragelvl"
                     (click)="upgradeFarmStorage()">Upgrade</button>
                   cost : {{nextSeedsStorage.droppingsCost| numberAbbreviated}}
                   <span class="icon">
@@ -124,7 +122,7 @@
                   <span class="icon">
                     <fa-icon [icon]="['far', 'feather-alt']" size="1x"></fa-icon>
                   </span>
-                  feathers
+                  feathers and Level > {{user.farmstoragelvl}}
                 </p>
               </div>
             </div>
@@ -147,7 +145,7 @@
                   {{nextDroppingsStorage.droppingsStorage| numberAbbreviated}}
                   <br>
                   <button class="button is-small is-primary"
-                    [disabled]="(user.seeds<nextDroppingsStorage.seedsCost)||(user.feathers<nextDroppingsStorage.feathersCost)"
+                    [disabled]="(user.seeds<nextDroppingsStorage.seedsCost)||(user.feathers<nextDroppingsStorage.feathersCost)|| user.lvl<=user.droppingsstoragelvl"
                     (click)="upgradeDroppingsStorage()">Upgrade</button>
                   cost : {{nextDroppingsStorage.seedsCost| numberAbbreviated}}
                   <span class="icon">
@@ -158,7 +156,7 @@
                   <span class="icon">
                     <fa-icon [icon]="['far', 'feather-alt']" size="1x"></fa-icon>
                   </span>
-                  feathers
+                  feathers and Level > {{user.droppingsstoragelvl}}
                 </p>
               </div>
             </div>
