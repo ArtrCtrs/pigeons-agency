@@ -16,7 +16,8 @@ import { Router } from '@angular/router';
 export class ExpeditionsComponent implements OnInit {
 
     pageLoading: boolean = true;
-    filteredExpeditionsInfo: ExpeditionInfo[] = [];
+    attackExpeditions:ExpeditionInfo[]=[];
+    defenseExpeditions:ExpeditionInfo[]=[];
     expeditionsInfo: ExpeditionInfo[] = [];
     myExpeditions: ActiveExpedition[] = [];
     user: User;
@@ -28,7 +29,9 @@ export class ExpeditionsComponent implements OnInit {
 
     ngOnInit() {
         this.expeditionsInfo = expeditionsList;
-        this.filteredExpeditionsInfo = this.expeditionsInfo;
+        this.attackExpeditions = this.expeditionsInfo.filter(expe => expe.id <= 29);
+        this.defenseExpeditions = this.expeditionsInfo.filter(expe => expe.id > 29);
+
         this.getExpeditionsData();
 
         this.interval = setInterval(() => { this.upDateFrontInfo(); }, 1000);
