@@ -8,26 +8,29 @@
       <table class="table table is-bordered">
         <thead>
           <tr>
+            <th></th>
             <th>Player</th>
+            <th>Lvl</th>
             <th>Military Score</th>
             <th>Spent Seeds</th>
             <th>Spent Droppings</th>
             <th>Spent Feathers</th>
-            <th>Most interesting attacks first</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let user of allusers">
+            <td>
+              <div *ngIf="user.id!=mainuser.id"><button class="button is-primary"
+                  [disabled]="user.protecteduntil>now||mainuser.nextpossibleattack>now||mainuser.lastattack==user.id"
+                  (click)="attackPlayer(user.id)">Attack</button></div>
+            </td>
             <td>{{user.username}}</td>
+            <td>{{user.lvl}}</td>
             <td>{{user.militaryscore}}</td>
             <td>{{user.totalspentseeds| numberAbbreviated}}</td>
             <td>{{user.totalspentdroppings| numberAbbreviated}}</td>
             <td>{{user.totalspentfeathers| numberAbbreviated}}</td>
-            <td>
-              <div *ngIf="user.id!=mainuser.id"><button class="button is-primary"
-                  [disabled]="user.protecteduntil>now||mainuser.nextpossibleattack>now||mainuser.lastattack==user.id"
-                  (click)="attackPlayer(user.id)">attack Player</button></div>
-            </td>
+
           </tr>
         </tbody>
       </table>
