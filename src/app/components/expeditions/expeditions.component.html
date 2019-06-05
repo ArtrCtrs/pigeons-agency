@@ -5,7 +5,6 @@
     <div class="mt-20"></div>
     <div class="columns">
         <div class="column is-2">
-            <div class="column">
                 <div class="field" *ngIf="user">
                     <article class="tile is-child box">
                         <p>Seeds : {{user.seeds | number: '1.0-0'}}/{{user.maxseeds}} <fa-icon [icon]="['far', 'seedling']" size="1x"></fa-icon></p>
@@ -18,17 +17,18 @@
                 <h1><strong>Current Expeditions : </strong></h1>
                 <div *ngFor="let myexpedition of myExpeditions">
                     <div *ngIf="!myexpedition.expedition.finished" class=" card my-expedition">
-                        <p>Expedition : {{myexpedition.expeditionname}}</p>
-                        <p>{{myexpedition.remainingtime}} seconds remaining</p>
+                        <p>{{myexpedition.expeditionname}}</p>
+                        <p>{{(myexpedition.remainingtime/1000)| number: '1.0-0'}} seconds left</p>
+                         <progress class="progress is-primary" [value]="myexpedition.remainingtime"
+                                            [max]="myexpedition.expedition.duration"></progress>
                     </div>
 
                 </div>
                 <!-- <button (click)="getExpeditionsData()" type="text">update data</button> -->
-            </div>
         </div>
         <div class="column is-5">
 
-            <div *ngFor="let expedition of attackExpeditions" class="column">
+            <div *ngFor="let expedition of attackExpeditions">
                 <div class="card expedition">
                     <div class="box">
                         <article class="media">
@@ -54,7 +54,7 @@
         </div>
         <div class="column is-5">
 
-            <div *ngFor="let expedition of defenseExpeditions" class="column">
+            <div *ngFor="let expedition of defenseExpeditions">
                 <div class="card expedition">
                     <div class="box">
                         <article class="media">

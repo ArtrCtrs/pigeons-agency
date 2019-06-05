@@ -71,6 +71,7 @@ export class ExpeditionsComponent implements OnInit {
         this.myExpeditions.forEach(function (exp) {
             if (!exp.expedition.finished) {
                 exp.remainingtime = this.getRemainingTime(exp.expedition.starttime, exp.expedition.duration);
+                console.log(exp.remainingtime+" /"+exp.expedition.duration )
                 if (exp.remainingtime <= 0) {
                     this.user.birds = this.user.birds < this.user.maxbirds ? this.user.birds + 1 : this.user.maxbirds;
                     exp.expedition.finished = true;
@@ -84,7 +85,7 @@ export class ExpeditionsComponent implements OnInit {
         return this.expeditionsInfo[id].name;
     }
     getRemainingTime(start: string, duration: number): number {
-        const t = Math.floor((Number.parseInt(start) + duration - Date.now()) / 1000);
+        const t = Math.floor((Number.parseInt(start) + duration - Date.now()) );
         return (t);
     }
 

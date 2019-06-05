@@ -65,12 +65,18 @@
     .top{
         background-color:@green;
     }
+    img{
+        filter: drop-shadow(5px 5px 5px @green);
+    }
 }
 
 .rare {
     border:0.5px solid @blue;
 .top{
     background-color:@blue;
+}
+img{
+    filter: drop-shadow(5px 5px 5px @blue);
 }
 }
 
@@ -79,11 +85,17 @@
  .top{
     background-color:@purple;
 }
+img{
+    filter: drop-shadow(5px 5px 5px @purple);
+}
 }
 
 .legendary{
     border:0.5px solid @solidgold;
      .top{background-color:@solidgold;
+}
+img{
+    filter: drop-shadow(5px 5px 5px @solidgold);
 }
 }
 
@@ -127,68 +139,6 @@
 }
 
 
-
-    // &:hover {
-    //     cursor: pointer;
-    //     top: -5px;
-    // }
-
-//     &.atypique {
-//         .points {
-//             background-color: rgb(135,199,255);
-//         }
-
-//         &.selected {
-//             border: 2px solid rgb(135,199,255);
-//         }
-//     }
-
-//     &.exotique {
-//         .points {
-//             background-color: rgb(136,71,255);
-//         }
-
-//         &.selected {
-//             border: 2px solid rgb(136,71,255);
-//         }
-//     }
-
-//     &.rare {
-//         .points {
-//             background-color: rgb(242,188,75);
-//         }
-
-//         &.selected {
-//             border: 2px solid rgb(242,188,75);
-//         }
-//     }
-
-//     &.legendaire {
-//         .points {
-//             background-color: rgb(235,75,75);
-//         }
-
-//         &.selected {
-//             border: 2px solid rgb(235,75,75);
-//         }
-//     }
-
-//     &.selected {
-//         top: -5px;
-//         border: 2px solid rgb(175,175,175);
-//     }
-// }
-
-// .progress {
-//     display: inline-block;
-//     margin-bottom: 0;
-//     width: 75%;
-// }
-
-// .progress-value {
-//     float: right;
-// }
-
 .is-danger{
     padding:0.4em;
     font-size: .9rem;
@@ -205,3 +155,4 @@
     display:none;
 
 }
+

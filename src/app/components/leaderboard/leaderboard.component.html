@@ -21,7 +21,7 @@
         <tr *ngFor="let user of allusers; index as i" [ngClass]="{'first':i==0,'second':i==1,'third':i==2,'me':user.id==mainuser.id}">
             <td>{{i+1}}</td>
           <td>{{user.username}}</td>
-          <td>{{user.militaryscore}}</td>
+          <td>{{user.militaryscore}}</td> 
           <td>{{user.lvl}}</td>
           <td>{{user.totalspentseeds | numberAbbreviated}}</td>
           <td>{{user.totalspentdroppings | numberAbbreviated}}</td>

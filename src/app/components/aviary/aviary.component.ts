@@ -114,19 +114,18 @@ export class AviaryComponent implements OnInit {
         let imgName = "";
         switch (pigeon.type) {
             case 1:
-                imgName = "little_common"
-                break;
             case 2:
-                imgName = "little_uncommon";
-                break;
             case 3:
-                imgName = "little_rare";
-                break;
             case 4:
-                imgName = "little_epic";
-                break;
             case 5:
-                imgName = "little_legendary";
+                imgName = "p2baguette"
+                break;
+            case 6: 
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+                imgName = "p1baguette"
                 break;
             case 6:
                 imgName = "fat_common";
