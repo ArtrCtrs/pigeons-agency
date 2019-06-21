@@ -21,7 +21,7 @@ export class MapComponent implements OnInit {
 
     ngOnInit() {
         this.pigeon_map = L.map('pigeon_map').setView([5, 5], 4);
-        console.log(this.pigeon_map);
+        //console.log(this.pigeon_map);
 
         L.tileLayer('/assets/tiles/{z}/{x}/{y}.png', {
             minZoom: 4,
