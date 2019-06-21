@@ -14,12 +14,14 @@ export class AttackComponent implements OnInit {
   allusers: User[];
   mainuser: User;
   now: number;
+  page:number;
   
   interval: any;
 
   constructor(private router: Router, private AttackService: AttackService, public pageDataService: PageDataService) { }
 
   ngOnInit() {
+    this.page=1;
     this.initAttackList();
     this.interval = setInterval(() => { this.upDateFrontInfo(); }, 10000);
   }

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -91,7 +92,7 @@ library.add(faStopwatch);
         AttackComponent,
         HelpComponent,
         NumberAbbreviatedPipe,
-        EventsComponent
+        EventsComponent,
     ],
     imports: [
         BrowserModule,
@@ -99,7 +100,8 @@ library.add(faStopwatch);
         FontAwesomeModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule
+        HttpClientModule,
+        NgxPaginationModule
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -18,7 +18,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of allusers">
+          <tr *ngFor="let user of allusers| paginate: { itemsPerPage: 100, currentPage: page }">
             <td>
               <div *ngIf="user.id!=mainuser.id"><button class="button is-primary"
                   [disabled]="user.protecteduntil>now||mainuser.nextpossibleattack>now||mainuser.lastattack==user.id"
@@ -34,6 +34,9 @@
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="has-text-centered" *ngIf="allusers.length>100">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
   </div>
 </div>

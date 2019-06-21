@@ -11,10 +11,12 @@ export class LeaderboardComponent implements OnInit {
   pageLoading: boolean = true;
   allusers: User[];
   mainuser: User;
+  page:number;
 
   constructor(private pageDataService: PageDataService) { }
 
   ngOnInit() {
+    this.page=1;
     this.initLeaderboard();
   }
 

@@ -23,12 +23,13 @@
         "bulma": "^0.7.2",
         "core-js": "^2.5.4",
         "leaflet": "^1.4.0",
+        "ngx-pagination": "^4.0.0",
         "rxjs": "~6.3.3",
         "tslib": "^1.9.0",
         "zone.js": "~0.8.26"
     },
     "devDependencies": {
-        "@angular-devkit/build-angular": "^0.12.3",
+        "@angular-devkit/build-angular": "^0.800.3",
         "@angular/cli": "~7.1.1",
         "@angular/compiler-cli": "~7.1.0",
         "@angular/language-service": "~7.1.0",

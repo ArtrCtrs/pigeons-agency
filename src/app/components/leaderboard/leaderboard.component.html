@@ -5,34 +5,36 @@
   </div>
   <div *ngIf="!pageLoading">
     <div class="overflow">
-    <table class="table table is-bordered">
-      <thead>
-        <tr>
+      <table class="table table is-bordered">
+        <thead>
+          <tr>
             <th>Rank</th>
-          <th>Player</th>
-          <th>Military Score</th>
-          <th>Lvl</th>
-          <th>Spent Seeds</th>
-          <th>Spent Droppings</th>
-          <th>Spent Feathers</th>
-          <th>Honor points</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of allusers; index as i" [ngClass]="{'first':i==0,'second':i==1,'third':i==2,'me':user.id==mainuser.id}">
+            <th>Player</th>
+            <th>Military Score</th>
+            <th>Lvl</th>
+            <th>Spent Seeds</th>
+            <th>Spent Droppings</th>
+            <th>Spent Feathers</th>
+            <th>Honor points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of allusers| paginate: { itemsPerPage: 100, currentPage: page }; index as i "
+            [ngClass]="{'first':i==0&&page==1,'second':i==1&&page==1,'third':i==2&&page==1,'me':user.id==mainuser.id}">
             <td>{{i+1}}</td>
-          <td>{{user.username}}</td>
-          <td>{{user.militaryscore}}</td> 
-          <td>{{user.lvl}}</td>
-          <td>{{user.totalspentseeds | numberAbbreviated}}</td>
-          <td>{{user.totalspentdroppings | numberAbbreviated}}</td>
-          <td>{{user.totalspentfeathers| numberAbbreviated}}</td>
-          <td>{{user.honorpoints}}</td>
-        </tr>
-    </tbody>
-    </table>
-  </div>
-
-
+            <td>{{user.username}}</td>
+            <td>{{user.militaryscore}}</td>
+            <td>{{user.lvl}}</td>
+            <td>{{user.totalspentseeds | numberAbbreviated}}</td>
+            <td>{{user.totalspentdroppings | numberAbbreviated}}</td>
+            <td>{{user.totalspentfeathers| numberAbbreviated}}</td>
+            <td>{{user.honorpoints}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="has-text-centered" *ngIf="allusers.length>100">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
   </div>
 </div>
