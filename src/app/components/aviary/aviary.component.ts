@@ -182,7 +182,7 @@ export class AviaryComponent implements OnInit {
             case 3:
             case 4:
             case 5:
-                imgName = "p1baguette";
+                imgName = "p1basic";
                 break;
             case 6:
             case 7:
@@ -392,7 +392,7 @@ export class AviaryComponent implements OnInit {
             case 153:
             case 154:
             case 155:
-                imgName = "p2baguette";
+                imgName = "p2basic";
                 break;
             case 156:
             case 157:
