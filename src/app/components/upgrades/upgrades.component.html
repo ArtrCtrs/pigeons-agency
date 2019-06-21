@@ -9,6 +9,10 @@
         <div class="container">
           <div class="columns">
             <div class="column is-2">
+
+              <h1 class="title">Level : {{user.lvl}}</h1>
+            </div>
+            <div class="column is-2">
               <h1 class="subtitle">
                 {{user.seeds| number: '1.0-0'}}/{{user.maxseeds| number: '1.0-0'}}
                 <span class="icon">
@@ -40,9 +44,8 @@
       </div>
     </section>
     <div class="columns is desktop">
-      <h1>Lvl : {{user.lvl}}</h1>
       <div class="column">
-        <div class="box">
+        <div class="box" [ngClass]="{'greyed':user.lvl<=user.farmlvl}">
           <article class="media">
             <div class="media-left">
               <!-- <figure class="image is-64x64">
@@ -63,13 +66,13 @@
                   <span class="icon">
                     <fa-icon [icon]="['far', 'poop']" size="1x"></fa-icon>
                   </span>
-                  droppings and Level > {{user.farmlvl}}
+                  droppings and lvl > {{user.farmlvl}}
                 </p>
               </div>
             </div>
           </article>
         </div>
-        <div class="box">
+        <div class="box" [ngClass]="{'greyed':user.lvl<=user.aviarylvl}">
           <article class="media">
             <div class="media-left">
               <!-- <figure class="image is-64x64">
@@ -83,12 +86,13 @@
                   <br>
                   Max birds : {{currentAviaryUpgrade.newBirds}} -> {{nextAviaryUpgrade.newBirds}}
                   <br>
-                  <button class="button is-small is-primary" [disabled]="user.feathers<nextAviaryUpgrade.feathersCost || user.lvl<=user.aviarylvl"
+                  <button class="button is-small is-primary"
+                    [disabled]="user.feathers<nextAviaryUpgrade.feathersCost || user.lvl<=user.aviarylvl"
                     (click)="upgradeAviary()">Upgrade</button>
                   cost : {{nextAviaryUpgrade.feathersCost}}
                   <span class="icon">
                     <fa-icon [icon]="['far', 'feather-alt']" size="1x"></fa-icon>
-                  </span> feathers and Level > {{user.aviarylvl}}
+                  </span> feathers and lvl > {{user.aviarylvl}}
                 </p>
               </div>
             </div>
@@ -96,7 +100,7 @@
         </div>
       </div>
       <div class="column">
-        <div class="box">
+        <div class="box" [ngClass]="{'greyed':user.lvl<=user.farmstoragelvl}">
           <article class="media">
             <div class="media-left">
               <!-- <figure class="image is-64x64">
@@ -106,7 +110,8 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong>Farm Storage Level : {{currentSeedsStorage.lvl| numberAbbreviated}} -> {{nextSeedsStorage.lvl| numberAbbreviated}}</strong>
+                  <strong>Farm Storage Level : {{currentSeedsStorage.lvl| numberAbbreviated}} ->
+                    {{nextSeedsStorage.lvl| numberAbbreviated}}</strong>
                   <br>
                   Max seeds : {{currentSeedsStorage.seedsStorage}} -> {{nextSeedsStorage.seedsStorage}}
                   <br>
@@ -122,13 +127,13 @@
                   <span class="icon">
                     <fa-icon [icon]="['far', 'feather-alt']" size="1x"></fa-icon>
                   </span>
-                  feathers and Level > {{user.farmstoragelvl}}
+                  feathers and lvl > {{user.farmstoragelvl}}
                 </p>
               </div>
             </div>
           </article>
         </div>
-        <div class="box">
+        <div class="box" [ngClass]="{'greyed':user.lvl<=user.droppingsstoragelvl}">
           <article class="media">
             <div class="media-left">
               <!-- <figure class="image is-64x64">
@@ -156,7 +161,7 @@
                   <span class="icon">
                     <fa-icon [icon]="['far', 'feather-alt']" size="1x"></fa-icon>
                   </span>
-                  feathers and Level > {{user.droppingsstoragelvl}}
+                  feathers and lvl > {{user.droppingsstoragelvl}}
                 </p>
               </div>
             </div>

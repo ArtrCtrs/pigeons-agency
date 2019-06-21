@@ -7,6 +7,9 @@
                 <div *ngIf="this.form.get('username').hasError('minlength')&&sendAttempt">
                         Name must be at least 4 characters long.
                       </div>
+                      <div *ngIf="this.form.get('username').hasError('maxlength')&&sendAttempt">
+                            Name must be at most 12 characters long.
+                          </div>
             <form [formGroup]="form" (submit)="register()">
                 <div class="field">
                     <div class="control">

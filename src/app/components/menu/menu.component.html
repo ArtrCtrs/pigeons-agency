@@ -77,24 +77,25 @@
                         </a>
                         <a class="navbar-item" (click)="redirect(['/events'])" routerLinkActive="is-active">
                             <span class="icon">
-                                <fa-icon [icon]="['far', 'pennant']"></fa-icon>
+                                <fa-icon [icon]="['far', 'stopwatch']"></fa-icon>
                             </span>
                             <span>Events</span>
                         </a>
+                        <a class="navbar-item" (click)="redirect(['/help'])" routerLinkActive="is-active">
+                            <span class="icon">
+                                <fa-icon [icon]="['far', 'info']"></fa-icon>
+                            </span>
+                            <span>Help</span>
+                        </a>
                     </div>
                 </div>
-                <a class="navbar-item" (click)="redirect(['/help'])" routerLinkActive="is-active">
-                    <span class="icon">
-                        <fa-icon [icon]="['far', 'info']"></fa-icon>
-                    </span>
-                    <span>Help</span>
-                </a>
+                
             </div>
 
             <div class="navbar-end">
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
-                        {{username | titlecase}}
+                        {{username}}
                     </a>
                     <div class="navbar-dropdown is-right">
                         <!-- <a class="navbar-item" (click)="redirect(['/account'])" routerLinkActive="is-active">

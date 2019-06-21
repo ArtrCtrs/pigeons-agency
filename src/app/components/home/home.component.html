@@ -22,8 +22,8 @@
                         </figure>
                     </div>
                     <div class="media-content">
-                        <p class="title is-4">{{user.username | titlecase}}</p>
-                        <p class="subtitle is-6">Pigeons Agency V0.3.2</p>
+                        <p class="title is-4">{{user.username}} level {{user.lvl}}</p>
+                        <p class="subtitle is-6">Pigeons Agency V0.4 : Pelicano server</p>
                     </div>
                 </div>
 
@@ -85,9 +85,11 @@
                             <th>Rank</th>
                             <th>Player</th>
                             <th>Military Score</th>
+                            <th>Lvl</th>
                             <th>Spent Seeds</th>
                             <th>Spent Droppings</th>
                             <th>Spent Feathers</th>
+                            <th>Honor Points</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -96,9 +98,11 @@
                             <td>{{i+1}}</td>
                             <td>{{user.username}}</td>
                             <td>{{user.militaryscore}}</td>
+                            <td>{{user.lvl}}</td>
                             <td>{{user.totalspentseeds| numberAbbreviated}}</td>
                             <td>{{user.totalspentdroppings| numberAbbreviated}}</td>
                             <td>{{user.totalspentfeathers| numberAbbreviated}}</td>
+                            <td>{{user.honorpoints}}</td>
                         </tr>
                     </tbody>
                 </table>

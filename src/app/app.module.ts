@@ -45,6 +45,7 @@ import { faSword } from '@fortawesome/pro-regular-svg-icons';
 import { faShield } from '@fortawesome/pro-regular-svg-icons';
 import { faStop } from '@fortawesome/pro-regular-svg-icons';
 import { faInfo } from '@fortawesome/pro-regular-svg-icons';
+import { faStopwatch } from '@fortawesome/pro-regular-svg-icons';
 import { NumberAbbreviatedPipe } from './pipes/abbreviated-number.pipe';
 
 library.add(faMap);
@@ -69,6 +70,7 @@ library.add(faShield);
 library.add(faStop);
 library.add(faHelmetBattle);
 library.add(faInfo);
+library.add(faStopwatch);
 
 
 @NgModule({
