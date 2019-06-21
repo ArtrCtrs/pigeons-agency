@@ -4,79 +4,90 @@
     </div>
     <div class="mt-20"></div>
     <div class="columns">
-        <div class="column is-2">
-                <div class="field" *ngIf="user">
-                    <article class="tile is-child box">
-                        <p>Seeds : {{user.seeds | number: '1.0-0'}}/{{user.maxseeds}} <fa-icon [icon]="['far', 'seedling']" size="1x"></fa-icon></p>
-                        <p>Birds : {{user.birds}}/{{user.maxbirds}} <fa-icon [icon]="['far', 'crow']" size="1x"></fa-icon></p>
-                        <p class="warning" *ngIf="user.birds>=user.maxbirds"><fa-icon [icon]="['far', 'exclamation-triangle']" size="1x"></fa-icon> Warning : Aviary full </p>
-                        <button *ngIf="user.hasnotifications" class="button is-danger" (click)="redirect(['/messages'])"> Attacked !</button>
-                    </article>
-                </div>
-
-                <h1><strong>Current Expeditions : </strong></h1>
-                <div *ngFor="let myexpedition of myExpeditions">
-                    <div *ngIf="!myexpedition.expedition.finished" class=" card my-expedition">
-                        <p>{{myexpedition.expeditionname}}</p>
-                        <p>{{(myexpedition.remainingtime/1000)| number: '1.0-0'}} seconds left</p>
-                         <progress class="progress is-primary" [value]="myexpedition.remainingtime"
-                                            [max]="myexpedition.expedition.duration"></progress>
-                    </div>
-
-                </div>
-                <!-- <button (click)="getExpeditionsData()" type="text">update data</button> -->
-        </div>
-        <div class="column is-5">
-
-            <div *ngFor="let expedition of attackExpeditions">
-                <div class="card expedition">
-                    <div class="box">
-                        <article class="media">
-                            <div class="media-content">
-                                <div *ngIf="user" class="content">
-                                    <p class="title is-4">Expedition : {{getExpeditionName(expedition.id)}}</p>
-                                    <p class="subtitle is-6">Duration: {{expedition.duration/1000}} secondes</p>
-                                    <button class="button is-primary" [disabled]="user.seeds<expedition.seeds || user.lvl<expedition.exprank || nbrExpeditions >= 10"
-                                        (click)="launchExpedition(expedition.id)">Launch Expedition
-                                        {{expedition.seeds}}&nbsp;
-                                        <fa-icon [icon]="['far', 'seedling']" size="1x"></fa-icon>
-                                    </button>
-
-                                </div>
-
-                            </div>
-                        </article>
-                    </div>
-
-                </div>
+        <div class="column is-3">
+            <div class="field" *ngIf="user">
+                <article class="tile is-child box">
+                    <p>Seeds : {{user.seeds | number: '1.0-0'}}/{{user.maxseeds}} <fa-icon [icon]="['far', 'seedling']"
+                            size="1x"></fa-icon>
+                    </p>
+                    <p>Birds : {{user.birds}}/{{user.maxbirds}} <fa-icon [icon]="['far', 'crow']" size="1x"></fa-icon>
+                    </p>
+                    <p class="warning" *ngIf="user.birds>=user.maxbirds">
+                        <fa-icon [icon]="['far', 'exclamation-triangle']" size="1x"></fa-icon> Warning : Aviary full
+                    </p>
+                    <button *ngIf="user.hasnotifications" class="button is-danger" (click)="redirect(['/messages'])">
+                        Attacked !</button>
+                </article>
             </div>
 
-        </div>
-        <div class="column is-5">
+            <h1><strong>Current Expeditions : </strong></h1>
+            <div *ngFor="let myexpedition of myExpeditions">
+                <div *ngIf="!myexpedition.expedition.finished" class=" card my-expedition">
+                    <p>{{myexpedition.expeditionname}}</p>
+                    <p>{{(myexpedition.remainingtime/1000)| number: '1.0-0'}} seconds left</p>
+                    <progress class="progress is-primary" [value]="myexpedition.remainingtime"
+                        [max]="myexpedition.expedition.duration"></progress>
+                </div>
 
-            <div *ngFor="let expedition of defenseExpeditions">
-                <div class="card expedition">
-                    <div class="box">
-                        <article class="media">
-                            <div class="media-content">
-                                <div *ngIf="user" class="content">
-                                    <p class="title is-4">Expedition : {{getExpeditionName(expedition.id)}}</p>
-                                    <p class="subtitle is-6">Duration: {{expedition.duration/1000}} secondes</p>
-                                    <button class="button is-primary" [disabled]="user.seeds<expedition.seeds || user.lvl<expedition.exprank || nbrExpeditions >= 10"
-                                        (click)="launchExpedition(expedition.id)">Launch Expedition
-                                        {{expedition.seeds}}&nbsp;
-                                        <fa-icon [icon]="['far', 'seedling']" size="1x"></fa-icon>
-                                    </button>
+            </div>
+            <!-- <button (click)="getExpeditionsData()" type="text">update data</button> -->
+        </div>
+        <div class="columns is-mobile">
+
+            <div class="column is-half-mobile">
+
+                <div *ngFor="let expedition of attackExpeditions">
+                    <div class="card expedition">
+                        <div class="box">
+                            <article class="media">
+                                <div class="media-content">
+                                    <div *ngIf="user" class="content">
+                                        <p class="title is-4">Expedition : {{getExpeditionName(expedition.id)}}</p>
+                                        <p class="subtitle is-6">Duration: {{expedition.duration/1000}} secondes</p>
+                                        <button class="button is-primary"
+                                            [disabled]="user.seeds<expedition.seeds || user.lvl<expedition.exprank || nbrExpeditions >= 10"
+                                            (click)="launchExpedition(expedition.id)">Launch Expedition
+                                            {{expedition.seeds}}&nbsp;
+                                            <fa-icon [icon]="['far', 'seedling']" size="1x"></fa-icon>
+                                        </button>
+
+                                    </div>
 
                                 </div>
+                            </article>
+                        </div>
 
-                            </div>
-                        </article>
                     </div>
-
                 </div>
-            </div>
 
+            </div>
+            <div class="column is-half-mobile">
+
+                <div *ngFor="let expedition of defenseExpeditions">
+                    <div class="card expedition">
+                        <div class="box">
+                            <article class="media">
+                                <div class="media-content">
+                                    <div *ngIf="user" class="content">
+                                        <p class="title is-4">Expedition : {{getExpeditionName(expedition.id)}}</p>
+                                        <p class="subtitle is-6">Duration: {{expedition.duration/1000}} secondes</p>
+                                        <button class="button is-primary"
+                                            [disabled]="user.seeds<expedition.seeds || user.lvl<expedition.exprank || nbrExpeditions >= 10"
+                                            (click)="launchExpedition(expedition.id)">Launch Expedition
+                                            {{expedition.seeds}}&nbsp;
+                                            <fa-icon [icon]="['far', 'seedling']" size="1x"></fa-icon>
+                                        </button>
+
+                                    </div>
+
+                                </div>
+                            </article>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>

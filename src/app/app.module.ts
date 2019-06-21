@@ -22,6 +22,7 @@ import { LeaderboardComponent } from './components/leaderboard/leaderboard.compo
 import { MessagesComponent } from './components/messages/messages.component';
 import { AttackComponent } from './components/attack/attack.component';
 import { HelpComponent } from './components/help/help.component';
+import { EventsComponent } from './components/events/events.component';
 
 import { faMap, faHelmetBattle } from '@fortawesome/pro-regular-svg-icons';
 import { faScroll } from '@fortawesome/pro-regular-svg-icons';
@@ -87,7 +88,8 @@ library.add(faInfo);
         MessagesComponent,
         AttackComponent,
         HelpComponent,
-        NumberAbbreviatedPipe
+        NumberAbbreviatedPipe,
+        EventsComponent
     ],
     imports: [
         BrowserModule,

@@ -15,6 +15,7 @@ import { IsLoggedInGuard } from './guards/is-logged-in.guard';
 import { IsLoggedOutGuard } from './guards/is-logged-out.guard';
 import { MessagesComponent } from './components/messages/messages.component';
 import { HelpComponent } from './components/help/help.component';
+import { EventsComponent } from './components/events/events.component';
 
 const routes: Routes = [
     {
@@ -77,6 +78,10 @@ const routes: Routes = [
     },{
         path: 'help',
         component: HelpComponent,
+        canActivate: [IsLoggedInGuard]
+    },{
+        path: 'events',
+        component: EventsComponent,
         canActivate: [IsLoggedInGuard]
     },
     {

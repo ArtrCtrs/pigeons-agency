@@ -75,6 +75,12 @@
                             </span>
                             <span>Map</span>
                         </a>
+                        <a class="navbar-item" (click)="redirect(['/events'])" routerLinkActive="is-active">
+                            <span class="icon">
+                                <fa-icon [icon]="['far', 'pennant']"></fa-icon>
+                            </span>
+                            <span>Events</span>
+                        </a>
                     </div>
                 </div>
                 <a class="navbar-item" (click)="redirect(['/help'])" routerLinkActive="is-active">
