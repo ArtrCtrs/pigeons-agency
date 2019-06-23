@@ -24,6 +24,7 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { AttackComponent } from './components/attack/attack.component';
 import { HelpComponent } from './components/help/help.component';
 import { EventsComponent } from './components/events/events.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 import { faMap, faHelmetBattle } from '@fortawesome/pro-regular-svg-icons';
 import { faScroll } from '@fortawesome/pro-regular-svg-icons';
@@ -47,6 +48,7 @@ import { faShield } from '@fortawesome/pro-regular-svg-icons';
 import { faStop } from '@fortawesome/pro-regular-svg-icons';
 import { faInfo } from '@fortawesome/pro-regular-svg-icons';
 import { faStopwatch } from '@fortawesome/pro-regular-svg-icons';
+import { faCommentAlt } from '@fortawesome/pro-regular-svg-icons';
 import { NumberAbbreviatedPipe } from './pipes/abbreviated-number.pipe';
 
 library.add(faMap);
@@ -72,7 +74,7 @@ library.add(faStop);
 library.add(faHelmetBattle);
 library.add(faInfo);
 library.add(faStopwatch);
-
+library.add(faCommentAlt);
 
 @NgModule({
     declarations: [
@@ -93,6 +95,7 @@ library.add(faStopwatch);
         HelpComponent,
         NumberAbbreviatedPipe,
         EventsComponent,
+        ChatComponent,
     ],
     imports: [
         BrowserModule,

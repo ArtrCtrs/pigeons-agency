@@ -81,6 +81,12 @@
                             </span>
                             <span>Events</span>
                         </a>
+                        <a class="navbar-item" (click)="redirect(['/chat'])" routerLinkActive="is-active">
+                            <span class="icon">
+                                <fa-icon [icon]="['far', 'comment-alt']"></fa-icon>
+                            </span>
+                            <span>Discord</span>
+                        </a>
                         <a class="navbar-item" (click)="redirect(['/help'])" routerLinkActive="is-active">
                             <span class="icon">
                                 <fa-icon [icon]="['far', 'info']"></fa-icon>

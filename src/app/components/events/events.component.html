@@ -1,7 +1,60 @@
-<p>
-  events works!
+<div *ngIf="eventresponse">
+  <h1 class="event-upcomming" *ngIf="eventresponse.event.period==0">
+    Next event starts on {{eventresponse.event.starttime| date:'medium'}}
+  </h1>
+  <div class="columns" *ngIf="eventresponse.event.period>=1">
+    <div class="card info-card column is-mobile" *ngIf="eventresponse.event.period==1">
+      <div class="card-image">
+        <figure class="image">
+          <img [src]="eventresponse.event.imgsrc" alt="Event image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media-content">
+          <p class="title is-4">{{eventresponse.event.title}}</p>
+          <button class="button is-warning is-small" (click)="doEventAction()" [disabled]="mainuser.nextactiontime>now">Do action
+          </button>
+          <p *ngIf="mainuser.nextactiontime>now">Next possible action in < {{(mainuser.nextactiontime - now) /60000| number: '1.0-0'}} minutes</p>
+        </div>
+      </div>
 
+      <div class="content">
+        {{eventresponse.event.description}}<br>
+        <br>
+      </div>
+    </div>
+    <div class="overflow column is-mobile">
+        <div *ngIf="eventresponse.event.period==2">Event finished ! Check your reward in aviary</div>
+        <p>Start : {{eventresponse.event.starttime| date:'medium'}}<br>
+        End : {{eventresponse.event.endtime| date:'medium'}}</p>
 
-</p>
+      <table class="table table is-bordered">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>Event score</th>
+            <th>Event actions</th>
+            <th>Lvl</th>
+            <th>Honor points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of eventresponse.users| paginate: { itemsPerPage: 100, currentPage: page }; index as i "
+            [ngClass]="{'first':i==0&&page==1,'second':i==1&&page==1,'third':i==2&&page==1,'me':user.id==mainuser.id}">
+            <td>{{i+1}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.stat1}}</td>
+            <td>{{user.stat2}}</td>
+            <td>{{user.lvl}}</td>
+            <td>{{user.honorpoints}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="has-text-centered" *ngIf="eventresponse.users.length>100">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </div>
+    </div>
 
-{{eventResponse}}
+  </div>
+</div>

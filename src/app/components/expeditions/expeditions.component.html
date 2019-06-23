@@ -43,10 +43,10 @@
                                 <div class="media-content">
                                     <div *ngIf="user" class="content">
                                         <p class="title is-4">Expedition : {{getExpeditionName(expedition.id)}}</p>
-                                        <p class="subtitle is-6">Duration: {{expedition.duration/1000}} secondes</p>
+                                        <p class="subtitle is-6">Duration: {{expedition.duration/1000}} seconds</p>
                                         <button class="button is-primary"
                                             [disabled]="user.seeds<expedition.seeds || user.lvl<expedition.exprank || nbrExpeditions >= 10"
-                                            (click)="launchExpedition(expedition.id)">Launch Expedition
+                                            (click)="launchExpedition(expedition.id)">Launch 
                                             {{expedition.seeds}}&nbsp;
                                             <fa-icon [icon]="['far', 'seedling']" size="1x"></fa-icon>
                                         </button>
@@ -70,10 +70,10 @@
                                 <div class="media-content">
                                     <div *ngIf="user" class="content">
                                         <p class="title is-4">Expedition : {{getExpeditionName(expedition.id)}}</p>
-                                        <p class="subtitle is-6">Duration: {{expedition.duration/1000}} secondes</p>
+                                        <p class="subtitle is-6">Duration: {{expedition.duration/1000}} seconds</p>
                                         <button class="button is-primary"
                                             [disabled]="user.seeds<expedition.seeds || user.lvl<expedition.exprank || nbrExpeditions >= 10"
-                                            (click)="launchExpedition(expedition.id)">Launch Expedition
+                                            (click)="launchExpedition(expedition.id)">Launch
                                             {{expedition.seeds}}&nbsp;
                                             <fa-icon [icon]="['far', 'seedling']" size="1x"></fa-icon>
                                         </button>

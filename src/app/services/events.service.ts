@@ -28,7 +28,7 @@ export class EventsService {
 
     doEventAction():Promise<EventDataAPIReturn> {
         return new Promise((resolve, reject) => {
-            this.http.post(environment.apiBaseUrl + 'event', {
+            this.http.post(environment.apiBaseUrl + 'event',null, {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }

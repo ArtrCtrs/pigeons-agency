@@ -16,6 +16,7 @@ import { IsLoggedOutGuard } from './guards/is-logged-out.guard';
 import { MessagesComponent } from './components/messages/messages.component';
 import { HelpComponent } from './components/help/help.component';
 import { EventsComponent } from './components/events/events.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 const routes: Routes = [
     {
@@ -82,6 +83,10 @@ const routes: Routes = [
     },{
         path: 'events',
         component: EventsComponent,
+        canActivate: [IsLoggedInGuard]
+    },{
+        path: 'chat',
+        component: ChatComponent,
         canActivate: [IsLoggedInGuard]
     },
     {
