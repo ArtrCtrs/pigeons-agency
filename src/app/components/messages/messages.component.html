@@ -6,12 +6,11 @@
   <div *ngFor="let message of messages" class="column">
     <div class="card expedition">
       <div class="box" 
-     
       [ngClass]="{'win':message.iswin==1,'loss':message.iswin==2,'info':message.isattack==0}">
 
         <article class="media">
           <div class="media-content">
-            <p class="message-header is-4"  [ngClass]="{'attack':message.isattack==1,'defense':message.isattack==2}">{{message.title}}
+            <p class="message-header is-4" *ngIf="message.isattack!=0" [ngClass]="{'attack':message.isattack==1,'defense':message.isattack==2}">{{message.title}}
 
             </p>
             <div *ngIf="message.isattack!=0" class=float>
