@@ -10,7 +10,7 @@
                         alt="Placeholder image">
                 </figure>
             </div> -->
-            <button *ngIf="user.hasnotifications" class="button is-danger" (click)="redirect(['/messages'])"> You have been attacked !<br></button>
+            <button *ngIf="user.hasnotifications" class="button is-danger" (click)="redirect(['/messages'])"> You have new messages !<br></button>
             <button class="button is-warning" (click)="redirect(['/help'])"><strong> Don't know where to start ? Go to
                     Help</strong></button>
 
@@ -23,7 +23,7 @@
                     </div>
                     <div class="media-content">
                         <p class="title is-4">{{user.username}} level {{user.lvl}}</p>
-                        <p class="subtitle is-6">Pigeons Agency V0.4 : Pelicano server</p>
+                        <p class="subtitle is-6">Pigeons Agency V0.5 : Kiwi server</p>
                     </div>
                 </div>
 

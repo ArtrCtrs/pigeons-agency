@@ -56,7 +56,12 @@
                     </a>
 
                     <div class="navbar-dropdown">
-
+                        <a class="navbar-item" (click)="redirect(['/achievements'])" routerLinkActive="is-active">
+                            <span class="icon">
+                                <fa-icon [icon]="['far', 'trophy']"></fa-icon>
+                            </span>
+                            <span>Achievements</span>
+                        </a>
                         <a class="navbar-item" (click)="redirect(['/messages'])" routerLinkActive="is-active">
                             <span class="icon">
                                 <fa-icon [icon]="['far', 'envelope']"></fa-icon>
@@ -112,6 +117,9 @@
                         </a> -->
                         <a class="navbar-item" (click)="logout()" routerLinkActive="is-active">
                             Disconnect
+                        </a>
+                        <a class="navbar-item" href="https://pigeons.agency">
+                            Server selection
                         </a>
                     </div>
                 </div>

@@ -16,11 +16,11 @@
                             {{nbrDefenders}}/5 defenders - Total Defense : {{totalDefense}}
                         </p>
                         <button *ngIf="user.hasnotifications" class="button is-danger" id="attacked-notification"
-                            (click)="redirect(['/messages'])"> You have been attacked !</button>
+                            (click)="redirect(['/messages'])"> New message(s) !</button>
                     </div>
                     <div class="field">
                         <label class="label">Order by</label>
-                        <div class="control" >
+                        <div class="control">
                             <div class="select" id="sortselect">
                                 <select (change)="changeOrder($event.target.value)">
                                     <option value="1">Newest</option>
@@ -44,7 +44,7 @@
                         <div *ngFor="let detailedPigeon of detailedPigeons"
                             class="column is--widescreen is-3-desktop is-6-tablet is-12-mobile">
                             <div class="pigeon card"
-                                [ngClass]="{'common':detailedPigeon.pigeon.rank==1,'uncommon':detailedPigeon.pigeon.rank==2,'rare':detailedPigeon.pigeon.rank==3,'epic':detailedPigeon.pigeon.rank==4,'legendary':detailedPigeon.pigeon.rank==5}">
+                                [ngClass]="{'common':detailedPigeon.pigeon.rank==1,'uncommon':detailedPigeon.pigeon.rank==2,'rare':detailedPigeon.pigeon.rank==3,'epic':detailedPigeon.pigeon.rank==4,'legendary':detailedPigeon.pigeon.rank==5,'event':detailedPigeon.pigeon.rank==-1}">
                                 <div class="top">
                                     <p>{{detailedPigeon.statistics.rankAsExpression}}</p>
                                     <button class="button is-danger is-small"
@@ -55,7 +55,8 @@
                                         <span class="icon">
                                             <fa-icon [icon]="['far', 'feather-alt']"></fa-icon>
                                         </span>
-                                    </button></div>
+                                    </button>
+                                </div>
                                 <div class="card-image">
                                     <figure class="image">
                                         <img [src]="getPigeonImage(detailedPigeon.pigeon)">
@@ -66,7 +67,8 @@
                                     <div class="media">
                                         <div class="media-content">
                                             <p class="title is-4">{{detailedPigeon.pigeon.nickname}}</p>
-                                            <p class="subtitle is-5">{{detailedPigeon.pigeon.name}} </p><!--- Rank
+                                            <p class="subtitle is-5">{{detailedPigeon.pigeon.name}} </p>
+                                            <!--- Rank
                                                 {{detailedPigeon.pigeon.rank}}</p>
                                              <p class="subtitle is-6">Rank : {{detailedPigeon.pigeon.rank}}</p> -->
                                         </div>

@@ -18,7 +18,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of allusers| paginate: { itemsPerPage: 100, currentPage: page }">
+          <tr *ngFor="let user of allusers| paginate: { itemsPerPage: 100, currentPage: page }"
+          [ngClass]="{'higher':mainuser.lvl<user.lvl,'lower':mainuser.lvl>user.lvl,'equal':mainuser.lvl==user.lvl}">
             <td>
               <div *ngIf="user.id!=mainuser.id"><button class="button is-primary"
                   [disabled]="user.protecteduntil>now||mainuser.nextpossibleattack>now||mainuser.lastattack==user.id"

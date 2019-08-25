@@ -1,6 +1,6 @@
 export default interface seedsStorage {
     lvl: number;
-    droppingsCost: number;
+    seedsCost: number;
     feathersCost:number;
     seedsStorage:number;
 }

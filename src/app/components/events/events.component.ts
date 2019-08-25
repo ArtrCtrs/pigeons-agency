@@ -36,7 +36,9 @@ export class EventsComponent implements OnInit {
         stat2: null,
         honorpoints: null,
         username: null,
-        lvl: null
+        lvl: null,
+        totaldroppingsminute: null,
+        birds: null
       }
     }
     this.eventresponse.users.sort((a, b) => b.stat1 - a.stat1);

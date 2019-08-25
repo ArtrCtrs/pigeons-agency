@@ -71,6 +71,9 @@ export class AviaryComponent implements OnInit {
                 case 5:
                     rae = "Legendary";
                     break;
+                case -1:
+                    rae = "Event";
+                    break;
             }
 
             const detailedPigeon: DetailedPigeon = {
@@ -322,7 +325,7 @@ export class AviaryComponent implements OnInit {
             case 103:
             case 104:
             case 105:
-                imgName = "p1baguette";
+                imgName = "p1sabre";
                 break;
             case 106:
             case 107:
@@ -336,56 +339,56 @@ export class AviaryComponent implements OnInit {
             case 113:
             case 114:
             case 115:
-                imgName = "p1baguette";
+                imgName = "p1bandeau";
                 break;
             case 116:
             case 117:
             case 118:
             case 119:
             case 120:
-                imgName = "p1baguette";
+                imgName = "p1monocle";
                 break;
             case 121:
             case 122:
             case 123:
             case 124:
             case 125:
-                imgName = "p1baguette";
+                imgName = "p1beret";
                 break;
             case 126:
             case 127:
             case 128:
             case 129:
             case 130:
-                imgName = "p1baguette";
+                imgName = "p1banane";
                 break;
             case 131:
             case 132:
             case 133:
             case 134:
             case 135:
-                imgName = "p1baguette";
+                imgName = "p1extincteur";
                 break;
             case 136:
             case 137:
             case 138:
             case 139:
             case 140:
-                imgName = "p1baguette";
+                imgName = "p1bouclier";
                 break;
             case 141:
             case 142:
             case 143:
             case 144:
             case 145:
-                imgName = "p1baguette";
+                imgName = "p1batte";
                 break;
             case 146:
             case 147:
             case 148:
             case 149:
             case 150:
-                imgName = "p1baguette";
+                imgName = "p1chapeaumelon";
                 break;
             case 151:
             case 152:
@@ -532,7 +535,7 @@ export class AviaryComponent implements OnInit {
             case 253:
             case 254:
             case 255:
-                imgName = "p2baguette";
+                imgName = "p2sabre";
                 break;
             case 256:
             case 257:
@@ -546,56 +549,59 @@ export class AviaryComponent implements OnInit {
             case 263:
             case 264:
             case 265:
-                imgName = "p2baguette";
+                imgName = "p2bandeau";
                 break;
             case 266:
             case 267:
             case 268:
             case 269:
             case 270:
-                imgName = "p2baguette";
+                imgName = "p2monocle";
                 break;
             case 271:
             case 272:
             case 273:
             case 274:
             case 275:
-                imgName = "p2baguette";
+                imgName = "p2beret";
                 break;
             case 276:
             case 277:
             case 278:
             case 279:
             case 280:
-                imgName = "p2baguette";
+                imgName = "p2banane";
                 break;
             case 281:
             case 282:
             case 283:
             case 284:
             case 285:
-                imgName = "p2baguette";
+                imgName = "p2extincteur";
                 break;
             case 286:
             case 287:
             case 288:
             case 289:
             case 290:
-                imgName = "p2baguette";
+                imgName = "p2bouclier";
                 break;
             case 291:
             case 292:
             case 293:
             case 294:
             case 295:
-                imgName = "p2baguette";
+                imgName = "p2batte";
                 break;
             case 296:
             case 297:
             case 298:
             case 299:
             case 300:
-                imgName = "p2baguette";
+                imgName = "p2chapeaumelon";
+                break;
+            case -1:
+                imgName = "p1_event_baguettes"
                 break;
             default:
                 imgName = "p1baguette";

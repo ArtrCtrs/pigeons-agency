@@ -1,5 +1,4 @@
-<p>In development</p>
-<!--<div class="container">
+<div class="container">
     <div class="mt-20"></div>
     <div class="columns">
         <div class="column is-3">
@@ -27,12 +26,12 @@
             </div>
         </div>
         <div class="column is-9">
-            <div *ngFor="let achievement of filteredAchievements" class="column">
+            <div *ngFor="let achievement of achievements" class="column">
                 <div class="card">
                     <div class="card-content">
                         <div class="media">
-                            <div class="media-left">
-                                <div *ngIf="achievement.completed; then completedBlock else unCompletedBlock"></div>
+                            <div class="media-left" *ngIf="userachievements">
+                                <div *ngIf="userachievements[achievement.id]; then completedBlock else unCompletedBlock"></div>
                                 <ng-template #completedBlock>
                                     <span class="icon">
                                         <fa-icon [icon]="['far', 'trophy-alt']" size="2x"></fa-icon>
@@ -46,7 +45,7 @@
                             </div>
                             <div class="media-content">
                                 <p class="title is-4">{{achievement.name}}</p>
-                                <p class="subtitle is-6">Difficulté: {{achievement.difficulty}}</p>
+                                <!-- <p class="subtitle is-6">Difficulté: {{achievement.difficulty}}</p> -->
                             </div>
                         </div>
 
@@ -56,7 +55,7 @@
                     </div>
                     <footer class="card-footer has-text-left">
                         <p class="card-footer-item" [ngClass]="achievement.completed ? 'has-text-success' : 'has-text-info'">
-                            {{achievement.requirements}}
+                            {{achievement.attribute}}
                         </p>
                     </footer>
                 </div>
@@ -65,4 +64,3 @@
     </div>
 
 </div>
--->

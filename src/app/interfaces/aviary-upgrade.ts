@@ -1,5 +1,5 @@
 export default interface aviaryUpgrade {
     lvl: number;
-    feathersCost: number;
+    droppingsCost: number;
     newBirds:number;
 }

@@ -1,8 +1,7 @@
 export interface Achievement {
-    id: number;
+    id: string;
     name: string;
-    difficulty: string;
     description: string;
-    requirements: string;
-    completed: boolean;
+    value: number;
+    attribute: string;
 }
