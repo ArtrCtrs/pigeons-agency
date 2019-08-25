@@ -4,4 +4,5 @@ export interface Achievement {
     description: string;
     value: number;
     attribute: string;
+    reward:number;
 }
