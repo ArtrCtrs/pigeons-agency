@@ -25,13 +25,27 @@ export class AchievementsService {
                 });
         });
     }
+    claimAchievement(req: string): Promise<AchievementsPageDataAPIReturn> {
+        return new Promise((resolve, reject) => {
+            this.http.post(environment.apiBaseUrl + 'achievements', req, {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            })
+                .subscribe((res: AchievementsPageDataAPIReturn) => {
+                    resolve(res);
+                }, err => {
+                    reject(err);
+                });
+        });
+    }
 }
 
 export interface AchievementsPageDataAPIReturn {
     message: string;
     data: {
-        user:User,
-        userAchievements:userAchievements
-        
+        user: User,
+        userAchievements: userAchievements
+
     }
 }
