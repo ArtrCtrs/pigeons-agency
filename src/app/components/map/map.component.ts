@@ -50,10 +50,10 @@ export class MapComponent implements OnInit {
                 "Spent droppings : " + user.totalspentdroppings + "<br>" +
                 "Spent feathers : " + user.totalspentfeathers + "<br>" +
                 "" + user.birds + "/" + user.maxbirds + " birds<br>" +
-                "" + user.seedsminute + " seeds/minute</p>" +
+                "" + user.seedsminute + " seeds/minute</br>" +
                 "" + user.totaldroppingsminute + " droppings/minute<br>" +
-                user.totalwinattacks + " successful attacks / " + user.totalattacks + " attacks<br>" +
-                user.totalwindefenses + " successful defenses / " + user.totaldefenses + " defenses<br>"
+                user.totalwinattacks + " successful attacks / " + user.totalattacks + " total atks<br>" +
+                user.totalwindefenses + " successful defenses / " + user.totaldefenses + " total defs<br>"
                 ;
 
             L.marker([user.xcoord, user.ycoord], {

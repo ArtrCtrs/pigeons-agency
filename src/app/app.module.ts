@@ -25,6 +25,10 @@ import { AttackComponent } from './components/attack/attack.component';
 import { HelpComponent } from './components/help/help.component';
 import { EventsComponent } from './components/events/events.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { MerchantComponent } from './components/merchant/merchant.component';
+
+import { NumberAbbreviatedPipe } from './pipes/abbreviated-number.pipe';
+import { MinuteSecondsPipe } from './pipes/minute-seconds.pipe';
 
 import { faMap, faHelmetBattle } from '@fortawesome/pro-regular-svg-icons';
 import { faScroll } from '@fortawesome/pro-regular-svg-icons';
@@ -49,8 +53,7 @@ import { faStop } from '@fortawesome/pro-regular-svg-icons';
 import { faInfo } from '@fortawesome/pro-regular-svg-icons';
 import { faStopwatch } from '@fortawesome/pro-regular-svg-icons';
 import { faCommentAlt } from '@fortawesome/pro-regular-svg-icons';
-import { NumberAbbreviatedPipe } from './pipes/abbreviated-number.pipe';
-import { MinuteSecondsPipe } from './pipes/minute-seconds.pipe';
+import { faBalanceScale } from '@fortawesome/pro-regular-svg-icons';
 
 library.add(faMap);
 library.add(faScroll);
@@ -76,6 +79,7 @@ library.add(faHelmetBattle);
 library.add(faInfo);
 library.add(faStopwatch);
 library.add(faCommentAlt);
+library.add(faBalanceScale);
 
 @NgModule({
     declarations: [
@@ -98,6 +102,7 @@ library.add(faCommentAlt);
         MinuteSecondsPipe,
         EventsComponent,
         ChatComponent,
+        MerchantComponent,
     ],
     imports: [
         BrowserModule,

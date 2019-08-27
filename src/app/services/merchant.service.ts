@@ -13,7 +13,7 @@ export class MerchantService {
 
     honorpointsToFeathers(): Promise<MerchantPageDataAPIReturn> {
         return new Promise((resolve, reject) => {
-            this.http.post(environment.apiBaseUrl + 'merchant/htf', {
+            this.http.post(environment.apiBaseUrl + 'merchant/htf',null, {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }

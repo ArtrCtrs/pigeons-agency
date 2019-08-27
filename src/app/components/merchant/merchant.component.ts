@@ -1,13 +1,12 @@
-
 import { Component, OnInit } from '@angular/core';
 import { MerchantService } from 'src/app/services/merchant.service';
-import { User } from 'src/app/services/authentification.service';
 import { PageDataService } from 'src/app/services/page-data.service';
 import tradeList from '../../lists/tradeList';
 import tradeInfo from 'src/app/interfaces/trade-info';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
-  selector: 'app-events',
+  selector: 'app-merchant',
   templateUrl: './merchant.component.html',
   styleUrls: ['./merchant.component.less']
 })
@@ -16,6 +15,7 @@ export class MerchantComponent implements OnInit {
   user: User;
   now: number;
   tradeList: tradeInfo[] = tradeList;
+  pageLoading:boolean=true;
 
   constructor(public merchantService: MerchantService,public pageDataService: PageDataService) { }
 
@@ -26,6 +26,7 @@ export class MerchantComponent implements OnInit {
   async getUserInfo() {
     this.now = Date.now();
     this.user = (await this.pageDataService.getHomePageData()).data;
+    this.pageLoading = false;
   }
 
   async honorPointsToFeathers() {

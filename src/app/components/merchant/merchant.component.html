@@ -3,7 +3,7 @@
     <div class="page-loader"></div>
   </div>
   <div *ngIf="!pageLoading">
-    <section class="hero is-blue">
+    <section class="hero is-info">
       <div class="hero-body">
         <div class="container">
           <div class="columns">
@@ -37,6 +37,15 @@
                 <br> feathers
               </h1>
             </div>
+            <div class="column is-2">
+              <h1 class="subtitle">
+                {{user.honorpoints| number: '1.0-0'}}
+                <span class="icon">
+                  <fa-icon [icon]="['far', 'trophy-alt']" size="1x"></fa-icon>
+                </span>
+                <br> Honor Points
+              </h1>
+            </div>
           </div>
         </div>
       </div>
@@ -53,14 +62,13 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong>Buy {{tradeList[user.lvl].toFeathers}}</strong>
+                  <strong>Buy {{tradeList[user.lvl].toFeathers}} feathers</strong>
                   <br>
-                  <button class="button is-small is-primary"
-                    [disabled]="tradeList[user.lvl].fromHonor>user.honorPoints"
+                  <button class="button is-small is-info" [disabled]="tradeList[user.lvl].fromHonor>user.honorpoints"
                     (click)="honorPointsToFeathers()">Trade</button>
                   Cost : {{tradeList[user.lvl].fromHonor}}
                   <span class="icon">
-                    <fa-icon [icon]="['far', 'feather-alt']" size="1x"></fa-icon>
+                    <fa-icon [icon]="['far', 'trophy-alt']" size="1x"></fa-icon>
                   </span>
                   honor points
                 </p>
@@ -78,15 +86,15 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong>Buy {{tradeList[user.lvl].toDroppings}}</strong>
+                  <strong>Buy {{tradeList[user.lvl].toDroppings}} droppings</strong>
                   <br>
-                  <button class="button is-small is-primary"
-                    [disabled]="tradeList[user.lvl].fromFeathers>user.feathers"
+                  <button class="button is-small is-info" [disabled]="tradeList[user.lvl].fromFeathers>user.feathers"
                     (click)="feathersToDroppings()">Trade</button>
                   Cost : {{tradeList[user.lvl].fromFeathers}}
                   <span class="icon">
                     <fa-icon [icon]="['far', 'feather-alt']" size="1x"></fa-icon>
                   </span>
+                  feathers
                 </p>
               </div>
             </div>

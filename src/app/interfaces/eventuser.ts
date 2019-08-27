@@ -13,4 +13,3 @@ export interface Eventuser {
     newHonorPoints:number;
     eventparticipation:number;
 }
-}

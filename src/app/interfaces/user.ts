@@ -40,4 +40,3 @@ export interface User {
     soldpigeons:number;
     eventparticipation:number;
 }
-}
