@@ -62,7 +62,8 @@
                             {{achievement.description}}
 
                         </div>
-                        <button *ngIf="userachievements[achievement.id]" class="button" [disabled]="user[achievement.attribute] < achievement.value" (click)="claimAchievement(achievement.id)">Claim Reward
+                        <button *ngIf="userachievements[achievement.id]" class="button" [disabled]="user[achievement.attribute] < achievement.value"
+                            (click)="claimAchievement(achievement.id)">Claim Reward
                             <span class="icon">
                                 <fa-icon [icon]="['far', 'sword']"></fa-icon>
                             </span>
@@ -70,6 +71,8 @@
                         </button>
                     </div>
                     <footer class="card-footer has-text-left">
+                        <progress class="progress is-primary" [value]="user[achievement.attribute]" [max]="achievement.value"></progress>
+                        {{user[achievement.attribute]}} / {{achievement.value}}
                         <p class="card-footer-item" [ngClass]="achievement.completed ? 'has-text-success' : 'has-text-info'">
                             {{achievement.attribute}}
                         </p>
