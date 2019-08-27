@@ -36,18 +36,18 @@
             <th>Event score</th>
             <th>Event actions</th>
             <th>Lvl</th>
-            <th>Honor points</th>
+            <th>New Honor points</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let user of eventresponse.users| paginate: { itemsPerPage: 100, currentPage: page }; index as i "
             [ngClass]="{'first':i==0&&page==1,'second':i==1&&page==1,'third':i==2&&page==1,'me':user.id==mainuser.id}">
-            <td>{{i+1}}</td>
+            <td>{{i+1+(page-1)*100}}</td>
             <td>{{user.username}}</td>
             <td>{{user.stat1}}</td>
             <td>{{user.stat2}}</td>
             <td>{{user.lvl}}</td>
-            <td>{{user.honorpoints}}</td>
+            <td>{{user.newHonorPoints}}</td>
           </tr>
         </tbody>
       </table>
