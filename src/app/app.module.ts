@@ -50,6 +50,7 @@ import { faInfo } from '@fortawesome/pro-regular-svg-icons';
 import { faStopwatch } from '@fortawesome/pro-regular-svg-icons';
 import { faCommentAlt } from '@fortawesome/pro-regular-svg-icons';
 import { NumberAbbreviatedPipe } from './pipes/abbreviated-number.pipe';
+import { MinuteSecondsPipe } from './pipes/minute-seconds.pipe';
 
 library.add(faMap);
 library.add(faScroll);
@@ -94,6 +95,7 @@ library.add(faCommentAlt);
         AttackComponent,
         HelpComponent,
         NumberAbbreviatedPipe,
+        MinuteSecondsPipe,
         EventsComponent,
         ChatComponent,
     ],
