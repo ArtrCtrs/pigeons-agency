@@ -17,6 +17,7 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { HelpComponent } from './components/help/help.component';
 import { EventsComponent } from './components/events/events.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { MerchantComponent } from './components/merchant/merchant.component';
 
 const routes: Routes = [
     {
@@ -87,6 +88,10 @@ const routes: Routes = [
     },{
         path: 'chat',
         component: ChatComponent,
+        canActivate: [IsLoggedInGuard]
+    },{
+        path: 'merchant',
+        component: MerchantComponent,
         canActivate: [IsLoggedInGuard]
     },
     {
