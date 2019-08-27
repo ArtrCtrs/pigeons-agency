@@ -14,23 +14,29 @@ import userAchievements from 'src/app/interfaces/userAchievements';
 export class AchievementsComponent implements OnInit {
 
     achievements: Achievement[] = [];
-    user:User;
-    userachievements:userAchievements;
+    user: User;
+    userachievements: userAchievements;
 
     constructor(public achievementsService: AchievementsService) { }
 
     async ngOnInit() {
         this.achievements = achievementsList;
         this.initAchievements();
-        
-
     }
 
     async initAchievements() {
-        const info:AchievementsPageDataAPIReturn = await this.achievementsService.getAchievements();
-        this.user=info.data.user;
-        this.userachievements=info.data.userAchievements;
+        const info: AchievementsPageDataAPIReturn = await this.achievementsService.getAchievements();
+        this.user = info.data.user;
+        this.userachievements = info.data.userAchievements;
         console.log(this.userachievements)
+    }
+
+    async claimAchievement(id: string) {
+        const info: AchievementsPageDataAPIReturn = await this.achievementsService.claimAchievement({
+            id: id
+        });
+        this.user = info.data.user;
+        this.userachievements = info.data.userAchievements;
     }
 
     // filterAchievements(query: string) {
@@ -40,8 +46,8 @@ export class AchievementsComponent implements OnInit {
 export interface AchievementsPageDataAPIReturn {
     message: string;
     data: {
-        user:User,
-        userAchievements:userAchievements
-        
+        user: User,
+        userAchievements: userAchievements
+
     }
 }
