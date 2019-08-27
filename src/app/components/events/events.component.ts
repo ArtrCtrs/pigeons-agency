@@ -45,7 +45,9 @@ export class EventsComponent implements OnInit {
   }
 
   async doEventAction() {
-    this.eventresponse = (await this.eventService.doEventAction()).data;
+    this.eventresponse = (await this.eventService.doEventAction({
+      droppingsM: this.mainuser.totaldroppingsminute
+    })).data;
     this.now = Date.now();
     this.mainuser = this.eventresponse.users.filter(x => x.userid == this.eventresponse.userid)[0];
     this.eventresponse.users.sort((a, b) => b.stat1 - a.stat1);
