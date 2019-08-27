@@ -24,7 +24,7 @@
             <div *ngFor="let myexpedition of myExpeditions">
                 <div *ngIf="!myexpedition.expedition.finished" class=" card my-expedition">
                     <p>{{myexpedition.expeditionname}}</p>
-                    <p>{{(myexpedition.remainingtime/1000)| number: '1.0-0'}} seconds left</p>
+                    <p>Time left : {{(myexpedition.remainingtime/1000)| minuteSeconds}}</p>
                     <progress class="progress is-primary" [value]="myexpedition.remainingtime"
                         [max]="myexpedition.expedition.duration"></progress>
                 </div>
@@ -43,7 +43,7 @@
                                 <div class="media-content">
                                     <div *ngIf="user" class="content">
                                         <p class="title is-4">Expedition : {{getExpeditionName(expedition.id)}}</p>
-                                        <p class="subtitle is-6">Duration: {{expedition.duration/1000}} seconds</p>
+                                        <p class="subtitle is-6">Duration: {{expedition.duration/1000 | minuteSeconds}}</p>
                                         <button class="button is-primary"
                                             [disabled]="user.seeds<expedition.seeds || user.lvl<expedition.exprank || nbrExpeditions >= 10"
                                             (click)="launchExpedition(expedition.id)">Launch 
