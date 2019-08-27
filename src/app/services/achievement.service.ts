@@ -25,7 +25,7 @@ export class AchievementsService {
                 });
         });
     }
-    claimAchievement(req: string): Promise<AchievementsPageDataAPIReturn> {
+    claimAchievement(req: achievementrequest): Promise<AchievementsPageDataAPIReturn> {
         return new Promise((resolve, reject) => {
             this.http.post(environment.apiBaseUrl + 'achievements', req, {
                 headers: {
@@ -48,4 +48,7 @@ export interface AchievementsPageDataAPIReturn {
         userAchievements: userAchievements
 
     }
+}
+export interface achievementrequest {
+    id: string
 }
