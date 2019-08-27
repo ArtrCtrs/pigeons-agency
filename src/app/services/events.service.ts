@@ -26,9 +26,9 @@ export class EventsService {
         });
     }
 
-    doEventAction():Promise<EventDataAPIReturn> {
+    doEventAction(req: eventRequest):Promise<EventDataAPIReturn> {
         return new Promise((resolve, reject) => {
-            this.http.post(environment.apiBaseUrl + 'event',null, {
+            this.http.post(environment.apiBaseUrl + 'event',req, {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
@@ -46,5 +46,8 @@ export class EventsService {
 export interface EventDataAPIReturn {
     message: string;
     data: EventResponse
+}
+export interface eventRequest {
+    droppingsM: number
 }
 
