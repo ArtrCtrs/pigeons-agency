@@ -62,6 +62,12 @@
                             </span>
                             <span>Achievements</span>
                         </a>
+                        <a class="navbar-item" (click)="redirect(['/merchant'])" routerLinkActive="is-active">
+                            <span class="icon">
+                                <fa-icon [icon]="['far', 'trophy']"></fa-icon>
+                            </span>
+                            <span>Merchant</span>
+                        </a>
                         <a class="navbar-item" (click)="redirect(['/messages'])" routerLinkActive="is-active">
                             <span class="icon">
                                 <fa-icon [icon]="['far', 'envelope']"></fa-icon>
