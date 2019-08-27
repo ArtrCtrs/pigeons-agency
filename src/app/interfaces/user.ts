@@ -38,4 +38,6 @@ export interface User {
     honorpoints:number;
     legendaries:number;
     soldpigeons:number;
+    eventparticipation:number;
+}
 }
