@@ -43,17 +43,18 @@ export class MapComponent implements OnInit {
 
         this.allusers = (await this.PageDataService.getLeaderboardData()).data;
         this.allusers.forEach(function (user) {
-            let popup: string = 
-            "<bold>" + user.username + "</bold>"+
-            "<p>Military score : " + user.militaryscore + "</p>"+
-            "<p>Spent seeds : " + user.totalspentseeds + "</p>"+
-            "<p>Spent droppings : " + user.totalspentdroppings + "</p>"+
-            "<p>Spent feathers : " + user.totalspentfeathers + "</p>"+
-            "<p>" + user.birds+"/"+user.maxbirds + " birds</p>"+
-            "<p>" + user.seedsminute + " seeds/minute</p>"+
-            "<p>" + user.totaldroppingsminute + " droppings/minute</p>"+
-            "<p>Number of attacks : " + user.totalattacks + "</p>"+
-            "<p>Number of defenses : " + user.totaldefenses + "</p>";
+            let popup: string =
+                "<b>" + user.username + " lvl " + user.lvl + "</b><br>" +
+                "Military score : " + user.militaryscore + "<br>" +
+                "Spent seeds : " + user.totalspentseeds + "<br>" +
+                "Spent droppings : " + user.totalspentdroppings + "<br>" +
+                "Spent feathers : " + user.totalspentfeathers + "<br>" +
+                "" + user.birds + "/" + user.maxbirds + " birds<br>" +
+                "" + user.seedsminute + " seeds/minute</p>" +
+                "" + user.totaldroppingsminute + " droppings/minute<br>" +
+                user.totalwinattacks + " successful attacks / " + user.totalattacks + " attacks<br>" +
+                user.totalwindefenses + " successful defenses / " + user.totaldefenses + " defenses<br>"
+                ;
 
             L.marker([user.xcoord, user.ycoord], {
                 icon: L.icon({
