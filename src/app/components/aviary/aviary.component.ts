@@ -35,22 +35,22 @@ export class AviaryComponent implements OnInit {
         this.totalDefense = 0;
         this.feathers = document.getElementById("feathers");
 
-        this.initPigeons();
-
+        // this.initPigeons();
+        this.getPigeons();
     }
 
-    async initPigeons() {
-        this.user = (await this.pageDataService.getHomePageData()).data;
+
+    async initPigeons(apiReturn: getPigeonsAPIReturn) {
+        this.user = apiReturn.data.user;
         let tmpNbrAttackers = 0;
         let tmpNbrDefenders = 0;
         let tmpTotalAttack = 0;
         let tmpTotalDefense = 0;
         const detailedPigeons: DetailedPigeon[] = [];
-        const apiReturn: getPigeonsAPIReturn = await this.aviaryService.getPigeons(this.orderBy);
+        // const apiReturn: getPigeonsAPIReturn = await this.aviaryService.getPigeons(this.orderBy);
         this.pageLoading = false;
 
-
-        const pigeons: Pigeon[] = apiReturn.data;
+        const pigeons: Pigeon[] = apiReturn.data.pigeons;
 
         for (const pigeon of pigeons) {
             let rae = "";
@@ -74,7 +74,6 @@ export class AviaryComponent implements OnInit {
                     rae = "Event";
                     break;
             }
-
             const detailedPigeon: DetailedPigeon = {
                 statistics: {
                     rankAsExpression: rae,
@@ -104,29 +103,28 @@ export class AviaryComponent implements OnInit {
     }
 
     async deletePigeon(id: number) {
-        await this.aviaryService.deletePigeon({
+        const apiReturn: getPigeonsAPIReturn = await this.aviaryService.deletePigeon({
             pigeonid: id
-        });
-        await this.initPigeons();
+        }, this.orderBy);
+        this.initPigeons(apiReturn);
         this.sellPigeonAnimation();
     }
-    // async feedPigeon(id: number) {
-    //     await this.aviaryService.feedPigeon({
-    //         pigeonid: id
-    //     });
-    //     await this.initPigeons();
-    // }
+
     async setAttacker(id: number) {
-        await this.aviaryService.setAttacker({
+        const apiReturn: getPigeonsAPIReturn = await this.aviaryService.setAttacker({
             pigeonid: id
-        });
-        await this.initPigeons();
+        }, this.orderBy);
+        this.initPigeons(apiReturn);
     }
     async setDefender(id: number) {
-        await this.aviaryService.setDefender({
+        const apiReturn: getPigeonsAPIReturn = await this.aviaryService.setDefender({
             pigeonid: id
-        });
-        await this.initPigeons();
+        }, this.orderBy);
+        this.initPigeons(apiReturn);
+    }
+    async getPigeons() {
+        const apiReturn: getPigeonsAPIReturn = await this.aviaryService.getPigeons(this.orderBy);
+        this.initPigeons(apiReturn);
     }
 
     sellPigeonAnimation() {
@@ -162,7 +160,7 @@ export class AviaryComponent implements OnInit {
 
     async changeOrder(value) {
         this.orderBy = value;
-        await this.initPigeons();
+        await this.getPigeons();
     }
     getPigeonImage(pigeon: Pigeon) {
         return this.aviaryService.getPigeonImage(pigeon);
