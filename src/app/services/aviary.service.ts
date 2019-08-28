@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Pigeon } from './../interfaces/pigeon';
+import { User } from './../interfaces/user';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -26,9 +27,9 @@ export class AviaryService {
         });
     }
 
-    deletePigeon(req: pigeonRequest) {
+    deletePigeon(req: pigeonRequest,orderBy:number): Promise<getPigeonsAPIReturn> {
         return new Promise((resolve, reject) => {
-            this.http.post(environment.apiBaseUrl + 'pigeons/sell', req, {
+            this.http.post(environment.apiBaseUrl + 'pigeons/sell?orderby='+orderBy, req, {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
@@ -41,9 +42,23 @@ export class AviaryService {
         });
     }
 
-    feedPigeon(req: pigeonRequest) {
+    // feedPigeon(req: pigeonRequest): Promise<getPigeonsAPIReturn> {
+    //     return new Promise((resolve, reject) => {
+    //         this.http.post(environment.apiBaseUrl + 'pigeons/feed', req, {
+    //             headers: {
+    //                 'Authorization': 'Bearer ' + localStorage.getItem('token')
+    //             }
+    //         })
+    //             .subscribe((res: getPigeonsAPIReturn) => {
+    //                 resolve(res);
+    //             }, err => {
+    //                 reject(err);
+    //             });
+    //     });
+    // }
+    setAttacker(req: pigeonRequest,orderBy:number): Promise<getPigeonsAPIReturn> {
         return new Promise((resolve, reject) => {
-            this.http.post(environment.apiBaseUrl + 'pigeons/feed', req, {
+            this.http.post(environment.apiBaseUrl + 'pigeons/attacker?orderby='+orderBy, req, {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
@@ -55,23 +70,9 @@ export class AviaryService {
                 });
         });
     }
-    setAttacker(req: pigeonRequest) {
+    setDefender(req: pigeonRequest,orderBy:number) : Promise<getPigeonsAPIReturn>{
         return new Promise((resolve, reject) => {
-            this.http.post(environment.apiBaseUrl + 'pigeons/attacker', req, {
-                headers: {
-                    'Authorization': 'Bearer ' + localStorage.getItem('token')
-                }
-            })
-                .subscribe((res: getPigeonsAPIReturn) => {
-                    resolve(res);
-                }, err => {
-                    reject(err);
-                });
-        });
-    }
-    setDefender(req: pigeonRequest) {
-        return new Promise((resolve, reject) => {
-            this.http.post(environment.apiBaseUrl + 'pigeons/defender', req, {
+            this.http.post(environment.apiBaseUrl + 'pigeons/defender?orderby='+orderBy, req, {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
@@ -518,7 +519,10 @@ export class AviaryService {
 
 export interface getPigeonsAPIReturn {
     message: string;
-    data: Pigeon[];
+    data: {
+        pigeons: Pigeon[],
+        user: User
+    }
 }
 
 export interface pigeonRequest {
