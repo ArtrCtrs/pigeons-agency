@@ -63,6 +63,9 @@
               <div class="content">
                 <p>
                   <strong>Buy {{tradeList[user.lvl].toFeathers}} feathers</strong>
+                  <span class="icon">
+                    <fa-icon [icon]="['far', 'feather-alt']" size="1x"></fa-icon>
+                  </span>
                   <br>
                   <button class="button is-small is-info" [disabled]="tradeList[user.lvl].fromHonor>user.honorpoints"
                     (click)="honorPointsToFeathers()">Trade</button>
@@ -87,6 +90,9 @@
               <div class="content">
                 <p>
                   <strong>Buy {{tradeList[user.lvl].toDroppings}} droppings</strong>
+                  <span class="icon">
+                    <fa-icon [icon]="['far', 'poop']" size="1x"></fa-icon>
+                  </span>
                   <br>
                   <button class="button is-small is-info" [disabled]="tradeList[user.lvl].fromFeathers>user.feathers"
                     (click)="feathersToDroppings()">Trade</button>

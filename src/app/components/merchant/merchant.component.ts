@@ -16,11 +16,13 @@ export class MerchantComponent implements OnInit {
   now: number;
   tradeList: tradeInfo[] = tradeList;
   pageLoading:boolean=true;
+  interval: any;
 
   constructor(public merchantService: MerchantService,public pageDataService: PageDataService) { }
 
   ngOnInit() {
     this.getUserInfo();
+    this.interval = setInterval(() => { this.upDateFrontInfo(); }, 1000);
   }
 
   async getUserInfo() {
@@ -37,6 +39,15 @@ export class MerchantComponent implements OnInit {
   async feathersToDroppings() {
     this.now = Date.now();
     this.user = (await this.merchantService.feathersToDroppings()).data;
+  }
+
+  upDateFrontInfo() {
+    this.user.seeds = this.user.seeds < this.user.maxseeds ? this.user.seeds + (this.user.seedsminute / 60) : this.user.maxseeds;
+    this.user.droppings = this.user.droppings < this.user.maxdroppings ? this.user.droppings + (this.user.totaldroppingsminute / 60) : this.user.maxdroppings;
+
+  }
+  ngOnDestroy() {
+    clearInterval(this.interval);
   }
 
 }
