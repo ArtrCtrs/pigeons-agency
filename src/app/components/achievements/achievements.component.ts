@@ -16,11 +16,13 @@ export class AchievementsComponent implements OnInit {
     achievements: Achievement[] = [];
     user: User;
     userachievements: userAchievements;
+    filteredAchievements: Achievement[] = [];
 
     constructor(public achievementsService: AchievementsService) { }
 
     async ngOnInit() {
         this.achievements = achievementsList;
+        this.filteredAchievements = this.achievements;
         this.initAchievements();
     }
 
@@ -28,7 +30,6 @@ export class AchievementsComponent implements OnInit {
         const info: AchievementsPageDataAPIReturn = await this.achievementsService.getAchievements();
         this.user = info.data.user;
         this.userachievements = info.data.userAchievements;
-        console.log(this.userachievements)
     }
 
     async claimAchievement(id: string) {
@@ -37,6 +38,16 @@ export class AchievementsComponent implements OnInit {
         });
         this.user = info.data.user;
         this.userachievements = info.data.userAchievements;
+    }
+    changeFilter(value) {
+        if (value == "all") {
+            this.filteredAchievements = this.achievements;
+        } else {
+            this.filteredAchievements = this.achievements.filter(obj => {
+                return obj.attribute === value
+            })
+        }
+
     }
 
     // filterAchievements(query: string) {

@@ -2,6 +2,24 @@
     <div class="mt-20"></div>
     <div class="columns">
         <div class="column is-12">
+            <div class="field">
+                <label class="label">Achievement type : </label>
+                <div class="control">
+                    <div class="select" id="sortselect">
+                        <select (change)="changeFilter($event.target.value)">
+                            <option value="all">All</option>
+                            <option value="lvl">Level</option>
+                            <option value="legendaries">Legendaries</option>
+                            <option value="droppingsminute">Droppings</option>
+                            <option value="militaryscore">Military score</option>
+                            <option value="soldpigeons">Sold droppings</option>
+                            <option value="eventparticipation">Events</option>
+                            <option value="totalwinattacks">Attacks</option>
+                            <option value="totalwindefenses">Defenses</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
             <div *ngFor="let achievement of achievements" class="column">
                 <div class="card" *ngIf="userachievements">
                     <div class="card-background" [ngClass]="{'completed':userachievements[achievement.id] || user[achievement.attribute] > achievement.value, 
