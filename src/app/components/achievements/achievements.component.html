@@ -3,7 +3,8 @@
     <div class="columns">
         <div class="column is-12">
             <div *ngFor="let achievement of achievements" class="column">
-                <div class="card" *ngIf="userachievements" [ngClass]="{'completed':userachievements[achievement.id] || user[achievement.attribute] > achievement.value, 
+                <div class="card" *ngIf="userachievements">
+                    <div class="card-background" [ngClass]="{'completed':userachievements[achievement.id] || user[achievement.attribute] > achievement.value, 
                             'lvl':achievement.attribute == 'lvl',
                             'legend':achievement.attribute == 'legendaries',
                             'droppings':achievement.attribute == 'droppingsminute',
@@ -12,39 +13,26 @@
                             'event':achievement.attribute == 'eventparticipation',
                             'attacks':achievement.attribute == 'totalwinattacks',
                             'defences':achievement.attribute == 'totalwindefenses'
-                        }">
-                    <!-- <div class="card" *ngIf="userachievements" [ngClass]="{'completed':userachievements[achievement.id] || user[achievement.attribute] > achievement.value ,
-                            'lvl':achievement.attribute.equals('lvl'),
-                            'legend':achievement.attribute.equals('legendaries'),
-                            'droppings':achievement.attribute.equals('droppingsminute'),
-                            'military':achievement.attribute.equals('militaryscore'),
-                            'sell':achievement.attribute.equals('soldpigeons'),
-                            'event':achievement.attribute.equals('eventparticipation'),
-                            'attacks':achievement.attribute.equals('totalwinattacks'),
-                            'defences':achievement.attribute.equals('totalwindefenses')
-                        }"> -->
+                        }"></div>
                     <div class="card-content">
-                        <div class="media">
-                            <div class="media-left">
-                                <div *ngIf="userachievements[achievement.id]; then completedBlock else unCompletedBlock">
-                                </div>
-                                <ng-template #completedBlock>
-                                    <span class="icon">
-                                        <fa-icon [icon]="['far', 'trophy-alt']" size="2x"></fa-icon>
-                                    </span>
-                                </ng-template>
-                                <ng-template #unCompletedBlock>
-                                    <span class="icon">
-                                        <fa-icon [icon]="['far', 'trophy']" size="2x"></fa-icon>
-                                    </span>
-                                </ng-template>
+                        <div class="media-left">
+                            <div *ngIf="userachievements[achievement.id]; then completedBlock else unCompletedBlock">
                             </div>
-                            <div class="media-content">
-                                <p class="title is-4">{{achievement.name}}</p>
-                                <!-- <p class="subtitle is-6">Difficulté: {{achievement.difficulty}}</p> -->
-                            </div>
+                            <ng-template #completedBlock>
+                                <span class="icon">
+                                    <fa-icon [icon]="['far', 'trophy-alt']" size="2x"></fa-icon>
+                                </span>
+                            </ng-template>
+                            <ng-template #unCompletedBlock>
+                                <span class="icon">
+                                    <fa-icon [icon]="['far', 'trophy']" size="2x"></fa-icon>
+                                </span>
+                            </ng-template>
                         </div>
-
+                        <div class="media-content">
+                            <p class="title is-4">{{achievement.name}}</p>
+                            <!-- <p class="subtitle is-6">Difficulté: {{achievement.difficulty}}</p> -->
+                        </div>
                         <div class="content">
                             {{achievement.description}}
                         </div>
@@ -59,12 +47,10 @@
                             Completed !
                         </div>
                     </div>
-                    <footer class="card-footer has-text-left">
-                        <div class="progress-cont">
-                            <progress class="progress is-primary" [value]="user[achievement.attribute]" [max]="achievement.value"></progress><br>
-                            {{user[achievement.attribute]}} / {{achievement.value}}
-                        </div>
-                    </footer>
+                    <div class="progress-cont" *ngIf="!userachievements[achievement.id]">
+                        <progress class="progress" [value]="user[achievement.attribute]" [max]="achievement.value"></progress>
+                        <p>{{user[achievement.attribute]}} / {{achievement.value}}</p>
+                    </div>
                 </div>
             </div>
         </div>
