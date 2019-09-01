@@ -70,7 +70,7 @@
                                 <div class="media-content">
                                     <div *ngIf="user" class="content">
                                         <p class="title is-4">Expedition : {{getExpeditionName(expedition.id)}}</p>
-                                        <p class="subtitle is-6">Duration: {{expedition.duration/1000}} seconds</p>
+                                        <p class="subtitle is-6">Duration: {{expedition.duration/1000| minuteSeconds}}</p>
                                         <button class="button is-primary"
                                             [disabled]="user.seeds<expedition.seeds || user.lvl<expedition.exprank || nbrExpeditions >= 10"
                                             (click)="launchExpedition(expedition.id)">Launch

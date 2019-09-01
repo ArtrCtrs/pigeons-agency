@@ -15,7 +15,7 @@
                                     <option value="all">All</option>
                                     <option value="lvl">Level</option>
                                     <option value="legendaries">Legendaries</option>
-                                    <option value="droppingsminute">Droppings</option>
+                                    <option value="totaldroppingsminute">Droppings</option>
                                     <option value="militaryscore">Military score</option>
                                     <option value="soldpigeons">Sold droppings</option>
                                     <option value="eventparticipation">Events</option>
@@ -30,15 +30,15 @@
                     <div class="card-background" [ngClass]="{'completed':userachievements[achievement.id] || user[achievement.attribute] > achievement.value, 
                             'lvl':achievement.attribute == 'lvl',
                             'legend':achievement.attribute == 'legendaries',
-                            'droppings':achievement.attribute == 'droppingsminute',
+                            'droppings':achievement.attribute == 'totaldroppingsminute',
                             'military':achievement.attribute == 'militaryscore',
                             'sell':achievement.attribute == 'soldpigeons',
                             'event':achievement.attribute == 'eventparticipation',
                             'attacks':achievement.attribute == 'totalwinattacks',
-                            'defences':achievement.attribute == 'totalwindefenses'
+                            'defenses':achievement.attribute == 'totalwindefenses'
                         }"></div>
                     <div class="card-content">
-                        <div class="media-left">
+                        <!-- <div class="media-left">
                             <div *ngIf="userachievements[achievement.id]; then completedBlock else unCompletedBlock">
                             </div>
                             <ng-template #completedBlock>
@@ -51,23 +51,26 @@
                                     <fa-icon [icon]="['far', 'trophy']" size="2x"></fa-icon>
                                 </span>
                             </ng-template>
-                        </div>
+                        </div> -->
                         <div class="media-content">
                             <p class="title is-4">{{achievement.name}}</p>
                             <!-- <p class="subtitle is-6">Difficulté: {{achievement.difficulty}}</p> -->
                         </div>
                         <div class="content">
-                            {{achievement.description}}
+                           <b>{{achievement.description}}</b> 
                         </div>
                         <button *ngIf="!userachievements[achievement.id]" class="button" [disabled]="user[achievement.attribute] < achievement.value"
-                            (click)="claimAchievement(achievement.id)">Claim Reward {{achievement.reward}}
+                            (click)="claimAchievement(achievement.id)">Claim Reward {{achievement.reward}} &nbsp;
                             <span class="icon">
                                 <fa-icon [icon]="['far', 'trophy']"></fa-icon>
                             </span>
                             &nbsp;
                         </button>
-                        <div class="is-info" *ngIf="userachievements[achievement.id]">
+                        <div class="is-info is-right" *ngIf="userachievements[achievement.id]">
                             Completed !
+                            <span class="icon">
+                                <fa-icon [icon]="['far', 'trophy-alt']" size="2x"></fa-icon>
+                            </span>
                         </div>
                     </div>
                     <div class="progress-cont" *ngIf="!userachievements[achievement.id]">

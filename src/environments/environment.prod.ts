@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiBaseUrl: 'https://pelicano.pigeons.agency/api/'
+    apiBaseUrl: 'https://kiwi.pigeons.agency/api/'
 };
