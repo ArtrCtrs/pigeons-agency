@@ -12,6 +12,8 @@
       <div class="card-content">
         <div class="media-content">
           <p class="title is-4">{{eventresponse.event.title}}</p>
+          Enter your current number of feathers, then launch event action !
+          <input *ngIf="mainuser.nextactiontime<now" [(ngModel)]="inpu" class="input is-primary" type="text" placeholder="Your number of feathers">
           <button class="button is-warning is-small" (click)="doEventAction()" [disabled]="mainuser.nextactiontime>now">Do action
           </button>
           <p *ngIf="mainuser.nextactiontime>now">Next possible action in < {{(mainuser.nextactiontime - now) /60000| number: '1.0-0'}} minutes</p>

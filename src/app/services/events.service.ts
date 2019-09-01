@@ -48,6 +48,7 @@ export interface EventDataAPIReturn {
     data: EventResponse
 }
 export interface eventRequest {
-    droppingsM: number
+    droppingsM: number,
+    feathers:string
 }
 

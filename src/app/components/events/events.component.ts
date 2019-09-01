@@ -14,6 +14,7 @@ export class EventsComponent implements OnInit {
   mainuser: Eventuser;
   now: number;
   page: number;
+  inpu:string;
 
   constructor(public eventService: EventsService) { }
 
@@ -48,8 +49,10 @@ export class EventsComponent implements OnInit {
 
   async doEventAction() {
     this.eventresponse = (await this.eventService.doEventAction({
-      droppingsM: this.mainuser.totaldroppingsminute
+      droppingsM: this.mainuser.totaldroppingsminute,
+      feathers:this.inpu
     })).data;
+    this.inpu="";
     this.now = Date.now();
     this.mainuser = this.eventresponse.users.filter(x => x.userid == this.eventresponse.userid)[0];
     this.eventresponse.users.sort((a, b) => b.stat1 - a.stat1);
