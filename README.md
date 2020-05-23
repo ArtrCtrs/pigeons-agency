@@ -1,5 +1,12 @@
 # PigeonsAgency
 
+
+Project created in 2019. Web application/game - Angular frontend, NodeJs backend, configured and hosted at : https://pigeons.agency
+
+![screen1t](/src/assets/img/p1.PNG?raw=true "")
+![screen1t](/src/assets/img/p2.PNG?raw=true "")
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.1.
 
 ## Development server
